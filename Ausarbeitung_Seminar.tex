@@ -1,0 +1,598 @@
+\documentclass[a4paper]{scrartcl}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{blindtext}
+\usepackage{multicol}
+\usepackage{url}
+\usepackage{abstract}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[]{algorithm2e}
+\usepackage{caption}
+
+\usepackage{lipsum}
+
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+\newcommand{\blankpage}{
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+}
+
+\clubpenalty10000
+\widowpenalty10000
+\displaywidowpenalty=10000
+
+\author{Janek Boll}
+\author{Steven Minich}
+%\matrikelnummer{447344}
+%\dozent{Prof. Dr. Andreas Rausch}
+%\betreuer{Dirk Herrling, M.Sc.}
+\date{\today}
+
+
+\begin{document}
+    \input{titlepage.tex}
+
+    \blankpage
+
+    \input{erklaerung.tex}
+    \newpage
+    \input{erklaerung.tex}
+
+    \blankpage
+    
+    \topskip0pt
+    \vspace*{\fill}
+    \begin{abstract}
+        \lipsum[1]
+    \end{abstract}
+    \vspace*{\fill}
+    
+    \newpage
+    
+    \tableofcontents
+    
+    \newpage
+
+    \begin{multicols}{2}
+        \section{Einleitung}
+        \section{Data Mining}
+            Wolfgang Ertel definiert \emph{Data Mining} wie folgt:\\
+            Der Prozess des Gewinnens von Wissen aus Daten sowie dessen Darstellung und Anwendung wird als \emph{Data Mining} bezeichnet. Die verwendeten Methoden kommen meist aus der Statistik oder dem maschinellen Lernen und sollten auch auf sehr große Datenmengen mit vertretbarem Aufwand anwendbar sein.\\
+            
+            Diese Definition soll den Rahmen dieser Arbeit abstecken.\\
+            Wir werden im Folgenden auf Grundlagen der Statistik und des maschinellen Lernens eingehen.
+            \subsection{Skalenniveaus}
+                Untersuchte Merkmale können anhand ihrer Messbarkeitseigenschaften unterscheiden und in die Kategorien \emph{qualitative}, \emph{komparative} und \emph{quantitative Merkmale} eingeteilt werden.
+                Qualitative Merkmale sind solche, deren Ausprägungen sich in ihrer Art unterscheiden. 
+                \cite{kohn2005}
+            \subsection{Nominalskala}
+                Die einfachste Skalierung in der deskriptiven Statistik ist die sogenannte \emph{Nominalskala}. Die untersuchten Merkmale lassen sich nur im Hinblick auf Gleich- beziehungsweise Ungleichheit untersuchen, eine Ordnung der Merkmalsausprägungen ist nicht möglich. 
+                \cite{kohn2005}
+                \subsubsection{Beispiel}
+                    An einer Kreuzug werden die vorbeifahrenden Autos hinsichtlich ihrer Farbe untersucht. Mögliche Ausprägungen des untersuchten Merkmals Farbe sind etwa \emph{Grün}, \emph{Schwarz}, \emph{Weiß}, \emph{Gelb} und \emph{Rot}. Zwar lassen sich die Merkmalsausprägungen voneinander unterscheiden, offensichtlich ist ein rotes Auto nicht besser oder schlechter als ein gelbes oder schwarzes Auto.
+                \subsection{Ordinalskala}
+                    Ordinalskalierte Merkmale sind solche, bei denen neben der Unterscheidbarkeit der Merkmalsausprägungen auch eine natürliche Reihenfolge der Ausprägungen zugrunde liegt, wobei der Abstand zwischen den einzelnen Merkmalsausprägungen aber nicht sinnvoll interpretierbar ist. \cite{kohn2005}
+                    \subsubsection{Beispiel}
+                        Die gängigen Kleidergrößen von XS bis XXL verduelichen dies. Offenbar ist eine größe M größer als eine Größe XS, jedoch ist keine Aussage über das Verhältnis des Größenunterschieds der beiden Größen möglich.
+                \subsection{Metrische Skalen}
+                    Eine Skala, deren Merkmalsausprägungen relle Zahlen sind, und die auch die Ordnungsstruktur der reellen Zahlen aufweist, wird \emph{metrische Skala} genannt. Neben der Unterscheidung verschiedener Merkmalsausprägungen under der zugrunde liegenden Ordnungsrelation zeichnen sich metrische Zahlen dadurch aus, dass die Merkmalsausprägungen jeden möglichen Wert annehmen können. Da die Werte reelle Zahlen sind gibt es also überabzählbar unendlich viele Merkmalsausprägungen und der Wertebereich metrischer Skalen wird \emph{stetig} genannt. Neben der Stetigkeit des Wertebeichs ist die Möglichkeit der sinnvollen Interpretation der Abstände von metrisch skalierten Merkmalen eine charakterisierende Eigenschaft ebendieser.
+                    \cite{kohn2005}
+                    \subsubsection{Beispiel}
+                        Die Entfernung zweier Punkte in Metern weist die Eigenschaften metrisch skalierter Merkmale auf: Zum kann die Entfernung zweier Punkte jeden beliebigen reellen Wert annehmen, zum anderen lassen sich verschiedene Merkmalsausprägungen problemlos ordnen; eine Entfernung von $ 0,5m $ ist kleiner als eine Entfernung von $ 0,78m $. Darüber hinaus ist auch der Abstand interpretierbar, so ist ein Abstand von $4m$ augenscheinlich viermal so groß wie ein Abstand von $1m$.
+                    \subsubsection{Weitere Unterscheidung metrischer Merkmale}
+                        Anhand der Existenz eines natürlichen Nullpunktes lassen sich metrisch skalierte Merkmale weiter unterscheiden. Ein metrisches Merkmal heißt \emph{intervallskaliert}, wenn es keinen natürlichen Nullpunkt gibt. \cite{kohn2005} Ein Beispiel hierfür ist die Temperatur, der Nullpunkt ist willkürlich festgesetz. Misst man die Temperatur in Grad Celsius, so entspricht der Nullpunkt dem Gefrierpunkt von Wasser, misst man jedoch in Grad Fahrenheit, so entspricht der Gefriepunkt von Wasser $32$ Grad Fahrenheit und der Nullpunkt in Grad Fahrenheit entspricht etwa $-17,78$ Grad Celsius.
+                        \newline
+                        Exsitiert hingegen ein natürlicher Nullpunkt, so spricht man von \emph{verhältnisskalierten} Merkmalen. \cite{kohn2005}
+                        \newline
+                        Ein Beispiel für ein verhältnisskaliertes Merkmal stellt das Gewicht dar. Zwar existieren verschieden Maßeinheiten wie Gramm, Pfund oder Unzen, jedoch entspricht ein Gewicht von $0$ Gramm ebenso einem Gewicht von $0$ Pfund und ebenso $0$ Unzen.
+                
+                \subsection{Lagemaße}
+                    Einen erstenAnsatz zur Datenanalyse liefern sogenannte \emph{Lagemaße}. Sie liefern Aufschluss über die Häufigkeitsverteilung der untersuchten Merkmale einer Stichprobe. \cite{kohn2005}
+                    \subsubsection{Modus}
+                        Der \emph{Modus} $x_{mod}$ ist ein sehr einfaches Lagemaß, dass sich hauptsächlich für nominalskalierte Merkmale eignet. Der Modus ist die Merkmalsausprägung mit der größten Häufigkeit. \cite{kohn2005}
+                    \subsubsection{Median}
+                        Der \emph{Median} $x_{med}$ entspricht "dem Wert in der Mitte". Es folgt, dass der Median nur für mindestens ordinalskalierte Merkmale angewendet werden kann, da den Merkmalsausprägungen eine Ordnungsstruktur zugrundeliegen muss. \cite{kohn2005}
+                        \newline
+                        Zur Berechnung des Medians wird wie folgt vorgegangen: Zuächst werden die Merkmalsausprägungen geordnet und anschließend das Mittlere Element ausgewählt. Seien dazu $n$ Stichproben genommen worden und es entspreche $x_i,i \in \{1,\dots,n\}$ dem Wert der $i$-ten Probe. Analog entspreche $x_{(i)}, i \in \{1,\dots,n\}$ der geordneten Probe, d.h. $x_{(i)} \leq x_{(i+1)} \forall i \in \{1,\dots,n\}$.
+                        \newline
+                        Zur Bestimmung des mittleren Elements der Probe müssen nun unterschieden werden, ob die Probe aus einer geraden oder ungeraden Anzahl von Elementen besteht, das heißt, ist $n$ gerade oder ungerade.
+                        \newline
+                        Fall 1:
+                        \newline
+                        $n$ ungerade
+                        $$ x_{med} := x_{(\frac{n+1}{2})} $$
+                        Fall 2:
+                        \newline
+                        $n$ gerade
+                        $$ x_{med} := \frac{1}{2}\left( x_{(\frac{n}{2})} + x_{(\frac{n}{2}+1)} \right) $$
+                    \subsubsection{Arithmetisches Mittel}
+                        Das \emph{arithmetische Mittel} stellt das am weitesten verbreitette Lagemaß für metrische Merkmale dar. Im Gegensatz zu Modus und Median berücksichtigt das arithmetische Mittel alle Merkmalsausprägungen einer Probe, wird dadurch aber auch anfällig für \emph{Ausreißer}.
+                        $$ \bar{x} := \frac{1}{n}\sum_{i=1}^nx_i $$ 
+                        Aus der Formel folgt direkt, dass das arithmetische Mittel nicht auf nominal- oder ordinalskalierte Merkmale angewendet werden kann, da auf diesen keine Addition definiert ist.
+
+                \subsection{Streuungsmaße}
+                    Streuungsmaße geben Auskunft darüber, wie stark die Ausprägungen des untersuchten Merkmals von einem Lagemaß wie dem arithmetischen Mittel abweichen, also wie sehr sie um den Mittelwert streuen. Sie liefern damit eine Beurteilungsmöglichkeit für das verwendete Lagemaß.
+                    \subsubsection{Varianz}
+                        Die \emph{Varianz} $\sigma^2$ ist das am häufigsten verwendete Strueungsmaß. Sie beschreibt die \emph{mittlere quadratische Abweichung} der Merkmalsausprägungen vom Mittelwert.
+                        Wird die Grundgesamtheit betrachtet, so gilt die folgende Formel (\emph{empirische Varianz}): 
+                        $$ \sigma^2 := \frac{1}{n}\sum_{i=1}^n(x_i - \bar{x})^2 $$
+                        Soll dagegen lediglich eine Stichprobe, das heißt eine Teilmenge der Grundgesamtheit untersucht werden, so muss die Formel angepasst werden (\emph{Stichprobenvarianz}):
+                        $$ \sigma^2 := \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})^2  $$
+                        In beiden Fällen ist jedoch zu beachten, dass die Maßeinheit der Varianz, aufgrund der Quadrierung des Abstandes zum Mittelwert, nicht mehr der Maßeinheit der urspürnglichen Werte entspricht.
+                    \subsubsection{Standardabweichung}
+                        Die \emph{Standardabweichung} $\sigma$ ist die positive Quadratwurzel der Varianz. Wie bereits erläutert etnspricht die Maßeinheit der Varianz nicht der ursprünglichen Maßeinheit der Werte. Dieses Manko lässt sich mit der Standardabweichung beheben.
+                        $$ \sigma := + \sqrt{\sigma^2} $$
+                        Durch das Ziehen der Quadratwurzel misst die Standardabweichung die mittlere Streuung um den Mittelwert in der gleichen Maßeinheit wie die ursprünglichen Werte.
+
+                \subsection{Zusammenhangsmaße}
+                    Häufig, so auch im Bereich des \emph{Data Mining}, interessiert man sich jedoch nicht nur für die Ausprägungen eines einzelnen Merkmals. Viel interessanter erscheint eine Untersuchung, wie verschiedene Merkmale zueinander in Beziehung stehen. Lassen sich etwa aus den Beobachtungen eines Merkmals Rückschlüsse auf ein anderes Merkmal ziehen?
+                    \subsubsection{Kovarianz}
+                        Die \emph{Kovarianz} $cov(x,y)$ beschreibt, wie sich zwei Merkmale eines beobachteten Merkmalsvektors zueinander in Bezug auf Abweichung ihres jeweiligen Mittelwerts verhalten. \cite{ertel2016}\\
+                        Definition der Kovarianz:\\
+                        Seien $x,y$ zwei Merkmale eines Merkmalsvektors, $n$ die Anzahl der in einer Stichprobe untersuchten Merkmalsvektoren. Dann gilt für die Kovarianz:
+                        $$
+                            cov(x,y) := \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})(y_i - \bar{y})
+                        $$ \cite{kohn2005}\\
+                        Aus der Definition folgt unmittelbar, dass der $i$. Merkmalsvektor einen positiven Beitrag zur Summe liefert, wenn die Merkmale $x$ und $y$ in die gleiche Richtung vom Mittelwert abweichen, analog liefert eine Abweichung der Merkmale in unterschiedliche Richtung vom Mittelwert einen negativen Beitrag zur Summe. \cite{ertel2016}
+
+                    \subsubsection{Korrelationskoeffizient}
+                        Da der Wert der Kovarianz unter Anderem auch von den Absolutwerten der Variablen abhängt, ist ein Vergleich der Werte problematisch.
+                        \cite{ertel2016} \\
+                        Um diese Abhängikeit von den Absolutwerten zu eliminieren wird der \emph{Korrelationskoeffizient $K_{xy}$} als normierte Kovarianz definiert als Kovarianz der beiden Variablen geteilt durch das Produkt der Standardabweichung von $x$ und $y$:
+                        $$
+                            K_{xy} := \frac{cov(x,y)}{\sigma_x \cdot \sigma_y} 
+                        $$
+                        Der Korrelationskoeffizient ist normiert auf das Intervall $[-1,1]$, das heißt es gilt $-1 \leq K_{xy} \leq 1)$
+                        \cite{kohn2005}
+
+
+        \section{Maschinelles Lernen}
+            
+            \subsection{Lernen mit und ohne Lehrer}
+                Eine erste Einteilung verschiedener maschineller Lernverfahren ist die, ob das Lernverfahren auf Trainingsdaten, also auf solche Daten, für die eine korrekte Klasseneinordnung oder Funktionswert bereits bekannt ist, oder ob es ohne Trainingsdaten auskommt. Verwendet ein Lernverfahren Trainingsdaten, so wird von \emph{Lernen mit Lehrer} gesprochen, andernfalls von \emph{Lernen ohne Lehrer}.\\
+                In dieser Arbeit beschränken wir uns ausschließlich auf Lernverfahren, die auf der Verwendung von Trainingsdaten beruhen, bleiben also im Bereich des \emph{Lernens mit Lehrer}.
+            \subsection{Agenten}
+                Der Begriff des \emph{Agenten} ist in vielen Teilbereichen der Informatik von zentraler Bedeutung, allerdings wird der Agentenbegriff in verschiedenen Teilbereichen unterschiedlich ausgelegt. So stellt ein Agent in der klassischen Informatik eine Abbildung von einer Eingabe auf eine Ausgabe dar und wird als \emph{Software-Agent} bezeichnet, während ein Agent in der Robotik einen \emph{Hardware-Agenten} bezeichnet, der eine Erweiterung des Software-Agenten um Sensoren und Aktoren darstellt, die es dem Hardware-Agenten ermöglichen, seine Umgebung wahrzunehmen und zu verändern. \cite{ertel2016}
+                \begin{Figure}
+                    \centering
+                    \includegraphics[width=\linewidth]{softwareagent.png}
+                    \includegraphics[width=\linewidth]{hardwareagent.png}
+                    \captionof{figure}{Soft- und Hardware-Agent}   
+                \end{Figure}
+                Auch bezüglich ihrer Intelligenz unterscheiden sich Agenten voneinander.
+                Ein Agent, der lediglich eine Abbildung von der Menge aller möglichen Eingaben auf die Menge aller möglichen Ausgaben implementiert wird als \emph{Reflex-Agent} bezeichnet. Ein Reflex-Agent ist in der Lage, Probleme zu lösen, bei denen es sich um Markov-Entscheidungsprozesse handelt. Zur optimalen Lösung dieser Klasse von Problemen ist lediglich Wissen über den aktuellen Zustand der Umgebung erforderlich.
+                \newline
+                \emph{Agenten mit Gedächtnis} hingegen sind Agenten, die bei ihren Entscheidungen Wissen über vorangegange Zustände der Umgebung berücksichtigen können.
+            
+            \subsubsection{Der lernende Agent}
+                Der im Rahmen dieser Arbeit zentrale Agentenbegriff ist der des \emph{lernenden Agenten}. Der lernende Agent entspricht einer Abbildung eines Eingabevektors auf eine diskrete Klasse oder einen stetigen Funktionswert. Er unterscheidet sich vom Reflex-Agenten dadurch, dass die konkrete Abbildungsvorschrift nicht vom Programmierer vorgegeben, sondern aus \emph{Trainingsdaten} eigenständig gelernt wird.
+                \begin{Figure}
+                   \centering
+                   \includegraphics[width=\linewidth]{lernenderagent.png}
+                   \captionof{figure}{lernender Agent}
+                \end{Figure}
+                Die \emph{Aufgabe} des \emph{lernenden Agenten}, ist das lernen einer Abbildung von einem Merkmalsvektor auf eine Klasse oder einen stetigen Funktionswert anhand von \emph{Trainingsdaten}. Es muss im Vorfeld festgelegt werden, welche Art von Agent, das heißt welches Lernverfahren, eingesetzt wird (Vergleichen Sie hierzu \emph{Perzeptron, Kapitel 4} und \emph{Nearest Neighbour Methoden}).
+                Bei der Auswahl der Trainingsdaten ist zu beachten, dass diese repräsentativ für die zu lernende Aufgabe sind, da die gelernte Abbildung ansonsten nur schlecht auf unbekannte Daten generalisiert.\\
+                Nachdem der Agent eine Abbildung anhand von Trainingsdaten gelern hat muss diese anhand eines geeigneten \emph{Leistungsmaßes} unter Verwendung von \emph{Testdaten} evaluiert werden. \emph{Testdaten} sind dabei Merkmalsvektoren, für die  die richtige Klasseneinteilung oder der richtige Funktionswert bereits bekannt sind, die aber keine Trainingsdaten waren.
+
+            \subsection{Eager Learning}
+                Als \emph{Eager Learning} werden solche Lernverfahren bezeichnet, bei denen in einem ersten Schritt in einer (in der Regel aufwändigen) Lernphase bestehendes Wissen aus den Trainingsdaten in Form einer Abbildung extrahiert wird.
+                Der in der Lernphase betrieben Aufwand rechnet sich aber in der Anwendung, da diese Klasse von Lernverfahren, sobald die Abbildung gelernt wurde, sehr effizient auf neue Beispiele angewendet werden kann.\cite{ertel2016} 
+
+        \section{Das Perzeptron}
+            In diesem Abschnitt der Arbeit soll mit dem \emph{Perzeptron} ein einfaches, aber dennoch aufschlussreiches Beispiel für eine konkrete Implementierung eines lernenden Agenten gegeben werden.
+            \newline
+            Das Perzeptron ist eine \emph{linearer Klassifizierer}, das heißt, es ist in der Lage, einen Eingabevektor auf eine von zwei Klassen abzubilden, sofern es eine Hyperebene gibt, die die beiden Klassen voneinander trennt.
+
+            \subsection{Linear separable Mengen}
+                In diesem Abschnitt soll verdeutlicht werden, was es heißt dass zwei Mengen durch eine Hyperebene voneinander getrennt werden.
+                Hierzu führen wir den Begriff der 
+                \emph{linear separablen Mengen} ein.
+                \newline
+                Zwei Mengen $M_1 \subset \mathbb{R}^n$ und $M_2 \subset \mathbb{R}^n$ heißen \emph{linear separabel}, genau dann, wenn es eine Schwelle $\theta$ und reelle Zahlen $a_1,\dots,a_n$ gibt, sodass
+                $$
+                    \sum_{i=1}^n a_ix_i > \theta \forall x \in M_1$$
+                und
+                $$\sum_{i=1}^n a_ix_i \leq \theta \forall x \in M_2$$
+                gilt.
+                \newline
+                In der Terminologie der linearen Algebra beduetet dies, es existiert eine $n-1$ dimensionale Hyperebene, die durch die Gleichung
+                $$
+                    \sum_{i=1}^n a_ix_i = \theta
+                $$
+                definiert wird und die die beiden Mengen $M_1$ und $M_2$ voneinander trennt.
+
+            \subsection{Abbildungsvorschrift}
+                Wie bereits erwähnt handelt es sich beim \emph{Perzeptron} um einen linearen Klassifizierer, der genau die linear separablen Mengen klassifizieren kann. Das heißt, das Perzeptron ist eine Abbildung eines Eingabevektors $x$ auf einen diskreten Klassenwert. Es wird definiert durch die Abbildungsvorschrift
+                $$
+            P(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }\sum_{i=1}^nw_ix_i > 0\\ 0, & \mbox{falls} \sum_{i=1}^n w_ix_i \leq 0 \end{array}\right. 
+                $$
+
+                Aus der Abbildungsvorschrift wird ersichtlich, dass $n$ Skalare, $w_1,\dots,w_n$ benötigt werden. Der Vektor $w = (w_1,\dots, w_n)$ wird im als \emph{Gewichtsvektor} bezeichnet. Dieser Gewichtsvektor $w$ ist im Allgemeinen zunächst unbekannt und muss in einem vorgelagerten Schritt gelernt werden.
+            \subsection{Lernverfahren}
+                Eine Möglichkeit, den Gewichtsvektor $w$ zu ermitteln stellt der Algorithmus PerzeptronLernen dar, der in diesem Abschnitt vorgestellt werden soll. Der Algorithmus PerzeptronLernen nimmt als Eingabe zwei Mengen $M_+$ und $M_-$, wobei die Menge $M_+$ Eingabevektoren enthält, von denen bereits bekannt ist, dass sie mit $1$ klassifiziert werden sollen. Analog enthält die Menge $M_-$ Eingabevektoren, von denen bereits bekannt ist, dass sie mit $0$ klassifiziert werden sollen.
+                \newline
+                Nun wird ein beliebiger initialer Gewichtsvektor $w$ gewählt.
+                \newline
+                Für alle Elemente $x \in M_+$ wird geprüft, ob $w \cdot x := \sum_{i=1}^nw_ix_i \leq 0$ erfüllt ist. Ist dies der Fall, so wissen wir, dass das Element $x$ falsch klassifiziert wurde, der Gewichtsvektor $w$ also noch nicht richtig sein kann. Folglich wird der Gewichtsvektor $w$ angepasst, indem der Wert des falsch klassifizierten Elementes $x \in M_+$ komponentenweise aufaddiert wird.
+                \newline
+                Analog wird für die Elemente aus $M_-$ vorgegangen, nur das hier geprüft wird, ob $\sum_{i=1}^nw_ix_i > 0$ gilt und $w$ gegebenfalls durch Substraktion des Wertes des Eingabevektros $x$ angepasst wird.
+                \subsubsection{Algorithmus PerzeptronLernen}
+                    \begin{algorithm}[H]
+                        \KwData{$M_+,M_-, w \in\mathbb{R}^n$ beliebig}
+                        \KwResult{Gewichtsvektor $w$}
+                        \Repeat{Alle Vektoren korrekt klassifiziert}{
+                            \For{$x \in M_+$}{
+                                \If{$w\cdot x \leq 0$}{$w = w + x$}
+                            }
+                            \For{$x \in M_-$}{
+                                \If{$w\cdot x > 0$}{
+                                    $w = w -x$
+                                }
+                            }
+                        }
+                        \caption{PerzeptronLernen}
+                    \end{algorithm}
+                
+                    \subsubsection{Beispiel}
+                        Das Vorgehen des Lernverfahrens soll im Folgenden anhand eines einfachen Beispiels verdeutlicht werden.
+                        \newline
+                        Als Trainingsdaten dienen die Mengen $M_+ = \{(0,1.8),(2,0.6)\}$ und \newline $M_- = \{(-1.2,1.4),(0.4,-1)\}$, alsi initialer Gewichtsvektor $w$ dient $(1,1)$.\\
+                        1. Durchlauf:\\
+                        \begin{Figure}
+                            \centering
+                            \includegraphics[width=\linewidth]{bsp1.png}
+                            \captionof{figure}{Situation vor Iteration 1}
+                        \end{Figure}
+                        $M_+$
+                        $(1,1)\cdot(0,1.8) = 1.8 > 0 \rightarrow $ erster Vektor korrekt klassifiziert.\\
+                        $(1,1)\cdot(2,0.6) = 2.6 > 0 \rightarrow$ zweiter Vektor korrekt klassifiziert\\
+                        $M_-$\\
+                        $(1,1)\cdot(-1.2,1.4) = 0.2 \geq 0 \rightarrow$ dritter Vektor falsch klassifiziert\\
+                        $\rightarrow w_{neu} = (1,1)-(-1.2,1.4) = (2.2,-0.4)$\\
+                        $(2.2,-0.4) \cdot (0.4,-1) = 1.28 \geq 0 \rightarrow$ vierter Vektor falsch klassifiziert\\
+                        $\rightarrow w_{neu} = (2.2,-0.4)-(0.4,-1) = (1.8,0.6)$\\
+                        \\
+                        2. Durchlauf:\\
+
+                        \begin{Figure}
+                            \centering
+                            \includegraphics[width=\linewidth]{bsp2.png}
+                            \captionof{figure}{Situation vor Iteration 2}
+                        \end{Figure}
+
+                        $M_+$\\
+                        $(1.8,0.6)\cdot (0,1.8) = 1.08 > 0 \rightarrow$ erster Vektor korrekt klassifiziert.\\
+                        $(1.8,0.6)\cdot (2,0.6) = 3.96 > 0 \rightarrow$ zweiter Vektor korrekt klassifiziert.\\
+                        $M_-$\\
+                        $(1.8,0.6)\cdot (-1.2,1.4) = -1.32 < 0 \rightarrow$ dritter Vektor korrekt klassifiziert.\\
+                        $(1.8,0.6)\cdot (0.4,-1) = 0.12 \geq 0 \rightarrow$ vierter Vektor falsch klassifiziert.\\
+                        $\rightarrow w_{neu} = (1.8,0.6)-(0.4,-1) = (1.4,1.6)$\\
+                        \\
+                        3. Durchlauf:\\
+                        \begin{Figure}
+                            \centering 
+                            \includegraphics[width=\linewidth]{bsp3.png}
+                            \captionof{figure}{Situation vor Iteration 3}
+                        \end{Figure}
+                        $M_+$\\
+                        $(1.4,1.6)\cdot (0,1.8) = 2.88 > 0 \rightarrow$ erster Vektor korrekt klassifiziert.\\
+                        $(1.4,1.6)\cdot (2,0.6) = 3,76 > 0 \rightarrow$ zweiter Vektor korrekt klassifiziert.\\
+                        $M_-$\\
+                        $(1.4,1.6) \cdot (-1.2,1.4) = 0,56 > 0 \rightarrow$ dritter Vektor falsch klassifiziert.\\
+                        $\rightarrow w_{neu} = (1.4,1.6)-(-1.2,1.4) = (2.6,0.2)$\\
+                        $(2.6,0.2)\cdot (0.4,-1) = 0.84 > 0 \rightarrow$ vierter Vektor falsch klassifiziert.\\
+                        $\rightarrow w_{neu} = (2.6,0.2)-(0.4,-1) = (2.2,1.2)$\\
+                        \\
+                        4. Durchlauf:\\
+                        \begin{Figure}
+                            \centering
+                            \includegraphics[width=\linewidth]{bsp4.png}
+                            \captionof{figure}{Situation vor Durchlauf 4}
+                        \end{Figure}
+                        $M_+$\\
+                        $(2.2,1.2)\cdot (0,1.8) = 2.16 > 0 \rightarrow$ erster Vektor korrekt klassifiziert.\\
+                        $(2.2,1.2)\cdot (2,0.6) = 5.12 > 0 \rightarrow$ zweiter Vektor korrekt klassifiziert.\\
+                        $M_-$\\
+                        $(2.2,1.2)\cdot (-1.2,1.4) = -0.96 < 0 \rightarrow$ dritter Vektor korrekt klassifiziert.\\
+                        $(2.2,1.2)\cdot (0.4,-1) = -0,32 < 0 \rightarrow$ vierter Vektor korrekt klassifiziert.\\
+                        \\
+                        \begin{Figure}
+                            \centering
+                            \includegraphics[width=\linewidth]{bsp4.png}
+                            \captionof{figure}{Situation nach Terminierung des Lernverfahrens}    
+                        \end{Figure}
+                        Der Gewichtsvektor $w = (2.2,1.2)$, klassifiziert alle Elemente der Trainingsdaten korrekt, der Lernalgorithmus termiert und gibt $w = (2.2,1.2)$ als Ergebnis zurück.\\
+                        Zu beachten ist auch, dass der richtige Vektor bereits in der vorletzten Iteration gefunden wird. Da dieser Vektor aber noch auf allen Trainingsdaten getestet werden muss bedarf es einer weiteren Iteration.
+
+                    \subsubsection{Finden guter Initialwerte für $w$}
+                    Die asymptotische Laufzeitanalyse des Algorithmus PerzeptonLernen in Abhängigkeit der Eingabegröße $n$, wobei $n$ der Anzahl der Trainingsdaten entspricht, gestaltet sich als schwierig. Einzig das Best-Case-Szenario, bei dem der initiale Gewichtsvektor so gewählt wird, dass es keiner Anpassung bedarf, lässt sich asymptotisch mit $\Omega(n)$ nach unten abschätzen, da jedes Element aus den Trainingsdaten, also $M_+ \cup M_-$, mindestens einmal überprüft werden muss. Für die Average-Case und Worst-Case Laufzeiten lässt sich so jedoch keine Aussage treffen, da die Wahl von $W$ deutlich größere Auswirkungen auf die Laufzeit des Lernverfahrens hat.
+                    Folglich kann die Laufzeit des Algorithmus bei Verwendung eines optimalen intialen Gewichtsvektors $w$ auf $\mathcal{O}(n)$ reduziert werden. Allerdings entspricht das finden optimaler Gewichtsvektoren genau dem Ausführen des Lernverfahrens, dieses hat schließlich zum Ziel, ein $w$ zu finden, dass die Mengen trennt, was äquivalent dazu ist, dass das $w$, bei Verwendung als initialem Gewichtsvektor im Lernverfahren nicht mehr angepasst werden muss, da es alle Trainingsdaten korrekt klassifiziert.
+                    Ein finden optimaler Gewichtsvektoren ist also keine Option zu Verbesserung der Laufzeit.
+                    \newline
+                    Dennoch lassen sich durh die Verwendung heuristisch bestimmter "guter"\  Gewichtsvektoren $w$ im Durchschnitt Laufzeitverbesserungen erreichen.
+                    Eine geeignete Heuristik sieht wie folgt aus: 
+                    \newline
+                    Alle $x\in M_+$ werden aufaddiert und davon wird die Summer aller $x\in M_-$ abgezogen.
+                    $$
+                        w = \sum_{x \in M_+}x - \sum_{x \in M_-}x
+                    $$
+
+            \subsection{Erweiterung auf linear Affine Mengen}
+                Die bisherige Abbildungsvorschrift des Perzeptrons beruht darauf, dass die beiden Mengen durch eine Hyperebene durch den Nullpunkt trennbar sind. Dies widerspricht aber der Definition linear separabler Mengen, die lediglich voraussetzt, dass es eine beliebige Schwelle, insbesondere also auch solche ungleich $0$. Daher stell sich unweigerlich die Frage, ob das Perzeptron tatsächlich alle linear separablen Mengen korrekt klassifizieren kann, oder solche, die durch eine durch den Ursprung verlaufende Hyperebene trennbar sind. Um zu zeigen, dass das Perzeptron auch solche Mengen, die durch eine durch eine beliebige Schwelle definierte Hyperbene trennbar sind, korrekt klassifizieren kann, greifen wir auf die bekannten Rechenregeln der reellen Zahlen für Ungleichungen zurück.
+                Zunächst erweitern wir den Eingabevektor $x$ um eine $n+1$. Komponente, die Konstant auf $-1$ gesetzt wird.
+                \newline 
+                Damit ergibt sich für die Abbildungsvorschrift des Perzeptrons 
+                $$
+                    P(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }\sum_{i=1}^nw_ix_i - w_{i+1} > 0\\ 0, & \mbox{falls} \sum_{i=1}^n w_ix_i - w_{i+1} \leq 0 \end{array}\right. 
+                $$
+                und für die Gleichung der trennenden Hyperebene
+                $$
+                    \sum_{i=1}^nw_ix_i - w_{i+1} = 0
+                $$
+                Durch einfache Äquivalenzumformung ergibt sich die folgende Gleichung für die Hyperebene
+                    $$
+                        \sum_{i=1}^nw_ix_i = w_{i+1}
+                    $$
+                    Daraus folgt für die Abbildungsvorschrift des Perzeptron:
+                    $$
+                    P(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }\sum_{i=1}^nw_ix_i > w_{i+1}\\ 0, & \mbox{falls} \sum_{i=1}^n w_ix_i \leq w_{i+1} \end{array}\right. 
+                    $$
+                    Mit $w_{i+1}$ ist also eine neue Schwelle ungleich $0$ gefunden, die das Gewünschte liefert. Damit ist gezeigt, dass das Perzeptron auch solche Mengen klassifizieren kann, die durch eine nicht durch den Nullpunkt verlaufende Hyperebene voneinander getrennt werden können. Damit ist das Perzeptron in der Lage tatsächlich alle linear separablen Mengen zu klassifizieren.
+                    \newline
+                    Zu beachten ist, dass der Schwellwert $w_{i+1}$ zunächt unbekannt ist, und erst im Verlaufe des Lernverfahrens zusammen mit dem Gewichstsvektor $w$ gelernt wird.
+                \subsection{Probleme des Perzeptrons}
+                        Obwohl das Perzeptron ein sehr einfaches maschinelles Lernverfahren ist, so hat es in der Praxis, außer als Vorstufe zu neuronalen Netzen, keine Bedeutung. Aufgrund der Einschränkung auf linear seprablen Mengen stößt das Perzeptron schnell an seine Grenzen.
+                        Dies wird bereits an einem einfachen Beispiel deutlich.
+                        \newline
+                        Gehen wir davon aus, dass das Perzeptron die booleschen Funktionen lernen soll. Das heißt es sollen Abbildungen der Form $$\{0,1\}\times\{0,1\} \rightarrow \{0,1\}$$ gelernt werden.
+                        Zunächst betrachten wir die logische UND-Funktion, das heißt die Abbildung
+                        $$
+                            f:\{0,1\}\times\{0,1\}\rightarrow\{0,1\}: x\mapsto f(x)
+                        $$
+                        mit
+                        $$
+                            f(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }x=(1,1)\\
+                            0, & \mbox{sonst}\end{array}\right. 
+                        $$
+                        % Bild einfügen
+                        \begin{Figure}
+                            \centering
+                            \includegraphics[width=\linewidth]{AND.png}
+                            \captionof{figure}{Hyperebene, die die mit $1$ und $0$ klassifizierten Elemente voneinander trennt}
+                        \end{Figure}
+                        Am Bild wird deutlich, dass die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene von der Menge der Vektoren, die auf $0$ abbilden.
+                        \newline
+                        Anders verhält es sich bei der logischen XOR-Funktion:
+                        $$
+                            f:\{0,1\}\times\{0,1\}\rightarrow\{0,1\}: x\mapsto f(x)
+                        $$
+                        mit
+                        $$
+                            f(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }x=(1,0) \vee x = (0,1)\\
+                            0, & \mbox{sonst}\end{array}\right. 
+                        $$
+                        % Bild einfügen
+                        \begin{Figure}
+                            \centering
+                            \includegraphics[width=\linewidth]{XOR.png}
+                            \captionof{figure}{Versuch, die Elemente zu trennen}    
+                        \end{Figure}
+                        Auch in diesem Fall wird durch einen Blick auf den Graphen deutlich, dass es Möglichkeit gibt, die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene, die der Gleichung der Form
+                        $$
+                            \sum_{i=1}^nw_ix_i = \theta
+                        $$
+                        genügt, von der Menge der Vektoren, die auf $0$ abbilden, zu trennen.
+                        \section{Grundbegriffe und Definitionen}
+                        \subsection{Was ist Ähnlichkeit?}
+                        Als Ähnlichkeit wird häufig bezeichnet, wenn in zwei oder mehr beobachteten Objekten, in zu untersuchenden Ausprägungen, Übereinstimmungen zu finden sind. 
+                        Hierzu passend ist das Beispiel eines Arztes, der sich bei der Diagnose eines seiner Patienten daran erinnert bereits in der Vergangenheit bei einem anderen Patienten ähnliche Symptome festgestellt zu haben und diesen auch erfolgreich behandelt zu haben.[1] Durch das Erinnern an einem vergangenem Fall ist es dem Arzt möglich seinen aktuellen Patienten zu heilen, da die gleichen Behandlungsmethoden verwenden werden können.
+                        Da für Menschen Ähnlichkeit intuitiver ist als für Maschinen, stellt sich die Frage, wie man einer Maschine vermitteln kann, wann Objekte zueinander ähnlich sind und vorallem, wie man dieses Konzept in eine für Maschinen verständliche Sprache übersetzt und diese Werte numerisch festgehalten werden können.
+                        Um diese Frage beantworten zu können, helfen wir uns mit einer aus der Mathematik bekannten Datenstruktur der Vektoren.
+                        Vektoren sind in diesem System Tupel von Daten. Innerhalb dieses Systems werden Vektoren mit Werten der reellen Zahlen verwendet und für Werte aus anderen Räumen wird eine eindeutige Repräsentation gesucht. Beispielsweise könnte eine Übersetzung von Zeichenketten in den reellen Raum über ein ASCII-System erfolgen. 
+                        Für unsere Anwendung wird die Eigenschaft ausgenutzt, dass Vektoren Elemente des Raumes $\mathbb{R}^n$ sind, wobei jede der Dimensionen für eine konkrete Ausprägung steht. Damit lassen sich alle Daten als Punkte in einem $\mathbb{R}^n$ dimensionalen Hyperraum darstellen. Dadurch definiert Wolfgang Ertel: “Zwei Beispiele sind umso ähnlicher, je geringer ihr Abstand im Merkmalsraum ist.”[1.1] 
+                        \subsection{Einführung von Abstandsfunktionen}
+                        Innerhalb des definierten, metrischen n-dimensionalen Merkmalsraumes kann man infolgedessen die Unterschiedlichkeit zweier betrachteten Objekte mithilfe einer Abstandsfunktion zu bestimmen. Folglich kennen wir die Ähnlichkeit zweier Datenpunkte, wenn der Abstand zwischen ihnen im Merkmalsraum bekannt ist. Hierzu bieten sich eine vielzahl an Metriken an z.B. die euklidische Norm, Manhattan-Abstand als auch der Hamming-Abstand. Weitere erwähnenswerte Metriken lauten: Summe der Abstandsquadrate, Abstand der maximalen Komponente. 
+                        Metrischer Raum: Ist definiert als eine Menge in der eine Abstandsfunktion definiert ist.
+                        $D(x,y)$ mit $x,y \in \mathbb{R}^n$.
+                        Folglich kann man, innerhalb dieser definierten Menge, zwischen Elementen Abstände bestimmen, was sich besonders nützlich für die im Folgenden behandelten Anwendungen erweist.
+                        Als Entwickler muss man sich bei der Auswahl der Metrik im Klaren sein, welche Abstandsfunktion für seine Anwendung am besten geeignet ist. 
+                        \subsection{Euklidische Norm}
+                            Die verbreiteste Abstandsfunktion, die meist mit dem Satz des Pythagoras eingeführt und berechnet werden kann.
+                            Euklidische Norm ist definiert als:
+	                        $$ x,y \in \mathbb{R}^n $$
+	                        $$d_e(x,y):= |x - y| = \sqrt{\sum_{i=1}^{n}(x_i -y_i)^2} $$
+                        
+                        In unterschiedlichen Anwendungsfällen können bestimmte Merkmale eine wichtigere Rolle spielen als andere[1]. Eine gewichtete Variante der euklidischen Norm sieht wie folgt aus:
+                        Gewichtete euklidische Norm ist definiert als:
+                            $$w,x,y \in \mathbb{R}^n $$
+                            $$d_w(x,y):= |x - y| = \sqrt{\sum_{i=1}^{n}w_i(x_i -y_i)^2}$$
+                         
+                    \subsection{Manhattan-Abstand}
+                        Betrachtet wird hierbei nur Geraden, die parallel zu den Ursprungsachsen verlaufen. Man bewegt sich also nur auf der horizontalen und vertikalen Ebene, um die Distanz zwischen zwei Punkten zu bestimmen und summiert deren Länge auf, sodass man den Gesamtabstand ermitteln kann.
+                        Schaubild
+                        Noch eine Erklärung zum Schaubild
+
+                        Manhattan-Abstand ist definiert als:
+                        $$
+                            x,y \in \mathbb{R}^n 
+                        $$
+                        $$
+                            d_m(x,y):= \sum_{i=1}^{n} |x_i -y_i|
+                        $$
+                        /formatierung
+                        Formel
+                        /formatierung
+                         
+                    \subsection{Hamming-Abstand}
+                        Ist ein Abstandsmaß, dass bei Zeichenketten häufig Verwendung findet:
+                        Und gibt die Unterschiedlichkeit zwischen zwei Zeichenketten als numerischen Wert wieder.
+                        
+                        Hamming-Abstand ist definiert als metrische Funktion innerhalb eines Zeichenraumes 
+                        $\sum$:
+	                    $$ x,y \in \sum^n $$
+	                    $$ d_h(x,y):= |x_i \neq y_i |$$
+                        Beispiel, wie der Manhattan Abstand zwischen zwei Zeichenketten (hier: Binärzahlen) aussehen würde.
+                        $\sum^2=\{0,1\}$ als unser Alphabet definiert.
+                        $x = 01101$
+                        $y= 10001$
+                        $D_h(x,y)=3$, da wir nur an den Stellen $i={1,2,3}$ also in $ x_1,x_2,x_3$ Unterschiede zu $y_1,y_2,y_3$ vorfinden.
+                        
+                    \subsection{Lazy Learning Algorithmen}
+                        Sind im Gegensatz zu den eager learning Lernverfahren, auch faules Lernen gennant, eine weitere Kategorie von Lernverfahren. Lazy learning Algorithmen sind gekennzeichnet dadurch, dass der Großteil der benötigten Rechenzeit nicht wie beim eager Learning zum Ermitteln einer Klassifikationsabbildung verwendet wird, sondern es genügt alle Trainingsdaten in eine vom System verwendete Datenstruktur zu sichern. 
+                    \subsection{Trainingsdaten} 
+                        Sind Daten, deren korrekte Klassifikation bekannt ist und werden meist von Experten vorgegeben.
+                        Ein Beispiel hierfür wäre, die zur Klassifikation benötigten Trainingsdaten einer Apfelsortiermaschine, bestehend aus Größe und Farbe.[1.3]
+                        Nachdem uns ein Experte vorgibt, wie eine Apfelsorte auszusehen hat versucht unser System, abhängig vom Typ des Algorithmus, selbstständig eine Generalisierung vorzunehmen. 
+                        
+                    \section{Nearest-Neighbour Lernverfahren}
+                        Gehört zu den faulen Lernverfahren, da initial außer dem Abspeichern der Trainingsdaten kein zusätzlicher Rechenaufwand betrieben wird. Als Ziel des Systems kann man bezeichnen, dass mittels Trainingsdaten versucht wird neue Daten zu klassifizieren bzw. einordnen zu können. (Vgl. ** lernender Agent)
+                        
+                    \subsection{Nearest-Neighbour Methode}
+                        Einführend werden wegen der Anschaulichkeit nur zwei mögliche Klassen, denen ein Datenpunkt zugeordnet werden kann, betrachtet. Jedoch kann die Methode des nearest- Neighbour problemlos auf mehr Klassen erweitert werden.
+                        Unsere Datenpunkte sind Vektoren des $\mathbb{R}^n$, wobei jede Komponente einer konkreten Ausprägung entspricht. 
+                        Beispielsweise könnte der Versuch einen Patienten mittels eines Vektors darzustellen, wie folgt aussehen. Indem man jeder Komponente des Vektors eine konkrete Ausprägung des Patienten zuordnet, wie z.B. einer Komponente das Alter oder die Größe der Person, kann auf diese Weise ein Vektor einen Patienten repräsentieren und alle für unser System benötigten Informationen enthalten.
+                        Wir definieren nun eine Menge $M_+$ und $M_-$ als Trainingsdaten, s als den zu klassifizierenden Datenpunkt und $t$ als den nächsten Nachbarn von s. Die Funktion argmin\{\} erhält eine endliche Menge als Eingabe und gibt die kleinste ermittelte Größe in der Menge als Rückgabewert zurück. Analog würde für argmax\{\} gelten, dass der größte ermittelte Wert zurückgegeben wird.
+                        
+                        Wenn der nächste Nachbarn von $s$ erfolgreich bestimmt werden konnte, kann aufgrund der Ähnlichkeit zwischen beiden Datenpunkten die Aussage getroffen werden, dass $s$ vermutlich der gleichen Klasse angehört wie $t$. Dadurch ist unsere Klassifizierung erfolgt.
+                        Der Algorithmus ist wie folgt definiert:
+                        \begin{algorithm}[H]
+                            \KwData{$M_+,M_-,s \in \mathbb{R}^n$}
+                            \KwResult{Klassifikation von s}
+                            \For{$x \in M_+ \cup M_-$}{
+                             $t= argmin$\{$d(s,x)$\}\;
+                             }
+                             \eIf{$t \in M_+$}{
+                               \KwRet{+}\;
+                               }
+                               {
+                                  \KwRet{-}\;
+                                 }
+                                 
+                            \caption{Nearest Neighbour Algorithm}
+                           \end{algorithm}
+                        \subsection{Nearest-Neighbour Algorithmus}
+                        \includegraphics[width=\linewidth]{nn1.png}
+                        \captionof{figure}{Ausgangssituation}
+                        \includegraphics[width=\linewidth]{nn2.png}
+                        \captionof{figure}{}
+                        \includegraphics[width=\linewidth]{nn3.png}
+                        \captionof{figure}{}
+                        \includegraphics[width=\linewidth]{nn4.png}
+                        \captionof{figure}{}
+                        \includegraphics[width=\linewidth]{nn5.png}
+                        \captionof{figure}{}
+                        \includegraphics[width=\linewidth]{nn6.png}
+                        \captionof{figure}{Situation nach Durchlauf des Algorithmus}
+                        
+                        \subsection{Kritik an der Nearest-Neighbour Methode}
+                            Der nearest-Neighbour ist ein mächtiges Werkzeug zum Klassifizieren von Daten, da der Algorithmus selbst anhand nicht linear separable Mengen eine Zuordnung treffen kann. Wenn das Lernverfahren jedoch mit dem bereits behandelten Perzeptron (**Kap), fällt auf, dass der nearest-Neighbour Algorithmus im $\mathbb{R}^2$ keine lineare Trennlinie bzw. im Raum des $\mathbb{R}^n$ keine trennende Hyperfläche erzeugt. Dies ist insoweit ungünstig, da anhand dieser Trennfunktion für jeden weiteren zu klassifizierenden Punkt weniger Aufwand betrieben werden muss, die zugehörige Klasse zu ermitteln.[1] 
+                            Weiterer Kritikpunkt des nearest Neighbour, dass im Falle von statistischen Ausreißern in Trainingsdaten Datenpunkte möglicherweise falsch zugeordnet werden. Ein statistischer Ausreißer bedeutet im Falle des nearest Neighbour Algorithmus, dass sich innerhalb der Trainingsdaten ein oder mehr falsch klassifizierte Datenpunkte befinden. Dieses Problem besteht selbst dann, wenn in unmittelbarer Nähe weitere korrekt klassifizierte Trainingsdaten zur Verfügung stünden. Das liegt daran, dass bei dieser Variante des nearest-Neighbours nur der erste nächste Nachbarn zur Klassifizierung betrachtet wird.[1]
+                         
+                            Schaubild Beispiel Nearest Neighbour mit Ausreißer.
+                            \includegraphics[width=\linewidth]{errnn1.png}
+                            \captionof{figure}{Ausgangssituation}
+                            \includegraphics[width=\linewidth]{errnn2.png}
+                            \captionof{figure}{}
+                            \includegraphics[width=\linewidth]{errnn3.png}
+                            \captionof{figure}{}
+                         
+                        \section{k-nearest-Neighbour Methode}
+                        Ist eine Variante des nearest-Neighbour. Denn bei dem k-nearest Neighbour-Algorithmus werden statt einen nächsten Nachbarn eine k-große Gruppe an nächsten Nachbarn betrachtet. Die Entscheidung zu welcher Klasse ein neuer Datenpunkt gehören soll, erfolgt durch einen Mehrheitsentscheid innerhalb dieser ermittelten k-nächsten Nachbarn.[1]
+                        Der eine Variante des nearest-Neighbour Algorithmus, 
+                        Es werden die gleichen Bezeichner, wie für den nearest Neighbour verwendet und um die Variable V erweitert. V bezeichnet die k-nächsten Nachbarn von s innerhalb der Trainingsdaten.
+        
+                           
+                        \subsection{k-nearest Neighbour Algorithmus}
+                        Der Algorithmus ist wie folgt definiert:
+                        \begin{algorithm}[H]
+                            \KwData{$M_+,M_-,s \in \mathbb{R}^n$}
+                            \KwResult{Klassifikation von s}
+                             $V= $\{k-nächste Nachbarn von s\}\;
+                             \If{$|M_+ \cap V| > |M_- \cap V| $} {
+                               \KwRet{+}\;
+                               }
+                             \eIf{$|M_+ \cap V| < |M_- \cap V| $}{
+                                 \KwRet{-}\;
+                                 }  
+                               {
+                                  \KwRet{Random(+,-)}\;
+                                 }
+                           
+                            \caption{k-Nearest Neighbour Algorithm}
+                           \end{algorithm}
+                         % Schaubilder
+                         \includegraphics[width=\linewidth]{nn1.png}
+                         \captionof{figure}{}
+                         \includegraphics[width=\linewidth]{nn2.png}
+                         \captionof{figure}{}
+                         \includegraphics[width=\linewidth]{knn2_b.png}
+                         \captionof{figure}{}
+                         \includegraphics[width=\linewidth]{knn3.png}
+                         \captionof{figure}{}
+                         \includegraphics[width=\linewidth]{knn4.png}
+                         \captionof{figure}{}
+                        (Erklärung zu den Schaubildern)
+                        \subsection{Anwendung bei mehr als zwei Klassen}
+                        Es ist ebenfalls möglich den k-nearest Neighbour nicht nur für zwei Klassen anzuwenden, sondern auch auf endlich viele. Hier steht man jedoch vor der Herausforderung, falls die Anzahl Klassen ansteigt, wächst im gleichen Zug die Anzahl der benötigten Trainingsdaten stark an.[1.4]
+                        Steigt die Anzahl der Klassen weiter, ist eine diskrete Klassifikation nicht mehr geeignet und eine stetige Abbildungsfunktion   führt dies weniger zu einer diskreten Klassifikation sondern zu einer stetigen Abbildungsfunktion.[1.5]
+                         \subsection{Kritik an der k-nearest Neighbour Methode}
+                        Analog gilt ebenfalls für die k-nearest Neighbour Methode, dass die Anwendung des Algorithmus allein keine Trennebene erzeugen kann.
+                        Andererseits kann festgehalten werden, dass der k-nearest Neighbour Algorithmus eine schwächere Anfälligkeit gegenüber statistischen Ausreißern aufweist. Grund dafür ist die Betrachtung einer größeren Stichprobe der Trainingsdaten.
+                        
+                        Ein weiterer Kritikpunkt lautet, dass bei wachsendem k, also bei Betrachtung eine größer werdenden Gruppe nächster Nachbarn, die Anzahl weiter entfernter Nachbarn einen wesentlichen Einfluss auf den Mehrheitsentscheid und somit auf die Klassifizierung eines Datenpunktes haben. Dies steht im Widerspruch zu dem zentralen Ähnlichkeitsbegriff(** Kap), welcher geringe Abstände als Ähnlichkeitsmaß definierte.
+                        Als Möglichkeit zur Verbesserung nennt Wolfgang Ertel, die Stimmen der k-nächsten Nachbarn mit Gewichten zu versehen. Die Stimmgewichte der nächsten Nachbarn sollen mit steigendem Abstand zum zu klassifizierenden Punkt quadratisch abnehmen, um dadurch weniger Einfluss ausüben zu können.[1.6]
+                        Das Stimmgewicht eines nächsten Nachbarn kann wie folgt berechnet werden:\\
+                        
+                        Die Bestimmung der Stimmgewichte w ist wie folgt definiert:\\
+                        $x$ ist der zu klassifizierende Punkt und $x_i$ ist der i-te nächste Nachbar von $x$.
+                        $$
+                            x,x_i \in \mathbb{R}^n
+                        $$
+                        $$
+                            w_i:=\frac{1}{1+\alpha d(x,x_i)^2}
+                        $$
+                        $\alpha$ ist ein Konstante und bestimmt, wie schnell Gewichte mit größer werdendem Abstand zum Ausgangspunkt abnehmen sollen.[1.6] Anhand dieser Formel erkennt man, dass mit wachsendem Abstand der Einfluss weit entfernter Punkte asymptotisch gegen null geht und ist somit eine zielführender Lösungsansatz.[1.6]
+                        \section{Voronoi-Diagramme}
+                        Im Kapitel **nearest Neighbour wurde bereits erwähnt, dass der nearest-Neighbour Algorithmus im Vergleich zum Perzeptron keine (lineare) Trennebene erzeugen kann. Es ist jedoch möglich durch Hinzunahme eines weiteren Algorithmus nicht nur eine Trennung vorzunehmen sondern auch eine wesentlich komplexere Trennebene aus den gegebenen Trainingsdaten zu schaffen, um so die benötigte Rechenzeit zur Klassifizierung zu vermindern.
+                        Wie bereits bei den eager learning Algorithmen erklärt wurde, benötigt die Bestimmung dieser Abbildungsfunktion den Großteil der Rechenzeit. Die Bestimmung der Trennebene ist somit mit einem Zusatzaufwand verbunden. 
+                        Auf die Bestimmung eines Voronoi-Diagramms für eine endliche Datenmenge wird nur beschränkt eingegangen, da lediglich das Ergebnis für unsere Anwendung von Interesse ist.
+                        
+                        \section{Voronoi-Diagramm Beispiel}
+                        \includegraphics[width=\linewidth]{vor1.png}
+                        \captionof{figure}{Zu klassifizierende Punkte}
+                        \includegraphics[width=\linewidth]{vor2.png}
+                        \captionof{figure}{Voronoi-Diagramm}
+                        \includegraphics[width=\linewidth]{vor3.png}
+                        \captionof{figure}{Trennung von zwei Klassen}
+                        % Schaubild\\
+                        Nachdem das Voronoi-Diagramm für eine Menge von Trainingsdaten ermitteln wurde, kann eine Trennebene eingezeichnet werden (siehe Abb. 21). Die Trennung hat die Eigenschaft, dass sich innerhalb Trennebene nur Datenpunkte einer Klasse befinden. Wird anschließend der Versuch unternommen eine Klassifizierung durchzuführen, kann man dies anhand der Trennlinie mit geringem Aufwand unternehmen.
+                         
+                        \section{Laufzeiten der nearest-Neighbour Methoden}
+                        Laut Wolfgang Ertel “Gibt es kein (maschinelles) Lernverfahren, dass so schnell lernt”[1.2], wie die nearest Neighbour Methode, da in diesem Fall nur Daten gesichert werden müssen. Wie der Rechenaufwand für beide vorgestellten Methoden aussieht wird im Folgenden gezeigt.
+                        \subsection{Laufzeit nearest-Neighbour Algorithmus}
+                        Bei der Betrachtung des nearest-Neighbour Algorithmus fällt auf, dass jeder enthaltene Punkt der Trainingsdaten auf eine minimale Distanz zum Betrachtungspunkt untersucht werden muss. Somit gilt für die Laufzeit:
+                        $\mathcal{O}(n)$.   
+                        \subsection{Laufzeit k-nearest-Neighbour Algorithmus}
+                        Der k-nearest-Neighbour Algorithmus hat ähnlich, wie der nearest-Neighbour, eine Laufzeit von n, jedoch entsteht bei der Iteration über alle ermittelten nächsten Nachbarn ein zusätzlicher Rechenaufwand der Größe k. Dadurch ergibt sich für die Laufzeit:
+                        $\mathcal{O}(n+k)$.
+                        Bei den nearest-Neighbour Methoden gibt es keine Fallunterscheidung in bessere oder schlechtere Ausgangssituationen, da bei keiner Konstellation der Trainingsdaten Unterschiede in Ablauf entstehen.
+                        Nicht außer Acht gelassen werden darf die ist Tatsache, dass mit n nur die Anzahl Trainingsdaten gemeint ist und nicht verwechselt werden darf mit der Anzahl Dimensionen aus denen ein Punkt aus dem Merkmalsraum geformt ist.
+
+
+    \end{multicols}
+
+    \bibliography{literatur}
+    \bibliographystyle{alpha}
+
+
+\end{document}
