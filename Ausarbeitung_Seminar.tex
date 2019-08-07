@@ -38,6 +38,8 @@
 %\dozent{Prof. Dr. Andreas Rausch}
 %\betreuer{Dirk Herrling, M.Sc.}
 \date{\today}
+%Einrücken der Zeile verhindern
+\setlength{\parindent}{0em} 
 
 
 \begin{document}
@@ -403,61 +405,52 @@
                         
         \section{Grundbegriffe und Definitionen}
             \subsection{Was ist Ähnlichkeit?}
-                Als Ähnlichkeit wird häufig bezeichnet, wenn in zwei oder mehr beobachteten Objekten, in zu untersuchenden Ausprägungen, Übereinstimmungen zu finden sind. 
-                Hierzu passend ist das Beispiel eines Arztes, der sich bei der Diagnose eines seiner Patienten daran erinnert bereits in der Vergangenheit bei einem anderen Patienten ähnliche Symptome festgestellt zu haben und diesen auch erfolgreich behandelt zu haben.[1] Durch das Erinnern an einem vergangenem Fall ist es dem Arzt möglich seinen aktuellen Patienten zu heilen, da die gleichen Behandlungsmethoden verwenden werden können.
-                Da für Menschen Ähnlichkeit intuitiver ist als für Maschinen, stellt sich die Frage, wie man einer Maschine vermitteln kann, wann Objekte zueinander ähnlich sind und vorallem, wie man dieses Konzept in eine für Maschinen verständliche Sprache übersetzt und diese Werte numerisch festgehalten werden können.
-                Um diese Frage beantworten zu können, helfen wir uns mit einer aus der Mathematik bekannten Datenstruktur der Vektoren.
-                Vektoren sind in diesem System Tupel von Daten. Innerhalb dieses Systems werden Vektoren mit Werten der reellen Zahlen verwendet und für Werte aus anderen Räumen wird eine eindeutige Repräsentation gesucht. Beispielsweise könnte eine Übersetzung von Zeichenketten in den reellen Raum über ein ASCII-System erfolgen. 
-                Für unsere Anwendung wird die Eigenschaft ausgenutzt, dass Vektoren Elemente des Raumes $\mathbb{R}^n$ sind, wobei jede der Dimensionen für eine konkrete Ausprägung steht. Damit lassen sich alle Daten als Punkte in einem $\mathbb{R}^n$ dimensionalen Hyperraum darstellen. Dadurch definiert Wolfgang Ertel: “Zwei Beispiele sind umso ähnlicher, je geringer ihr Abstand im Merkmalsraum ist.”[1.1] 
+                Als Ähnlichkeit wird häufig bezeichnet, wenn in zwei oder mehr beobachteten Objekten, in zu untersuchenden Ausprägungen, Übereinstimmungen zu finden sind.\par
+                Hierzu passend ist das Beispiel eines Arztes, der sich während einer Diagnose eines seiner Patienten daran erinnert, bereits in der Vergangenheit bei anderen Patienten die gleichen Symptome beobachtet zu haben.\cite{ertel2016} Durch das Erinnern, an einen Fall in der Vergangenheit und dem enstandenden Vergleich zur Gegenwart, ist es dem Arzt möglich seinen momentanen Patienten zu helfen, da die gleichen Behandlungsmethoden verwenden werden können.\par
+                Da für Menschen Ähnlichkeit intuitiver ist als für Maschinen, stellt sich die Frage, wie man einer Maschine vermitteln kann, wann Objekte zueinander ähnlich sind und vorallem, wie man dieses Konzept in eine für Maschinen verständliche Sprache übersetzt und umgesetzt werden kann.\par
+                Zu diesem Zwecke wird die aus der Mathematik bekannten Datenstruktur der Vektoren betrachtet.
+                %Um diese Frage beantworten zu können, betrachten mit einer aus der Mathematik bekannten Datenstruktur der Vektoren.
+                Vektoren sind in diesem System Tupel von Daten. Innerhalb dieses Systems werden Vektoren mit Werten der reellen Zahlen verwendet und für Werte aus anderen Räumen wird eine eindeutige Repräsentation gesucht.\par Beispielsweise könnte eine Übersetzung von Zeichenketten in den reellen Raum über ein ASCII-System erfolgen.\par 
+                Für unsere Anwendung wird die Eigenschaft ausgenutzt, dass Vektoren Elemente des Raumes $\mathbb{R}^n$ sind, wobei jede der $n$ Dimensionen für eine konkrete Ausprägung einer Eigenschaft steht. Damit lassen sich Datenmengen als Punkte in einem $\mathbb{R}^n$ dimensionalen Hyperraum darstellen. Dadurch definiert Wolfgang Ertel: “Zwei Beispiele sind umso ähnlicher, je geringer ihr Abstand im Merkmalsraum ist.”\cite{ertel2016_p207} %[1.1]
             \subsection{Einführung von Abstandsfunktionen}
-                Innerhalb des definierten, metrischen n-dimensionalen Merkmalsraumes kann man infolgedessen die Unterschiedlichkeit zweier betrachteten Objekte mithilfe einer Abstandsfunktion zu bestimmen. Folglich kennen wir die Ähnlichkeit zweier Datenpunkte, wenn der Abstand zwischen ihnen im Merkmalsraum bekannt ist. Hierzu bieten sich eine vielzahl an Metriken an z.B. die euklidische Norm, Manhattan-Abstand als auch der Hamming-Abstand. Weitere erwähnenswerte Metriken lauten: Summe der Abstandsquadrate, Abstand der maximalen Komponente. 
-                Metrischer Raum: Ist definiert als eine Menge in der eine Abstandsfunktion definiert ist.
-                $D(x,y)$ mit $x,y \in \mathbb{R}^n$.
-                Folglich kann man, innerhalb dieser definierten Menge, zwischen Elementen Abstände bestimmen, was sich besonders nützlich für die im Folgenden behandelten Anwendungen erweist.
-                Als Entwickler muss man sich bei der Auswahl der Metrik im Klaren sein, welche Abstandsfunktion für seine Anwendung am besten geeignet ist. 
+                Innerhalb des definierten, metrischen $n$-dimensionalen Merkmalsraumes kann man infolgedessen die Unterschiedlichkeit zweier betrachteten Objekte mithilfe einer Abstandsfunktion bestimmen. Somit kennen wir die Ähnlichkeit zweier Datenpunkte zueinander, wenn der Abstand zwischen ihnen im Merkmalsraum bekannt ist.\par Hierzu bieten sich eine Vielzahl an Metriken an z.B. die euklidische Norm, Manhattan-Abstand als auch der Hamming-Abstand. Weitere erwähnenswerte Metriken lauten: Summe der Abstandsquadrate, Abstand der maximalen Komponente.\par 
+                Als \emph{metrischen Raum} bezeichnet man eine Menge in der eine Abstandsfunktion $D(x,y)$ mit $x,y \in \mathbb{R}^n$ definiert ist.\par
+                Folglich kann man, innerhalb dieser definierten Menge, zwischen Elementen Abstände bestimmen, was sich besonders nützlich für die im Folgenden behandelten Anwendungen erweist. \par
+                Ein Entwickler muss sich zusätzlich bei der Auswahl einer Metrik im Klaren sein, welche Abstandsfunktion für seine Anwendung am besten geeignet ist.
             \subsection{Euklidische Norm}
-                Die verbreiteste Abstandsfunktion, die meist mit dem Satz des Pythagoras eingeführt und berechnet werden kann.
-                Euklidische Norm ist definiert als:
+                Die verbreiteste Abstandsfunktion, die meist mit dem Satz des Pythagoras eingeführt und berechnet werden kann, ist die der euklidischen Norm und ist wie folgt definiert:
                 $$ x,y \in \mathbb{R}^n $$
                 $$
                     d_e(x,y):= |x - y| = \sqrt{\sum_{i=1}^{n}(x_i -y_i)^2}
                 $$        
-                In unterschiedlichen Anwendungsfällen können bestimmte Merkmale eine wichtigere Rolle spielen als andere[1]. Eine gewichtete Variante der euklidischen Norm sieht wie folgt aus:
-                Gewichtete euklidische Norm ist definiert als:
+                In unterschiedlichen Anwendungsfällen können bestimmte Merkmale eine wichtigere Rolle spielen als andere.\cite{ertel2016_p207} Eine gewichtete Variante der euklidischen Norm sieht wie folgt aus:
                 $$w,x,y \in \mathbb{R}^n $$
                 $$
                     d_w(x,y):= |x - y| = \sqrt{\sum_{i=1}^{n}w_i(x_i -y_i)^2}
                 $$     
             
             \subsection{Manhattan-Abstand}
-                Betrachtet wird hierbei nur Geraden, die parallel zu den Ursprungsachsen verlaufen. Man bewegt sich also nur auf der horizontalen und vertikalen Ebene, um die Distanz zwischen zwei Punkten zu bestimmen und summiert deren Länge auf, sodass man den Gesamtabstand ermitteln kann.
-                Schaubild
-                Noch eine Erklärung zum Schaubild
-
-                Manhattan-Abstand ist definiert als:
+                Betrachtet hierbei werden nur Geraden, die parallel zu den Ursprungsachsen verlaufen. Man bewegt sich nur auf der horizontalen und vertikalen Ebene, um zwei Punkte zu verbinden. Die Distanz entspricht der aufsummierten Länge, der gebildeten Geraden.\par
+                **Schaubild**
+                **Noch eine Erklärung zum Schaubild**\par
+				
+                Die formale Definition des Manhattan-Abstands lautet:
                 $$
                     x,y \in \mathbb{R}^n 
                 $$
                 $$
                     d_m(x,y):= \sum_{i=1}^{n} |x_i -y_i|
                 $$
-                /formatierung
-                Formel
-                /formatierung
                          
             \subsection{Hamming-Abstand}
-                Ist ein Abstandsmaß, dass bei Zeichenketten häufig Verwendung findet:
-                Und gibt die Unterschiedlichkeit zwischen zwei Zeichenketten als numerischen Wert wieder.
-                        
-                Hamming-Abstand ist definiert als metrische Funktion innerhalb eines Zeichenraumes 
-                $\Sigma$:
+                Ist ein Abstandsmaß, dass bei Zeichenketten häufig Verwendung findet und gibt die Unterschiedlichkeit zwischen zwei endlichen Elementen aus einem Zeichenraum $\Sigma$ als Wert wieder.\par
 	            $$ x,y \in \Sigma^n $$
-	            $$ d_h(x,y):= |x_i \neq y_i |$$
-                Beispiel, wie der Manhattan Abstand zwischen zwei Zeichenketten (hier: Binärzahlen) aussehen würde.
-                $\sum^2=\{0,1\}$ als unser Alphabet definiert.
-                $x = 01101$
-                $y= 10001$
-                $D_h(x,y)=3$, da wir nur an den Stellen $i={1,2,3}$ also in $ x_1,x_2,x_3$ Unterschiede zu $y_1,y_2,y_3$ vorfinden.
+	            $$ d_h(x,y):= |x_i \neq y_i |$$\par
+                Es folgt ein Beispiel, wie der Manhattan Abstand zwischen zwei Zeichenketten (hier: Binärzahlen) aussehen würde.\par
+                $\sum=\{0,1\}$ als Alphabet.\par
+                $x = 01101$\par
+                $y= 10001$\par
+                $D_h(x,y)=3$, da wir nur an den Stellen $i=\{1,2,3\}$ also in $ x_1,x_2,x_3$ Unterschiede zu $y_1,y_2,y_3$ vorfinden.
                         
             \subsection{Lazy Learning Algorithmen}  
                 Sind im Gegensatz zu den eager learning Lernverfahren, auch faules Lernen gennant, eine weitere Kategorie von Lernverfahren. Lazy learning Algorithmen sind gekennzeichnet dadurch, dass der Großteil der benötigten Rechenzeit nicht wie beim eager Learning zum Ermitteln einer Klassifikationsabbildung verwendet wird, sondern es genügt alle Trainingsdaten in eine vom System verwendete Datenstruktur zu sichern. 
