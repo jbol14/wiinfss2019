@@ -1,8 +1,13 @@
-\begin{thebibliography}{Koh05}
+\begin{thebibliography}{Ert08b}
 
-\bibitem[Ert08]{ertel2016}
+\bibitem[Ert08a]{ertel2016}
 Wolfgang Ertel.
 \newblock {\em Grundkurs K\"unstliche Intelligenz}.
+\newblock Springer Fachmedien, Wiesbaden, 2016 edition, 2008.
+
+\bibitem[Ert08b]{ertel2016_p207}
+Wolfgang Ertel.
+\newblock {\em Grundkurs K\"unstliche Intelligenz}, page 207.
 \newblock Springer Fachmedien, Wiesbaden, 2016 edition, 2008.
 
 \bibitem[Koh05]{kohn2005}
