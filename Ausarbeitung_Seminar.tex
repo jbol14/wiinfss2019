@@ -1,4 +1,4 @@
-\documentclass[a4paper]{scrartcl}
+\documentclass[fontsize=11pt]{scrartcl}
 
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
@@ -71,12 +71,15 @@
     
     \newpage
 
-    \begin{multicols}{2}
+    %\begin{multicols}{2}
         \section{Einleitung}
             \subsection{Umfang dieser Arbeit}
                 Im Rahmend dieser Arbeit sollen Grundlagen des \emph{Data Mining} und des \emph{maschinellen Lernens} dargelegt werden.\\
                 Wolfgang Ertel definiert \emph{Data Mining} wie folgt:\\
-                \glqq Der Prozess des Gewinnens von Wissen aus Daten sowie dessen Darstellung und Anwendung wird als \emph{Data Mining} bezeichnet. Die verwendeten Methoden kommen meist aus der Statistik oder dem maschinellen Lernen und sollten auch auf sehr große Datenmengen mit vertretbarem Aufwand anwendbar sein.\grqq \cite{ertel2016}
+                \begin{quote}
+                    \glqq Der Prozess des Gewinnens von Wissen aus Daten sowie dessen Darstellung und Anwendung wird als \emph{Data Mining} bezeichnet. Die verwendeten Methoden kommen meist aus der Statistik oder dem maschinellen Lernen und sollten auch auf sehr große Datenmengen mit vertretbarem Aufwand anwendbar sein.\grqq    
+                \end{quote}
+                 \cite{ertel2016}
                 \\
                 \\
                 Anhand dieser Definition soll der Umfang der Arbeit festgelegt werden. Es sollen grundlegende Methoden der \emph{deskriptiven Statistik} und Prinzipien des \emph{maschinellen Lernens} werden.\\
@@ -640,7 +643,7 @@
                 Bei den nearest-Neighbour Methoden gibt es keine Fallunterscheidung in bessere oder schlechtere Ausgangssituationen, da bei keiner Konstellation der Trainingsdaten Unterschiede in Ablauf entstehen.
                 Nicht außer Acht gelassen werden darf die ist Tatsache, dass mit n nur die Anzahl Trainingsdaten gemeint ist und nicht verwechselt werden darf mit der Anzahl Dimensionen aus denen ein Punkt aus dem Merkmalsraum geformt ist.
 
-    \end{multicols}
+    %\end{multicols}
 
     \bibliography{literatur}
     \bibliographystyle{alpha}
