@@ -275,11 +275,6 @@
                         \newline
                         Als Trainingsdaten dienen die Mengen $M_+ = \{(0,1.8),(2,0.6)\}$ und \newline $M_- = \{(-1.2,1.4),(0.4,-1)\}$, alsi initialer Gewichtsvektor $w$ dient $(1,1)$.\\
                         1. Durchlauf:\\
-                        \begin{Figure}
-                            \centering
-                            \includegraphics[scale=0.5]{bsp1.png}
-                            \captionof{figure}{Situation vor Iteration 1}
-                        \end{Figure}
                         $M_+$\\
                         $(1,1)\cdot(0,1.8) = 1.8 > 0 \rightarrow $ erster Vektor korrekt klassifiziert.\\
                         $(1,1)\cdot(2,0.6) = 2.6 > 0 \rightarrow$ zweiter Vektor korrekt klassifiziert\\
@@ -287,16 +282,21 @@
                         $(1,1)\cdot(-1.2,1.4) = 0.2 \geq 0 \rightarrow$ dritter Vektor falsch klassifiziert\\
                         $\rightarrow w_{neu} = (1,1)-(-1.2,1.4) = (2.2,-0.4)$\\
                         $(2.2,-0.4) \cdot (0.4,-1) = 1.28 \geq 0 \rightarrow$ vierter Vektor falsch klassifiziert\\
-                        $\rightarrow w_{neu} = (2.2,-0.4)-(0.4,-1) = (1.8,0.6)$\\
-                        \\
-                        2. Durchlauf:\\
+                        $\rightarrow w_{neu} = (2.2,-0.4)-(0.4,-1) = (1.8,0.6)$
 
                         \begin{Figure}
-                            \centering
-                            \includegraphics[scale=0.5]{bsp2.png}
-                            \captionof{figure}{Situation vor Iteration 2}
+                            \begin{minipage}[b]{.4\linewidth}
+                                \includegraphics[scale=0.5]{bsp1.png}
+                                \captionof{figure}{Situation vor Iteration 1}    
+                            \end{minipage}
+                            \hspace{.1\linewidth}
+                            \begin{minipage}[b]{.4\linewidth}
+                                \includegraphics[scale=0.5]{bsp2.png}
+                                \captionof{figure}{Situation nach Iteration 1}    
+                            \end{minipage}
                         \end{Figure}
 
+                        2. Durchlauf:\\
                         $M_+$\\
                         $(1.8,0.6)\cdot (0,1.8) = 1.08 > 0 \rightarrow$ erster Vektor korrekt klassifiziert.\\
                         $(1.8,0.6)\cdot (2,0.6) = 3.96 > 0 \rightarrow$ zweiter Vektor korrekt klassifiziert.\\
@@ -306,11 +306,6 @@
                         $\rightarrow w_{neu} = (1.8,0.6)-(0.4,-1) = (1.4,1.6)$\\
                         \\
                         3. Durchlauf:\\
-                        \begin{Figure}
-                            \centering 
-                            \includegraphics[scale=0.5]{bsp3.png}
-                            \captionof{figure}{Situation vor Iteration 3}
-                        \end{Figure}
                         $M_+$\\
                         $(1.4,1.6)\cdot (0,1.8) = 2.88 > 0 \rightarrow$ erster Vektor korrekt klassifiziert.\\
                         $(1.4,1.6)\cdot (2,0.6) = 3,76 > 0 \rightarrow$ zweiter Vektor korrekt klassifiziert.\\
@@ -319,13 +314,18 @@
                         $\rightarrow w_{neu} = (1.4,1.6)-(-1.2,1.4) = (2.6,0.2)$\\
                         $(2.6,0.2)\cdot (0.4,-1) = 0.84 > 0 \rightarrow$ vierter Vektor falsch klassifiziert.\\
                         $\rightarrow w_{neu} = (2.6,0.2)-(0.4,-1) = (2.2,1.2)$\\
-                        \\
-                        4. Durchlauf:\\
                         \begin{Figure}
-                            \centering
-                            \includegraphics[scale=0.5]{bsp4.png}
-                            \captionof{figure}{Situation vor Durchlauf 4}
+                            \begin{minipage}[b]{.4\linewidth}
+                                \includegraphics[scale=0.5]{bsp3.png}
+                                \captionof{figure}{Situation vor Iteration 3}    
+                            \end{minipage}
+                            \hspace{.1\linewidth}
+                            \begin{minipage}[b]{.4\linewidth}
+                                \includegraphics[scale=0.5]{bsp4.png}
+                                \captionof{figure}{Situation nach Iteration 3}    
+                            \end{minipage}     
                         \end{Figure}
+                        4. Durchlauf:\\
                         $M_+$\\
                         $(2.2,1.2)\cdot (0,1.8) = 2.16 > 0 \rightarrow$ erster Vektor korrekt klassifiziert.\\
                         $(2.2,1.2)\cdot (2,0.6) = 5.12 > 0 \rightarrow$ zweiter Vektor korrekt klassifiziert.\\
@@ -412,7 +412,7 @@
                         \begin{Figure}
                             \centering
                             \includegraphics[scale=0.5]{XOR.png}
-                            \captionof{figure}{Versuch, die Klassen zu trennen}    
+                            \captionof{figure}{Versuch, die Klassen zu trennen}   
                         \end{Figure}
                         Auch in diesem Fall wird durch einen Blick auf den Graphen deutlich, dass es Möglichkeit gibt, die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene, die der Gleichung der Form
                         $$
@@ -515,39 +515,38 @@
             \subsection{Nearest-Neighbour Algorithmus}
                 %Bilder Nearst Neighbou
                 \begin{Figure}
-                    \centering
-                    \includegraphics[scale=0.3]{nn1.png}
-                    \captionof{figure}{Ausgangssituation}
-                \end{Figure}
+                    \begin{minipage}[b]{.4\linewidth}
+                        \includegraphics[scale=0.2]{nn1.png}
+                        \captionof{figure}{Ausgangssituation}    
+                    \end{minipage}
+                    \hspace{.1\linewidth}
+                    \begin{minipage}[b]{.4\linewidth}
+                        \includegraphics[scale=0.2]{nn2.png}
+                    \captionof{figure}{}    
+                    \end{minipage}
+                    \hspace{.1\linewidth}
+                    \begin{minipage}[b]{.4\linewidth}
+                        \includegraphics[scale=0.2]{nn3.png}
+                        \captionof{figure}{}    
+                    \end{minipage}
+                    \hspace{.1\linewidth}
+                    \begin{minipage}[b]{.4\linewidth}
+                        \includegraphics[scale=0.2]{nn4.png}
+                        \captionof{figure}{}    
+                    \end{minipage}
+                \end{Figure}       
+                       
                 
                 \begin{Figure}
-                    \centering
-                    \includegraphics[scale=0.3]{nn2.png}
-                    \captionof{figure}{}
-                \end{Figure}    
-                
-                \begin{Figure}
-                    \centering
-                    \includegraphics[scale=0.3]{nn3.png}
-                    \captionof{figure}{}
-                \end{Figure}        
-                
-                \begin{Figure}
-                    \centering
-                    \includegraphics[scale=0.3]{nn4.png}
-                    \captionof{figure}{}
-                \end{Figure}        
-                
-                \begin{Figure}
-                    \centering
-                    \includegraphics[scale=0.3]{nn5.png}
-                    \captionof{figure}{}
-                \end{Figure}        
-                
-                \begin{Figure}
-                    \centering
-                    \includegraphics[scale=0.3]{nn6.png}
-                    \captionof{figure}{Situation nach Durchlauf des Algorithmus}
+                    \begin{minipage}[b]{.4\linewidth}
+                        \includegraphics[scale=0.2]{nn5.png}
+                        \captionof{figure}{}    
+                    \end{minipage}
+                    \hspace{.1\linewidth}
+                    \begin{minipage}[b]{.4\linewidth}
+                        \includegraphics[scale=0.2]{nn6.png}
+                        \captionof{figure}{Situation nach Durchlauf des Algorithmus}
+                    \end{minipage}
                 \end{Figure}
                     
             \subsection{Kritik an der Nearest-Neighbour Methode}
@@ -556,22 +555,21 @@
                          
                 Schaubild Beispiel Nearest Neighbour mit Ausreißer.
                 \begin{Figure}
-                    \centering
-                    \includegraphics[scale=0.3]{errnn1.png}
-                    \captionof{figure}{Ausgangssituation}
-                \end{Figure}         
-                
-                \begin{Figure}
-                    \centering
-                    \includegraphics[scale=0.3]{errnn2.png}
-                    \captionof{figure}{}
-                \end{Figure}            
-                
-                \begin{Figure}
-                    \centering
-                    \includegraphics[scale=0.3]{errnn3.png}
-                    \captionof{figure}{}
-                \end{Figure}            
+                    \begin{minipage}[b]{.4\linewidth}
+                        \includegraphics[scale=0.2]{errnn1.png}
+                        \captionof{figure}{Ausgangssituation}    
+                    \end{minipage}
+                    \hspace{.1\linewidth}
+                    \begin{minipage}[b]{.4\linewidth}
+                        \includegraphics[scale=0.2]{errnn2.png}
+                        \captionof{figure}{}
+                    \end{minipage}
+                    \hspace{.1\linewidth}
+                    \begin{minipage}[b]{.4\linewidth}
+                        \includegraphics[scale=0.2]{errnn3.png}
+                        \captionof{figure}{}    
+                    \end{minipage}
+                \end{Figure}           
                 
                          
         \section{k-nearest-Neighbour Methode}
@@ -600,34 +598,32 @@
                             
                 % Schaubilder
                 \begin{Figure}
-                    \centering
-                    \includegraphics[scale=0.3]{nn1.png}
-                    \captionof{figure}{}
+                    \begin{minipage}[b]{.4\linewidth}
+                        \includegraphics[scale=0.2]{nn1.png}
+                        \captionof{figure}{}    
+                    \end{minipage}
+                    \hspace{.1\linewidth}
+                    \begin{minipage}[b]{.4\linewidth}
+                        \includegraphics[scale=0.2]{nn2.png}
+                        \captionof{figure}{}    
+                    \end{minipage}
                 \end{Figure}
-                
                 \begin{Figure}
-                    \centering
-                    \includegraphics[scale=0.3]{nn2.png}
-                    \captionof{figure}{}
-                \end{Figure}
-                
-                \begin{Figure}
-                    \centering
-                    \includegraphics[scale=0.3]{knn2_b.png}
-                    \captionof{figure}{}
-                \end{Figure}         
-                
-                \begin{Figure}
-                    \centering
-                    \includegraphics[scale=0.3]{knn3.png}
-                    \captionof{figure}{}
-                \end{Figure}
-                
-                \begin{Figure}
-                    \centering
-                    \includegraphics[scale=0.3]{knn4.png}
+                    \begin{minipage}[b]{.4\linewidth}
+                        \includegraphics[scale=0.2]{knn2_b.png}
+                        \captionof{figure}{}    
+                    \end{minipage}
+                    \hspace{.1\linewidth}
+                    \begin{minipage}[b]{.4\linewidth}
+                        \includegraphics[scale=0.2]{knn3.png}
                     \captionof{figure}{}    
-                \end{Figure}        
+                    \end{minipage}
+                    \hspace{.1\linewidth}
+                    \begin{minipage}[b]{.4\linewidth}
+                        \includegraphics[scale=0.2]{knn4.png}
+                        \captionof{figure}{}  
+                    \end{minipage}
+                \end{Figure}     
                 
                         
                 (Erklärung zu den Schaubildern)
@@ -660,20 +656,19 @@
                         
         \section{Voronoi-Diagramm Beispiel}
             \begin{Figure}
-                \centering
-                \includegraphics[scale=0.5]{vor1.png}
-                \captionof{figure}{Zu klassifizierende Punkte}
+                \begin{minipage}[b]{.4\linewidth}
+                    \includegraphics[scale=0.3]{vor1.png}
+                    \captionof{figure}{Zu klassifizierende Punkte}    
+                \end{minipage}
+                \hspace{.1\linewidth}
+                \begin{minipage}[b]{.4\linewidth}
+                    \includegraphics[scale=0.3]{vor2.png}
+                    \captionof{figure}{Voronoi-Diagramm}    
+                \end{minipage}
             \end{Figure}
-            
             \begin{Figure}
                 \centering
-                \includegraphics[scale=0.5]{vor2.png}
-                \captionof{figure}{Voronoi-Diagramm}
-            \end{Figure}            
-            
-            \begin{Figure}
-                \centering
-                \includegraphics[scale=0.5]{vor3.png}
+                \includegraphics[scale=0.4]{vor3.png}
                 \captionof{figure}{Trennung von zwei Klassen}
             \end{Figure}        
             
