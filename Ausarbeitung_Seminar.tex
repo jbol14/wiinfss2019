@@ -79,29 +79,27 @@
                 \begin{quote}
                     \glqq Der Prozess des Gewinnens von Wissen aus Daten sowie dessen Darstellung und Anwendung wird als \emph{Data Mining} bezeichnet. Die verwendeten Methoden kommen meist aus der Statistik oder dem maschinellen Lernen und sollten auch auf sehr große Datenmengen mit vertretbarem Aufwand anwendbar sein.\grqq    
                 \end{quote}
-                 \cite{ertel2016}
-                \\
-                \\
-                Anhand dieser Definition soll der Umfang der Arbeit festgelegt werden. Es sollen grundlegende Methoden der \emph{deskriptiven Statistik} und Prinzipien des \emph{maschinellen Lernens} werden.\\
+
+                Anhand dieser Definition soll der Umfang der Arbeit festgelegt werden. Es sollen grundlegende Methoden der \emph{deskriptiven Statistik} und Prinzipien des \emph{maschinellen Lernens} vorgestellt werden.\\
                 Im Bereich des \emph{maschinellen Lernens} sollen insbesondere Lernverfahren aus dem Bereich des \emph{Lernens mit Lehrer} (auch \emph{supervised learning} genannt). Bei diesen Lernverfahren handelt es sich um solche, die \emph{Trainingsdaten} verwenden, um einen diskreten Klassen- oder stetigen Funktionswert berechnen. \cite{ertel2016}
 
-            \subsection{Maschinelles Lernen als Teilmenge künstlicher Intelligenz}
+            % \subsection{Maschinelles Lernen als Teilmenge künstlicher Intelligenz}
             % Blindtext, überarbeiten
-            Maschinelles Lernen stellt einen Teilbereich der künstlichen Intelligenz dar und beschränkt sich auf das Klassifizieren von Daten.
+            % Maschinelles Lernen stellt einen Teilbereich der künstlichen Intelligenz dar und beschränkt sich auf das Klassifizieren von Daten.
 
-            \subsection{Machine Learning Frameworks}
-                Im letzten Jahrzent hat der Teilbereich \emph{maschinelles Lernen} viele Fortschritte gemacht und gehört zu den Bereichen der künstlichen Intelligenz, in denen am meisten geforscht wurde. Dies drückt sich auch in den relativ neuen Frameworks, die in diesem Bereich auf den Markt gekommen sind.
+            % \subsection{Machine Learning Frameworks}
+                % Im letzten Jahrzent hat der Teilbereich \emph{maschinelles Lernen} viele Fortschritte gemacht und gehört zu den Bereichen der künstlichen Intelligenz, in denen am meisten geforscht wurde. Dies drückt sich auch in den relativ neuen Frameworks, die in diesem Bereich auf den Markt gekommen sind.
 
-                \subsubsection{Scikit Learn}
-                  \emph{Scikit Learn} ist ein Framework für maschinelles Lernen in Python.
+                % \subsubsection{Scikit Learn}
+                %   \emph{Scikit Learn} ist ein Framework für maschinelles Lernen in Python.
 
-                \subsubsection{Tensorflow}
-                    \emph{Tensorflow} ist ein ML-Framwork von Google.
+                % \subsubsection{Tensorflow}
+                    % \emph{Tensorflow} ist ein ML-Framwork von Google.
 
         \section{Statistische Grundlagen}
             
             \subsection{Skalenniveaus}
-                Untersuchte Merkmale können anhand ihrer Messbarkeitseigenschaften unterscheiden und in die Kategorien \emph{qualitative}, \emph{komparative} und \emph{quantitative Merkmale} eingeteilt werden.
+                Untersuchte Merkmale können anhand ihrer Messbarkeitseigenschaften unterschieden und in die Kategorien \emph{qualitative}, \emph{komparative} und \emph{quantitative Merkmale} eingeteilt werden.
                 Qualitative Merkmale sind solche, deren Ausprägungen sich in ihrer Art unterscheiden. 
                 \cite{kohn2005}
             \subsection{Nominalskala}
@@ -134,7 +132,7 @@
                         \newline
                         Zur Berechnung des Medians wird wie folgt vorgegangen: Zuächst werden die Merkmalsausprägungen geordnet und anschließend das Mittlere Element ausgewählt. Seien dazu $n$ Stichproben genommen worden und es entspreche $x_i,i \in \{1,\dots,n\}$ dem Wert der $i$-ten Probe. Analog entspreche $x_{(i)}, i \in \{1,\dots,n\}$ der geordneten Probe, d.h. $x_{(i)} \leq x_{(i+1)} \forall i \in \{1,\dots,n\}$.
                         \newline
-                        Zur Bestimmung des mittleren Elements der Probe müssen nun unterschieden werden, ob die Probe aus einer geraden oder ungeraden Anzahl von Elementen besteht, das heißt, ist $n$ gerade oder ungerade.
+                        Zur Bestimmung des mittleren Elements der Probe muss unterschieden werden, ob die Probe aus einer geraden oder ungeraden Anzahl von Elementen besteht, das heißt, ist $n$ gerade oder ungerade.
                         \newline
                         Fall 1:
                         \newline
@@ -150,18 +148,18 @@
                         Aus der Formel folgt direkt, dass das arithmetische Mittel nicht auf nominal- oder ordinalskalierte Merkmale angewendet werden kann, da auf diesen keine Addition definiert ist.
 
                 \subsection{Streuungsmaße}
-                    Streuungsmaße geben Auskunft darüber, wie stark die Ausprägungen des untersuchten Merkmals von einem Lagemaß wie dem arithmetischen Mittel abweichen, also wie sehr sie um den Mittelwert streuen. Sie liefern damit eine Beurteilungsmöglichkeit für das verwendete Lagemaß.
+                    Streuungsmaße geben Auskunft darüber, wie stark die Ausprägungen des untersuchten Merkmals von einem Lagemaß wie dem arithmetischen Mittel abweichen, also wie sehr sie um den Mittelwert streuen. Sie liefern damit eine Beurteilungsmöglichkeit für das verwendete Lagemaß.\cite{ertel2016,kohn2005}
                     \subsubsection{Varianz}
                         Die \emph{Varianz} $\sigma^2$ ist das am häufigsten verwendete Strueungsmaß. Sie beschreibt die \emph{mittlere quadratische Abweichung} der Merkmalsausprägungen vom Mittelwert.
                         Wird die Grundgesamtheit betrachtet, so gilt die folgende Formel (\emph{empirische Varianz}): 
                         $$ \sigma^2 := \frac{1}{n}\sum_{i=1}^n(x_i - \bar{x})^2 $$
                         Soll dagegen lediglich eine Stichprobe, das heißt eine Teilmenge der Grundgesamtheit untersucht werden, so muss die Formel angepasst werden (\emph{Stichprobenvarianz}):
                         $$ \sigma^2 := \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})^2  $$
-                        In beiden Fällen ist jedoch zu beachten, dass die Maßeinheit der Varianz, aufgrund der Quadrierung des Abstandes zum Mittelwert, nicht mehr der Maßeinheit der urspürnglichen Werte entspricht.
+                        In beiden Fällen ist jedoch zu beachten, dass die Maßeinheit der Varianz, aufgrund der Quadrierung des Abstandes zum Mittelwert, nicht mehr der Maßeinheit der urspürnglichen Werte entspricht.\cite{kohn2005}
                     \subsubsection{Standardabweichung}
                         Die \emph{Standardabweichung} $\sigma$ ist die positive Quadratwurzel der Varianz. Wie bereits erläutert etnspricht die Maßeinheit der Varianz nicht der ursprünglichen Maßeinheit der Werte. Dieses Manko lässt sich mit der Standardabweichung beheben.
                         $$ \sigma := + \sqrt{\sigma^2} $$
-                        Durch das Ziehen der Quadratwurzel misst die Standardabweichung die mittlere Streuung um den Mittelwert in der gleichen Maßeinheit wie die ursprünglichen Werte.
+                        Durch das Ziehen der Quadratwurzel misst die Standardabweichung die mittlere Streuung um den Mittelwert in der gleichen Maßeinheit wie die ursprünglichen Werte.\cite{kohn2005}
 
                 \subsection{Zusammenhangsmaße}
                     Häufig, so auch im Bereich des \emph{Data Mining}, interessiert man sich jedoch nicht nur für die Ausprägungen eines einzelnen Merkmals. Viel interessanter erscheint eine Untersuchung, wie verschiedene Merkmale zueinander in Beziehung stehen. Lassen sich etwa aus den Beobachtungen eines Merkmals Rückschlüsse auf ein anderes Merkmal ziehen?
@@ -193,21 +191,21 @@
                 Der Begriff des \emph{Agenten} ist in vielen Teilbereichen der Informatik von zentraler Bedeutung, allerdings wird der Agentenbegriff in verschiedenen Teilbereichen unterschiedlich ausgelegt. So stellt ein Agent in der klassischen Informatik eine Abbildung von einer Eingabe auf eine Ausgabe dar und wird als \emph{Software-Agent} bezeichnet, während ein Agent in der Robotik einen \emph{Hardware-Agenten} bezeichnet, der eine Erweiterung des Software-Agenten um Sensoren und Aktoren darstellt, die es dem Hardware-Agenten ermöglichen, seine Umgebung wahrzunehmen und zu verändern. \cite{ertel2016}
                 \begin{Figure}
                     \centering
-                    \includegraphics[width=\linewidth]{softwareagent.png}
-                    \includegraphics[width=\linewidth]{hardwareagent.png}
+                    \includegraphics[scale=0.6]{softwareagent.png}
+                    \includegraphics[scale=0.6]{hardwareagent.png}
                     \captionof{figure}{Soft- und Hardware-Agent}   
                 \end{Figure}
                 Auch bezüglich ihrer Intelligenz unterscheiden sich Agenten voneinander.
-                Ein Agent, der lediglich eine Abbildung von der Menge aller möglichen Eingaben auf die Menge aller möglichen Ausgaben implementiert wird als \emph{Reflex-Agent} bezeichnet. Ein Reflex-Agent ist in der Lage, Probleme zu lösen, bei denen es sich um Markov-Entscheidungsprozesse handelt. Zur optimalen Lösung dieser Klasse von Problemen ist lediglich Wissen über den aktuellen Zustand der Umgebung erforderlich.
+                Ein Agent, der lediglich eine Abbildung von der Menge aller möglichen Eingaben auf die Menge aller möglichen Ausgaben implementiert wird als \emph{Reflex-Agent} bezeichnet. Ein Reflex-Agent ist in der Lage, Probleme zu lösen, bei denen es sich um Markov-Entscheidungsprozesse handelt. Zur optimalen Lösung dieser Klasse von Problemen ist lediglich Wissen über den aktuellen Zustand der Umgebung erforderlich.\cite{ertel2016}
                 \newline
-                \emph{Agenten mit Gedächtnis} hingegen sind Agenten, die bei ihren Entscheidungen Wissen über vorangegange Zustände der Umgebung berücksichtigen können.
+                \emph{Agenten mit Gedächtnis} hingegen sind Agenten, die bei ihren Entscheidungen Wissen über vorangegange Zustände der Umgebung berücksichtigen können.\cite{ertel2016}
             
             \subsubsection{Der lernende Agent}
                 Der im Rahmen dieser Arbeit zentrale Agentenbegriff ist der des \emph{lernenden Agenten}. Der lernende Agent entspricht einer Abbildung eines Eingabevektors auf eine diskrete Klasse oder einen stetigen Funktionswert. Er unterscheidet sich vom Reflex-Agenten dadurch, dass die konkrete Abbildungsvorschrift nicht vom Programmierer vorgegeben, sondern aus \emph{Trainingsdaten} eigenständig gelernt wird.
                 \begin{Figure}
                    \centering
-                   \includegraphics[width=\linewidth]{lernenderagent.png}
-                   \captionof{figure}{lernender Agent}
+                   \includegraphics[scale=1]{lernenderagent.png}
+                   \captionof{figure}{lernender Agent \cite{ertel2016}, Seite x, Abildung y}
                 \end{Figure}
                 Die \emph{Aufgabe} des \emph{lernenden Agenten}, ist das lernen einer Abbildung von einem Merkmalsvektor auf eine Klasse oder einen stetigen Funktionswert anhand von \emph{Trainingsdaten}. Es muss im Vorfeld festgelegt werden, welche Art von Agent, das heißt welches Lernverfahren, eingesetzt wird (Vergleichen Sie hierzu \emph{Perzeptron, Kapitel 4} und \emph{Nearest Neighbour Methoden}).
                 Bei der Auswahl der Trainingsdaten ist zu beachten, dass diese repräsentativ für die zu lernende Aufgabe sind, da die gelernte Abbildung ansonsten nur schlecht auf unbekannte Daten generalisiert.\\
@@ -279,10 +277,10 @@
                         1. Durchlauf:\\
                         \begin{Figure}
                             \centering
-                            \includegraphics[width=\linewidth]{bsp1.png}
+                            \includegraphics[scale=0.5]{bsp1.png}
                             \captionof{figure}{Situation vor Iteration 1}
                         \end{Figure}
-                        $M_+$
+                        $M_+$\\
                         $(1,1)\cdot(0,1.8) = 1.8 > 0 \rightarrow $ erster Vektor korrekt klassifiziert.\\
                         $(1,1)\cdot(2,0.6) = 2.6 > 0 \rightarrow$ zweiter Vektor korrekt klassifiziert\\
                         $M_-$\\
@@ -295,7 +293,7 @@
 
                         \begin{Figure}
                             \centering
-                            \includegraphics[width=\linewidth]{bsp2.png}
+                            \includegraphics[scale=0.5]{bsp2.png}
                             \captionof{figure}{Situation vor Iteration 2}
                         \end{Figure}
 
@@ -310,7 +308,7 @@
                         3. Durchlauf:\\
                         \begin{Figure}
                             \centering 
-                            \includegraphics[width=\linewidth]{bsp3.png}
+                            \includegraphics[scale=0.5]{bsp3.png}
                             \captionof{figure}{Situation vor Iteration 3}
                         \end{Figure}
                         $M_+$\\
@@ -325,7 +323,7 @@
                         4. Durchlauf:\\
                         \begin{Figure}
                             \centering
-                            \includegraphics[width=\linewidth]{bsp4.png}
+                            \includegraphics[scale=0.5]{bsp4.png}
                             \captionof{figure}{Situation vor Durchlauf 4}
                         \end{Figure}
                         $M_+$\\
@@ -337,7 +335,7 @@
                         \\
                         \begin{Figure}
                             \centering
-                            \includegraphics[width=\linewidth]{bsp4.png}
+                            \includegraphics[scale=0.5]{bsp4.png}
                             \captionof{figure}{Situation nach Terminierung des Lernverfahrens}    
                         \end{Figure}
                         Der Gewichtsvektor $w = (2.2,1.2)$, klassifiziert alle Elemente der Trainingsdaten korrekt, der Lernalgorithmus termiert und gibt $w = (2.2,1.2)$ als Ergebnis zurück.\\
@@ -396,7 +394,7 @@
                         % Bild einfügen
                         \begin{Figure}
                             \centering
-                            \includegraphics[width=\linewidth]{AND.png}
+                            \includegraphics[scale=0.5]{AND.png}
                             \captionof{figure}{Hyperebene, die die mit $1$ und $0$ klassifizierten Elemente voneinander trennt}
                         \end{Figure}
                         Am Bild wird deutlich, dass die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene von der Menge der Vektoren, die auf $0$ abbilden.
@@ -413,8 +411,8 @@
                         % Bild einfügen
                         \begin{Figure}
                             \centering
-                            \includegraphics[width=\linewidth]{XOR.png}
-                            \captionof{figure}{Versuch, die Elemente zu trennen}    
+                            \includegraphics[scale=0.5]{XOR.png}
+                            \captionof{figure}{Versuch, die Klassen zu trennen}    
                         \end{Figure}
                         Auch in diesem Fall wird durch einen Blick auf den Graphen deutlich, dass es Möglichkeit gibt, die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene, die der Gleichung der Form
                         $$
@@ -498,7 +496,7 @@
                 Wir definieren nun eine Menge $M_+$ und $M_-$ als Trainingsdaten, s als den zu klassifizierenden Datenpunkt und $t$ als den nächsten Nachbarn von s. Die Funktion argmin\{\} erhält eine endliche Menge als Eingabe und gibt die kleinste ermittelte Größe in der Menge als Rückgabewert zurück. Analog würde für argmax\{\} gelten, dass der größte ermittelte Wert zurückgegeben wird.
                         
                 Wenn der nächste Nachbarn von $s$ erfolgreich bestimmt werden konnte, kann aufgrund der Ähnlichkeit zwischen beiden Datenpunkten die Aussage getroffen werden, dass $s$ vermutlich der gleichen Klasse angehört wie $t$. Dadurch ist unsere Klassifizierung erfolgt.
-                Der Algorithmus ist wie folgt definiert:
+                Der Algorithmus ist wie folgt definiert:\\
                 \begin{algorithm}[H]
                     \KwData{$M_+,M_-,s \in \mathbb{R}^n$}
                     \KwResult{Klassifikation von s}
@@ -516,38 +514,65 @@
                         
             \subsection{Nearest-Neighbour Algorithmus}
                 %Bilder Nearst Neighbou
-                \includegraphics[width=\linewidth]{nn1.png}
-                \captionof{figure}{Ausgangssituation}
-                        
-                \includegraphics[width=\linewidth]{nn2.png}
-                \captionof{figure}{}
-                        
-                \includegraphics[width=\linewidth]{nn3.png}
-                \captionof{figure}{}
-                        
-                \includegraphics[width=\linewidth]{nn4.png}
-                \captionof{figure}{}
-                        
-                \includegraphics[width=\linewidth]{nn5.png}
-                \captionof{figure}{}
-                        
-                \includegraphics[width=\linewidth]{nn6.png}
-                \captionof{figure}{Situation nach Durchlauf des Algorithmus}
-                        
+                \begin{Figure}
+                    \centering
+                    \includegraphics[scale=0.3]{nn1.png}
+                    \captionof{figure}{Ausgangssituation}
+                \end{Figure}
+                
+                \begin{Figure}
+                    \centering
+                    \includegraphics[scale=0.3]{nn2.png}
+                    \captionof{figure}{}
+                \end{Figure}    
+                
+                \begin{Figure}
+                    \centering
+                    \includegraphics[scale=0.3]{nn3.png}
+                    \captionof{figure}{}
+                \end{Figure}        
+                
+                \begin{Figure}
+                    \centering
+                    \includegraphics[scale=0.3]{nn4.png}
+                    \captionof{figure}{}
+                \end{Figure}        
+                
+                \begin{Figure}
+                    \centering
+                    \includegraphics[scale=0.3]{nn5.png}
+                    \captionof{figure}{}
+                \end{Figure}        
+                
+                \begin{Figure}
+                    \centering
+                    \includegraphics[scale=0.3]{nn6.png}
+                    \captionof{figure}{Situation nach Durchlauf des Algorithmus}
+                \end{Figure}
+                    
             \subsection{Kritik an der Nearest-Neighbour Methode}
                 Der nearest-Neighbour ist ein mächtiges Werkzeug zum Klassifizieren von Daten, da der Algorithmus selbst anhand nicht linear separable Mengen eine Zuordnung treffen kann. Wenn das Lernverfahren jedoch mit dem bereits behandelten Perzeptron (**Kap), fällt auf, dass der nearest-Neighbour Algorithmus im $\mathbb{R}^2$ keine lineare Trennlinie bzw. im Raum des $\mathbb{R}^n$ keine trennende Hyperfläche erzeugt. Dies ist insoweit ungünstig, da anhand dieser Trennfunktion für jeden weiteren zu klassifizierenden Punkt weniger Aufwand betrieben werden muss, die zugehörige Klasse zu ermitteln.[1] 
                 Weiterer Kritikpunkt des nearest Neighbour, dass im Falle von statistischen Ausreißern in Trainingsdaten Datenpunkte möglicherweise falsch zugeordnet werden. Ein statistischer Ausreißer bedeutet im Falle des nearest Neighbour Algorithmus, dass sich innerhalb der Trainingsdaten ein oder mehr falsch klassifizierte Datenpunkte befinden. Dieses Problem besteht selbst dann, wenn in unmittelbarer Nähe weitere korrekt klassifizierte Trainingsdaten zur Verfügung stünden. Das liegt daran, dass bei dieser Variante des nearest-Neighbours nur der erste nächste Nachbarn zur Klassifizierung betrachtet wird.[1]
                          
                 Schaubild Beispiel Nearest Neighbour mit Ausreißer.
-                            
-                \includegraphics[width=\linewidth]{errnn1.png}
-                \captionof{figure}{Ausgangssituation}
-                            
-                \includegraphics[width=\linewidth]{errnn2.png}
-                \captionof{figure}{}
-                            
-                \includegraphics[width=\linewidth]{errnn3.png}
-                \captionof{figure}{}
+                \begin{Figure}
+                    \centering
+                    \includegraphics[scale=0.3]{errnn1.png}
+                    \captionof{figure}{Ausgangssituation}
+                \end{Figure}         
+                
+                \begin{Figure}
+                    \centering
+                    \includegraphics[scale=0.3]{errnn2.png}
+                    \captionof{figure}{}
+                \end{Figure}            
+                
+                \begin{Figure}
+                    \centering
+                    \includegraphics[scale=0.3]{errnn3.png}
+                    \captionof{figure}{}
+                \end{Figure}            
+                
                          
         \section{k-nearest-Neighbour Methode}
             Ist eine Variante des nearest-Neighbour. Denn bei dem k-nearest Neighbour-Algorithmus werden statt einen nächsten Nachbarn eine k-große Gruppe an nächsten Nachbarn betrachtet. Die Entscheidung zu welcher Klasse ein neuer Datenpunkt gehören soll, erfolgt durch einen Mehrheitsentscheid innerhalb dieser ermittelten k-nächsten Nachbarn.[1]
@@ -555,7 +580,7 @@
         
                            
             \subsection{k-nearest Neighbour Algorithmus}
-                Der Algorithmus ist wie folgt definiert:
+                Der Algorithmus ist wie folgt definiert:\\
                 \begin{algorithm}[H]
                     \KwData{$M_+,M_-,s \in \mathbb{R}^n$}
                     \KwResult{Klassifikation von s}
@@ -574,20 +599,36 @@
                 \end{algorithm}
                             
                 % Schaubilder
-                \includegraphics[width=\linewidth]{nn1.png}
-                \captionof{figure}{}
-                            
-                \includegraphics[width=\linewidth]{nn2.png}
-                \captionof{figure}{}
-                         
-                \includegraphics[width=\linewidth]{knn2_b.png}
-                \captionof{figure}{}
-                        
-                \includegraphics[width=\linewidth]{knn3.png}
-                \captionof{figure}{}
-                        
-                \includegraphics[width=\linewidth]{knn4.png}
-                \captionof{figure}{}
+                \begin{Figure}
+                    \centering
+                    \includegraphics[scale=0.3]{nn1.png}
+                    \captionof{figure}{}
+                \end{Figure}
+                
+                \begin{Figure}
+                    \centering
+                    \includegraphics[scale=0.3]{nn2.png}
+                    \captionof{figure}{}
+                \end{Figure}
+                
+                \begin{Figure}
+                    \centering
+                    \includegraphics[scale=0.3]{knn2_b.png}
+                    \captionof{figure}{}
+                \end{Figure}         
+                
+                \begin{Figure}
+                    \centering
+                    \includegraphics[scale=0.3]{knn3.png}
+                    \captionof{figure}{}
+                \end{Figure}
+                
+                \begin{Figure}
+                    \centering
+                    \includegraphics[scale=0.3]{knn4.png}
+                    \captionof{figure}{}    
+                \end{Figure}        
+                
                         
                 (Erklärung zu den Schaubildern)
                         
@@ -618,14 +659,24 @@
             Auf die Bestimmung eines Voronoi-Diagramms für eine endliche Datenmenge wird nur beschränkt eingegangen, da lediglich das Ergebnis für unsere Anwendung von Interesse ist.
                         
         \section{Voronoi-Diagramm Beispiel}
-            \includegraphics[width=\linewidth]{vor1.png}
-            \captionof{figure}{Zu klassifizierende Punkte}
-                        
-            \includegraphics[width=\linewidth]{vor2.png}
-            \captionof{figure}{Voronoi-Diagramm}
-                        
-            \includegraphics[width=\linewidth]{vor3.png}
-            \captionof{figure}{Trennung von zwei Klassen}
+            \begin{Figure}
+                \centering
+                \includegraphics[scale=0.5]{vor1.png}
+                \captionof{figure}{Zu klassifizierende Punkte}
+            \end{Figure}
+            
+            \begin{Figure}
+                \centering
+                \includegraphics[scale=0.5]{vor2.png}
+                \captionof{figure}{Voronoi-Diagramm}
+            \end{Figure}            
+            
+            \begin{Figure}
+                \centering
+                \includegraphics[scale=0.5]{vor3.png}
+                \captionof{figure}{Trennung von zwei Klassen}
+            \end{Figure}        
+            
                         
             % Schaubild\\
             Nachdem das Voronoi-Diagramm für eine Menge von Trainingsdaten ermitteln wurde, kann eine Trennebene eingezeichnet werden (siehe Abb. 21). Die Trennung hat die Eigenschaft, dass sich innerhalb Trennebene nur Datenpunkte einer Klasse befinden. Wird anschließend der Versuch unternommen eine Klassifizierung durchzuführen, kann man dies anhand der Trennlinie mit geringem Aufwand unternehmen.
