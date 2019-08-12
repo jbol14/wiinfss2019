@@ -28,6 +28,14 @@
 \newpage
 }
 
+\newcommand*{\quelle}{% 
+  \footnotesize Quelle: 
+}
+
+\newcommand*{\zitat}{%
+    \footnotesize 
+}
+
 \clubpenalty10000
 \widowpenalty10000
 \displaywidowpenalty=10000
@@ -77,7 +85,8 @@
                 Im Rahmend dieser Arbeit sollen Grundlagen des \emph{Data Mining} und des \emph{maschinellen Lernens} dargelegt werden.\\
                 Wolfgang Ertel definiert \emph{Data Mining} wie folgt:\\
                 \begin{quote}
-                    \glqq Der Prozess des Gewinnens von Wissen aus Daten sowie dessen Darstellung und Anwendung wird als \emph{Data Mining} bezeichnet. Die verwendeten Methoden kommen meist aus der Statistik oder dem maschinellen Lernen und sollten auch auf sehr große Datenmengen mit vertretbarem Aufwand anwendbar sein.\grqq    
+                    \glqq Der Prozess des Gewinnens von Wissen aus Daten sowie dessen Darstellung und Anwendung wird als \emph{Data Mining} bezeichnet. Die verwendeten Methoden kommen meist aus der Statistik oder dem maschinellen Lernen und sollten auch auf sehr große Datenmengen mit vertretbarem Aufwand anwendbar sein.\grqq\\
+                    \raggedleft \zitat W. Ertel,\\ Grundkurs künstliche Intelligenz, Springer Fachmedien, 2016, S. 196    
                 \end{quote}
 
                 Anhand dieser Definition soll der Umfang der Arbeit festgelegt werden. Es sollen grundlegende Methoden der \emph{deskriptiven Statistik} und Prinzipien des \emph{maschinellen Lernens} vorgestellt werden.\\
@@ -185,7 +194,9 @@
         \section{Maschinelles Lernen}
             
             \subsection{Lernen mit und ohne Lehrer}
-                Eine erste Einteilung verschiedener maschineller Lernverfahren ist die, ob das Lernverfahren auf Trainingsdaten, also auf solche Daten, für die eine korrekte Klasseneinordnung oder Funktionswert bereits bekannt ist, oder ob es ohne Trainingsdaten auskommt. Verwendet ein Lernverfahren Trainingsdaten, so wird von \emph{Lernen mit Lehrer} gesprochen, andernfalls von \emph{Lernen ohne Lehrer}.\\
+                Eine erste Einteilung verschiedener maschineller Lernverfahren ist die, ob das Lernverfahren auf Trainingsdaten, also auf solche Daten, für die eine korrekte Klasseneinordnung oder Funktionswert bereits bekannt ist, verwenden. In diesem Fall wird von \emph{Lernen mit Lehrer} oder \emph{supervised learning}gesprochen. Die richtige Klassifikation wird häufig von \emph{Experten} vorgenommen.\cite{ertel2016}
+                \\
+                Lernverfahren, die hingegen \emph{ohne} Trainingsdaten auskommen werden als Verfahren aus dem Bereich \emph{Lernen ohne Lehrer} bezeichnet.\\
                 In dieser Arbeit beschränken wir uns ausschließlich auf Lernverfahren, die auf der Verwendung von Trainingsdaten beruhen, bleiben also im Bereich des \emph{Lernens mit Lehrer}.
             \subsection{Agenten}
                 Der Begriff des \emph{Agenten} ist in vielen Teilbereichen der Informatik von zentraler Bedeutung, allerdings wird der Agentenbegriff in verschiedenen Teilbereichen unterschiedlich ausgelegt. So stellt ein Agent in der klassischen Informatik eine Abbildung von einer Eingabe auf eine Ausgabe dar und wird als \emph{Software-Agent} bezeichnet, während ein Agent in der Robotik einen \emph{Hardware-Agenten} bezeichnet, der eine Erweiterung des Software-Agenten um Sensoren und Aktoren darstellt, die es dem Hardware-Agenten ermöglichen, seine Umgebung wahrzunehmen und zu verändern. \cite{ertel2016}
@@ -193,7 +204,10 @@
                     \centering
                     \includegraphics[scale=0.6]{softwareagent.png}
                     \includegraphics[scale=0.6]{hardwareagent.png}
-                    \captionof{figure}{Soft- und Hardware-Agent}   
+                    \captionof{figure}{
+                        Soft- und Hardware-Agent
+                    }
+                    \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien, S. 18, Abb. 1.5 und S. 19 Abb. 1.6
                 \end{Figure}
                 Auch bezüglich ihrer Intelligenz unterscheiden sich Agenten voneinander.
                 Ein Agent, der lediglich eine Abbildung von der Menge aller möglichen Eingaben auf die Menge aller möglichen Ausgaben implementiert wird als \emph{Reflex-Agent} bezeichnet. Ein Reflex-Agent ist in der Lage, Probleme zu lösen, bei denen es sich um Markov-Entscheidungsprozesse handelt. Zur optimalen Lösung dieser Klasse von Problemen ist lediglich Wissen über den aktuellen Zustand der Umgebung erforderlich.\cite{ertel2016}
@@ -205,7 +219,8 @@
                 \begin{Figure}
                    \centering
                    \includegraphics[scale=1]{lernenderagent.png}
-                   \captionof{figure}{lernender Agent \cite{ertel2016}, Seite x, Abildung y}
+                   \captionof{figure}{lernender Agent}
+                   \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien Wiesbaden, 2016, S. 194, Abb. 8.4 (rechts)
                 \end{Figure}
                 Die \emph{Aufgabe} des \emph{lernenden Agenten}, ist das lernen einer Abbildung von einem Merkmalsvektor auf eine Klasse oder einen stetigen Funktionswert anhand von \emph{Trainingsdaten}. Es muss im Vorfeld festgelegt werden, welche Art von Agent, das heißt welches Lernverfahren, eingesetzt wird (Vergleichen Sie hierzu \emph{Perzeptron, Kapitel 4} und \emph{Nearest Neighbour Methoden}).
                 Bei der Auswahl der Trainingsdaten ist zu beachten, dass diese repräsentativ für die zu lernende Aufgabe sind, da die gelernte Abbildung ansonsten nur schlecht auf unbekannte Daten generalisiert.\\
@@ -396,6 +411,7 @@
                             \centering
                             \includegraphics[scale=0.5]{AND.png}
                             \captionof{figure}{Hyperebene, die die mit $1$ und $0$ klassifizierten Elemente voneinander trennt}
+                            \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien Wiesbaden, 2016, S. 201, Abb. 8.8(links)
                         \end{Figure}
                         Am Bild wird deutlich, dass die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene von der Menge der Vektoren, die auf $0$ abbilden.
                         \newline
@@ -412,13 +428,16 @@
                         \begin{Figure}
                             \centering
                             \includegraphics[scale=0.5]{XOR.png}
-                            \captionof{figure}{Versuch, die Klassen zu trennen}   
+                            \captionof{figure}{Versuch, die Klassen zu trennen}
+                            \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien Wiesbaden, 2016, S. 201, Abb. 8.8 (rechts)
                         \end{Figure}
                         Auch in diesem Fall wird durch einen Blick auf den Graphen deutlich, dass es Möglichkeit gibt, die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene, die der Gleichung der Form
                         $$
                             \sum_{i=1}^nw_ix_i = \theta
                         $$
                         genügt, von der Menge der Vektoren, die auf $0$ abbilden, zu trennen.
+
+% Ende mein Teil
                         
         \section{Grundbegriffe und Definitionen}
             \subsection{Was ist Ähnlichkeit?}
@@ -481,10 +500,10 @@
             \subsection{Lazy Learning Algorithmen}  
                 Sind im Gegensatz zu den eager learning Lernverfahren, auch faules Lernen gennant, eine weitere Kategorie von Lernverfahren. Lazy learning Algorithmen sind gekennzeichnet dadurch, dass der Großteil der benötigten Rechenzeit nicht wie beim eager Learning zum Ermitteln einer Klassifikationsabbildung verwendet wird, sondern es genügt alle Trainingsdaten in eine vom System verwendete Datenstruktur zu sichern. 
                             
-            \subsection{Trainingsdaten}
-                Sind Daten, deren    korrekte Klassifikation   bekannt ist und werden meist von Experten vorgegeben.
-                Ein Beispiel hierfür wäre, die zur Klassifikation benötigten Trainingsdaten einer Apfelsortiermaschine, bestehend aus Größe und Farbe.[1.3]
-                Nachdem uns ein Experte vorgibt, wie eine Apfelsorte auszusehen hat versucht unser System, abhängig vom Typ des Algorithmus, selbstständig eine Generalisierung vorzunehmen. 
+            % \subsection{Trainingsdaten}
+                % Sind Daten, deren    korrekte Klassifikation   bekannt ist und werden meist von Experten vorgegeben.
+                % Ein Beispiel hierfür wäre, die zur Klassifikation benötigten Trainingsdaten einer Apfelsortiermaschine, bestehend aus Größe und Farbe.[1.3]
+                % Nachdem uns ein Experte vorgibt, wie eine Apfelsorte auszusehen hat versucht unser System, abhängig vom Typ des Algorithmus, selbstständig eine Generalisierung vorzunehmen. 
                         
         \section{Nearest-Neighbour Lernverfahren}
             Gehört zu den faulen Lernverfahren, da initial außer dem Abspeichern der Trainingsdaten kein zusätzlicher Rechenaufwand betrieben wird. Als Ziel des Systems kann man bezeichnen, dass mittels Trainingsdaten versucht wird neue Daten zu klassifizieren bzw. einordnen zu können. (Vgl. ** lernender Agent)
