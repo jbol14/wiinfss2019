@@ -46,6 +46,8 @@
 %\dozent{Prof. Dr. Andreas Rausch}
 %\betreuer{Dirk Herrling, M.Sc.}
 \date{\today}
+%Einrücken der Zeile verhindern
+\setlength{\parindent}{0em} 
 
 
 \begin{document}
@@ -446,38 +448,36 @@
                         
         \section{Grundbegriffe und Definitionen}
             \subsection{Was ist Ähnlichkeit?}
-                Als Ähnlichkeit wird häufig bezeichnet, wenn in zwei oder mehr beobachteten Objekten, in zu untersuchenden Ausprägungen, Übereinstimmungen zu finden sind. 
-                Hierzu passend ist das Beispiel eines Arztes, der sich bei der Diagnose eines seiner Patienten daran erinnert bereits in der Vergangenheit bei einem anderen Patienten ähnliche Symptome festgestellt zu haben und diesen auch erfolgreich behandelt zu haben.[1] Durch das Erinnern an einem vergangenem Fall ist es dem Arzt möglich seinen aktuellen Patienten zu heilen, da die gleichen Behandlungsmethoden verwenden werden können.
-                Da für Menschen Ähnlichkeit intuitiver ist als für Maschinen, stellt sich die Frage, wie man einer Maschine vermitteln kann, wann Objekte zueinander ähnlich sind und vorallem, wie man dieses Konzept in eine für Maschinen verständliche Sprache übersetzt und diese Werte numerisch festgehalten werden können.
-                Um diese Frage beantworten zu können, helfen wir uns mit einer aus der Mathematik bekannten Datenstruktur der Vektoren.
-                Vektoren sind in diesem System Tupel von Daten. Innerhalb dieses Systems werden Vektoren mit Werten der reellen Zahlen verwendet und für Werte aus anderen Räumen wird eine eindeutige Repräsentation gesucht. Beispielsweise könnte eine Übersetzung von Zeichenketten in den reellen Raum über ein ASCII-System erfolgen. 
-                Für unsere Anwendung wird die Eigenschaft ausgenutzt, dass Vektoren Elemente des Raumes $\mathbb{R}^n$ sind, wobei jede der Dimensionen für eine konkrete Ausprägung steht. Damit lassen sich alle Daten als Punkte in einem $\mathbb{R}^n$ dimensionalen Hyperraum darstellen. Dadurch definiert Wolfgang Ertel: “Zwei Beispiele sind umso ähnlicher, je geringer ihr Abstand im Merkmalsraum ist.”[1.1] 
+                Als Ähnlichkeit wird häufig bezeichnet, wenn in zwei oder mehr beobachteten Objekten, in zu untersuchenden Ausprägungen, Übereinstimmungen zu finden sind.\par
+                Hierzu passend ist das Beispiel eines Arztes, der sich während einer Diagnose eines seiner Patienten daran erinnert, bereits in der Vergangenheit bei anderen Patienten die gleichen Symptome beobachtet zu haben.\cite{ertel2016} Durch das Erinnern, an einen Fall in der Vergangenheit und dem enstandenden Vergleich zur Gegenwart, ist es dem Arzt möglich seinen momentanen Patienten zu helfen, da die gleichen Behandlungsmethoden verwenden werden können.\par
+                Da für Menschen Ähnlichkeit intuitiver ist als für Maschinen, stellt sich die Frage, wie man einer Maschine vermitteln kann, wann Objekte zueinander ähnlich sind und vorallem, wie man dieses Konzept in eine für Maschinen verständliche Sprache übersetzt und umgesetzt werden kann.\par
+                Zu diesem Zwecke wird die aus der Mathematik bekannten Datenstruktur der Vektoren betrachtet.
+                %Um diese Frage beantworten zu können, betrachten mit einer aus der Mathematik bekannten Datenstruktur der Vektoren.
+                Vektoren sind in diesem System Tupel von Daten. Innerhalb dieses Systems werden Vektoren mit Werten der reellen Zahlen verwendet und für Werte aus anderen Räumen wird eine eindeutige Repräsentation gesucht.\par Beispielsweise könnte eine Übersetzung von Zeichenketten in den reellen Raum über ein ASCII-System erfolgen.\par 
+                Für unsere Anwendung wird die Eigenschaft ausgenutzt, dass Vektoren Elemente des Raumes $\mathbb{R}^n$ sind, wobei jede der $n$ Dimensionen für eine konkrete Ausprägung einer Eigenschaft steht. Damit lassen sich Datenmengen als Punkte in einem $\mathbb{R}^n$ dimensionalen Hyperraum darstellen. Dadurch definiert Wolfgang Ertel: “Zwei Beispiele sind umso ähnlicher, je geringer ihr Abstand im Merkmalsraum ist.”\cite{ertel2016_p207} %[1.1]
             \subsection{Einführung von Abstandsfunktionen}
-                Innerhalb des definierten, metrischen n-dimensionalen Merkmalsraumes kann man infolgedessen die Unterschiedlichkeit zweier betrachteten Objekte mithilfe einer Abstandsfunktion zu bestimmen. Folglich kennen wir die Ähnlichkeit zweier Datenpunkte, wenn der Abstand zwischen ihnen im Merkmalsraum bekannt ist. Hierzu bieten sich eine vielzahl an Metriken an z.B. die euklidische Norm, Manhattan-Abstand als auch der Hamming-Abstand. Weitere erwähnenswerte Metriken lauten: Summe der Abstandsquadrate, Abstand der maximalen Komponente. 
-                Metrischer Raum: Ist definiert als eine Menge in der eine Abstandsfunktion definiert ist.
-                $D(x,y)$ mit $x,y \in \mathbb{R}^n$.
-                Folglich kann man, innerhalb dieser definierten Menge, zwischen Elementen Abstände bestimmen, was sich besonders nützlich für die im Folgenden behandelten Anwendungen erweist.
-                Als Entwickler muss man sich bei der Auswahl der Metrik im Klaren sein, welche Abstandsfunktion für seine Anwendung am besten geeignet ist. 
+                Innerhalb des definierten, metrischen $n$-dimensionalen Merkmalsraumes kann man infolgedessen die Unterschiedlichkeit zweier betrachteten Objekte mithilfe einer Abstandsfunktion bestimmen. Somit kennen wir die Ähnlichkeit zweier Datenpunkte zueinander, wenn der Abstand zwischen ihnen im Merkmalsraum bekannt ist.\par Hierzu bieten sich eine Vielzahl an Metriken an z.B. die euklidische Norm, Manhattan-Abstand als auch der Hamming-Abstand. Weitere erwähnenswerte Metriken lauten: Summe der Abstandsquadrate, Abstand der maximalen Komponente.\par 
+                Als \emph{metrischen Raum} bezeichnet man eine Menge in der eine Abstandsfunktion $D(x,y)$ mit $x,y \in \mathbb{R}^n$ definiert ist.\par
+                Folglich kann man, innerhalb dieser definierten Menge, zwischen Elementen Abstände bestimmen, was sich besonders nützlich für die im Folgenden behandelten Anwendungen erweist. \par
+                Ein Entwickler muss sich zusätzlich bei der Auswahl einer Metrik im Klaren sein, welche Abstandsfunktion für seine Anwendung am besten geeignet ist.
             \subsection{Euklidische Norm}
-                Die verbreiteste Abstandsfunktion, die meist mit dem Satz des Pythagoras eingeführt und berechnet werden kann.
-                Euklidische Norm ist definiert als:
+                Die verbreiteste Abstandsfunktion, die meist mit dem Satz des Pythagoras eingeführt und berechnet werden kann, ist die der euklidischen Norm und ist wie folgt definiert:
                 $$ x,y \in \mathbb{R}^n $$
                 $$
                     d_e(x,y):= |x - y| = \sqrt{\sum_{i=1}^{n}(x_i -y_i)^2}
-                $$        
-                In unterschiedlichen Anwendungsfällen können bestimmte Merkmale eine wichtigere Rolle spielen als andere[1]. Eine gewichtete Variante der euklidischen Norm sieht wie folgt aus:
-                Gewichtete euklidische Norm ist definiert als:
+                $$\par
+                In unterschiedlichen Anwendungsfällen können bestimmte Merkmale eine wichtigere Rolle spielen als andere.\cite{ertel2016_p207} Dazu wird die euklidische Norm um einen Gewichtsvektor $w$ erweitert, wobei dieser die Gewichtung jeder einzelnen Komponente bestimmt.\par Eine gewichtete Variante der euklidischen Norm sieht wie folgt aus:\par
                 $$w,x,y \in \mathbb{R}^n $$
                 $$
                     d_w(x,y):= |x - y| = \sqrt{\sum_{i=1}^{n}w_i(x_i -y_i)^2}
                 $$     
             
             \subsection{Manhattan-Abstand}
-                Betrachtet wird hierbei nur Geraden, die parallel zu den Ursprungsachsen verlaufen. Man bewegt sich also nur auf der horizontalen und vertikalen Ebene, um die Distanz zwischen zwei Punkten zu bestimmen und summiert deren Länge auf, sodass man den Gesamtabstand ermitteln kann.
-                Schaubild
-                Noch eine Erklärung zum Schaubild
-
-                Manhattan-Abstand ist definiert als:
+                Betrachtet hierbei werden nur Geraden, die parallel zu den Ursprungsachsen verlaufen. Man bewegt sich nur auf der horizontalen und vertikalen Ebene, um zwei Punkte zu verbinden. Die Distanz entspricht der aufsummierten Länge, der dadurch gebildeten Geraden.\par
+                **Schaubild**
+                **Noch eine Erklärung zum Schaubild**\par
+				
+                Die formale Definition des Manhattan-Abstands lautet:
                 $$
                     x,y \in \mathbb{R}^n 
                 $$
@@ -486,21 +486,17 @@
                 $$
                          
             \subsection{Hamming-Abstand}
-                Ist ein Abstandsmaß, dass bei Zeichenketten häufig Verwendung findet:
-                Und gibt die Unterschiedlichkeit zwischen zwei Zeichenketten als numerischen Wert wieder.
-                        
-                Hamming-Abstand ist definiert als metrische Funktion innerhalb eines Zeichenraumes 
-                $\Sigma$:
+                Ist ein Abstandsmaß, dass bei Zeichenketten häufig Verwendung findet und gibt die Unterschiedlichkeit zwischen zwei endlichen Elementen aus einem Zeichenraum $\Sigma$ als Wert wieder.\par
 	            $$ x,y \in \Sigma^n $$
-	            $$ d_h(x,y):= |x_i \neq y_i |$$
-                Beispiel, wie der Manhattan Abstand zwischen zwei Zeichenketten (hier: Binärzahlen) aussehen würde.
-                $\sum^2=\{0,1\}$ als unser Alphabet definiert.
-                $x = 01101$
-                $y= 10001$
-                $D_h(x,y)=3$, da wir nur an den Stellen $i={1,2,3}$ also in $ x_1,x_2,x_3$ Unterschiede zu $y_1,y_2,y_3$ vorfinden.
+	            $$ d_h(x,y):= |x_i \neq y_i |$$\par
+                Es folgt ein Beispiel, wie der Manhattan Abstand zwischen zwei Zeichenketten (hier: Binärzahlen) aussehen würde.\par
+                $\sum=\{0,1\}$ als Alphabet.\par
+                $x = 01101$\par
+                $y= 10001$\par
+                $D_h(x,y)=3$, da wir nur an den Stellen $i=\{1,2,3\}$ also in $ x_1,x_2,x_3$ Unterschiede zu $y_1,y_2,y_3$ vorfinden.
                         
-            \subsection{Lazy Learning Algorithmen}  
-                Sind im Gegensatz zu den eager learning Lernverfahren, auch faules Lernen gennant, eine weitere Kategorie von Lernverfahren. Lazy learning Algorithmen sind gekennzeichnet dadurch, dass der Großteil der benötigten Rechenzeit nicht wie beim eager Learning zum Ermitteln einer Klassifikationsabbildung verwendet wird, sondern es genügt alle Trainingsdaten in eine vom System verwendete Datenstruktur zu sichern. 
+            \subsection{Lazy Learning Lernverfahren}  
+                Stehen im Gegensatz zu den \emph{Eager Learning Lernverfahren}. Das \emph{Lazy Learning} wird auch faules Lernen gennant und ist eine weitere Kategorie von Lernverfahren. Diese Art von Verfahren sind gekennzeichnet dadurch, dass es genügt alle vorhandenen Trainingsdaten in eine vom System verwendete Datenstruktur zu sichern. Es wird keine Klassifikationsabbildung ermittelt, wie bei dem \emph{Eager Learning}. % dass der Großteil der benötigten Rechenzeit nicht wie beim eager Learning zum Ermitteln einer Klassifikationsabbildung verwendet wird, sondern es genügt alle Trainingsdaten in eine vom System verwendete Datenstruktur zu sichern. 
                             
             % \subsection{Trainingsdaten}
                 % Sind Daten, deren    korrekte Klassifikation   bekannt ist und werden meist von Experten vorgegeben.
@@ -508,19 +504,19 @@
                 % Nachdem uns ein Experte vorgibt, wie eine Apfelsorte auszusehen hat versucht unser System, abhängig vom Typ des Algorithmus, selbstständig eine Generalisierung vorzunehmen. 
                         
         \section{Nearest-Neighbour Lernverfahren}
-            Gehört zu den faulen Lernverfahren, da initial außer dem Abspeichern der Trainingsdaten kein zusätzlicher Rechenaufwand betrieben wird. Als Ziel des Systems kann man bezeichnen, dass mittels Trainingsdaten versucht wird neue Daten zu klassifizieren bzw. einordnen zu können. (Vgl. ** lernender Agent)
+            Gehört zu den faulen Lernverfahren, da initial außer dem Abspeichern der Trainingsdaten kein zusätzlicher Rechenaufwand betrieben wird. Als Ziel des Systems kann man bezeichnen, dass mittels Trainingsdaten versucht wird neue Daten zu klassifizieren bzw. einordnen zu können. (Vgl. Kapitel ** lernender Agent)
                         
             \subsection{Nearest-Neighbour Methode}
-                Einführend werden wegen der Anschaulichkeit nur zwei mögliche Klassen, denenein Datenpunkt zugeordnet werden kann, betrachtet. Jedoch kann die Methode des nearest- Neighbour problemlos auf mehr Klassen erweitert werden.
-                Unsere Datenpunkte sind Vektoren des $\mathbb{R}^n$, wobei jede Komponente einer konkreten Ausprägung entspricht. 
-                Beispielsweise könnte der Versuch einen Patienten mittels eines Vektors darzustellen, wie folgt aussehen. Indem man jeder Komponente des Vektors eine konkrete Ausprägung des Patienten zuordnet, wie z.B. einer Komponente das Alter oder die Größe der Person, kann auf diese Weise ein Vektor einen Patienten repräsentieren und alle für unser System benötigten Informationen enthalten.
-                Wir definieren nun eine Menge $M_+$ und $M_-$ als Trainingsdaten, s als den zu klassifizierenden Datenpunkt und $t$ als den nächsten Nachbarn von s. Die Funktion argmin\{\} erhält eine endliche Menge als Eingabe und gibt die kleinste ermittelte Größe in der Menge als Rückgabewert zurück. Analog würde für argmax\{\} gelten, dass der größte ermittelte Wert zurückgegeben wird.
+                Einführend werden zur Anschaulichkeit nur zwei mögliche Klassen, denen ein Datenpunkt zugeordnet werden kann, betrachtet. Jedoch kann die Methode des \emph{nearest- Neighbour} problemlos auf mehr Klassen erweitert werden.\par
+                Unsere Datenpunkte sind Vektoren des $\mathbb{R}^n$, wobei jede Komponente einer konkreten Ausprägung entspricht.\par
+                Beispielsweise könnte der Versuch einen Patienten mittels eines Vektors darzustellen, wie folgt aussehen. Indem man jeder Komponente des Vektors eine konkrete Ausprägung des Patienten zuordnet, wie z.B. einer Komponente das Alter oder die Größe der Person, kann auf diese Weise ein Vektor einen Patienten repräsentieren und alle für unser System benötigten Informationen enthalten.\par
+                Zu Beginn werden die Mengen $M_+$ und $M_-$ als Trainingsdaten, $s$ als den zu klassifizierenden Datenpunkt und $t$ als den nächsten Nachbarn von $s$ definiert. Die Funktion \emph{argmin\{\}} erhält eine endliche Menge als Eingabe und gibt die kleinste ermittelte Größe als Rückgabewert zurück. Analog würde für \emph{argmax\{\}} gelten, dass der größte ermittelte Wert zurückgegeben wird.\par
                         
-                Wenn der nächste Nachbarn von $s$ erfolgreich bestimmt werden konnte, kann aufgrund der Ähnlichkeit zwischen beiden Datenpunkten die Aussage getroffen werden, dass $s$ vermutlich der gleichen Klasse angehört wie $t$. Dadurch ist unsere Klassifizierung erfolgt.
-                Der Algorithmus ist wie folgt definiert:\\
+                Die Idee des \emph{nearest-Neighbour} Verfahrens ist, wenn der nächste Nachbarn von $s$ erfolgreich bestimmt werden konnte, kann aufgrund der Ähnlichkeit zwischen beiden Datenpunkten die Aussage getroffen werden, dass $s$ vermutlich der gleichen Klasse angehört wie $t$. Dadurch ist unsere Klassifizierung erfolgt.\par
+                Der Algorithmus ist wie folgt definiert:\par
                 \begin{algorithm}[H]
                     \KwData{$M_+,M_-,s \in \mathbb{R}^n$}
-                    \KwResult{Klassifikation von s}
+                    \KwResult{Klassifikation von $s$}
                         \For{$x \in M_+ \cup M_-$}{
                             $t= argmin$\{$d(s,x)$\}\;
                         }
@@ -571,10 +567,12 @@
                 \end{Figure}
                     
             \subsection{Kritik an der Nearest-Neighbour Methode}
-                Der nearest-Neighbour ist ein mächtiges Werkzeug zum Klassifizieren von Daten, da der Algorithmus selbst anhand nicht linear separable Mengen eine Zuordnung treffen kann. Wenn das Lernverfahren jedoch mit dem bereits behandelten Perzeptron (**Kap), fällt auf, dass der nearest-Neighbour Algorithmus im $\mathbb{R}^2$ keine lineare Trennlinie bzw. im Raum des $\mathbb{R}^n$ keine trennende Hyperfläche erzeugt. Dies ist insoweit ungünstig, da anhand dieser Trennfunktion für jeden weiteren zu klassifizierenden Punkt weniger Aufwand betrieben werden muss, die zugehörige Klasse zu ermitteln.[1] 
-                Weiterer Kritikpunkt des nearest Neighbour, dass im Falle von statistischen Ausreißern in Trainingsdaten Datenpunkte möglicherweise falsch zugeordnet werden. Ein statistischer Ausreißer bedeutet im Falle des nearest Neighbour Algorithmus, dass sich innerhalb der Trainingsdaten ein oder mehr falsch klassifizierte Datenpunkte befinden. Dieses Problem besteht selbst dann, wenn in unmittelbarer Nähe weitere korrekt klassifizierte Trainingsdaten zur Verfügung stünden. Das liegt daran, dass bei dieser Variante des nearest-Neighbours nur der erste nächste Nachbarn zur Klassifizierung betrachtet wird.[1]
+                Das \emph{nearest Neighbour} Verfahren ist ein mächtiges Werkzeug zum Klassifizieren von Daten, da der Algorithmus selbst anhand nicht linear separable Mengen eine Zuordnung treffen kann.\cite{ertel2016} Wenn das Lernverfahren jedoch mit dem bereits behandelten \emph{Perzeptron} (Kapitel **)verglichen wird, fällt auf, dass der \emph{nearest Neighbour} Algorithmus im $\mathbb{R}^2$ keine lineare Trennlinie bzw. im Raum des $\mathbb{R}^n$ keine trennende Hyperfläche erzeugt. Dies ist insoweit ungünstig, da anhand dieser Trennfunktion für jeden weiteren zu klassifizierenden Punkt weniger Aufwand betrieben werden muss, die zugehörige Klasse zu ermitteln.\cite{ertel2016}\par
+                Weiterer Kritikpunkt des nearest Neighbour ist, dass im Falle von statistischen Ausreißern in den Trainingsdaten Datenpunkte möglicherweise falsch zugeordnet werden. Ein statistischer Ausreißer bedeutet im Falle des \emph{nearest Neighbour} Algorithmus, dass sich innerhalb der Trainingsdaten ein oder mehr falsch klassifizierte Datenpunkte befinden. Dieses Problem besteht selbst dann, wenn in unmittelbarer Nähe zum Betrachtungspunkt weitere korrekt klassifizierte Trainingsdaten zur Verfügung stehen. Das liegt daran, dass bei dieser Variante des \emph{nearest-Neighbours} nur der erste nächste Nachbarn zur Klassifizierung betrachtet wird.\cite{ertel2016}\par
                          
-                Schaubild Beispiel Nearest Neighbour mit Ausreißer.
+                % Schaubild Beispiel Nearest Neighbour mit Ausreißer.
+                Eine Abbildung, die nochmal verdeutlichen soll, wie ein einziger statistischer Ausreißer bei dem \emph{nearest Neighbour} Verfahren fehlerhafte Klassifizierungen verursacht.\par 
+                In Abbildung 16 sieht man ...
                 \begin{Figure}
                     \begin{minipage}[b]{.4\linewidth}
                         \includegraphics[scale=0.2]{errnn1.png}
@@ -594,16 +592,16 @@
                 
                          
         \section{k-nearest-Neighbour Methode}
-            Ist eine Variante des nearest-Neighbour. Denn bei dem k-nearest Neighbour-Algorithmus werden statt einen nächsten Nachbarn eine k-große Gruppe an nächsten Nachbarn betrachtet. Die Entscheidung zu welcher Klasse ein neuer Datenpunkt gehören soll, erfolgt durch einen Mehrheitsentscheid innerhalb dieser ermittelten k-nächsten Nachbarn.[1]
-            Der eine Variante des nearest-Neighbour Algorithmus, es werden die gleichen Bezeichner, wie für den nearest Neighbour verwendet und um die Variable V erweitert. V bezeichnet die k-nächsten Nachbarn von s innerhalb der Trainingsdaten.
+            Ist eine Variante des \emph{nearest Neighbour}. Bei der Verwendung des \emph{k-nearest Neighbour} Algorithmus wird statt einem nächsten Nachbarn eine k-große Gruppe an nächsten Nachbarn betrachtet. Die Entscheidung zu welcher Klasse ein neuer Datenpunkt gehören soll, erfolgt durch einen Mehrheitsentscheid innerhalb dieser ermittelten k-nächsten Nachbarn.\cite{ertel2016}\par
+            Es werden die gleichen Bezeichner für den Algorithmus verwendet, die auch für den \emph{nearest Neighbour} angewandt wurden und um die Variable $V$ erweitert.\par $V$ bezeichnet die k-nächsten Nachbarn von $s$ innerhalb der Trainingsdaten.
         
                            
             \subsection{k-nearest Neighbour Algorithmus}
-                Der Algorithmus ist wie folgt definiert:\\
+                Der Algorithmus ist wie folgt definiert:\par
                 \begin{algorithm}[H]
                     \KwData{$M_+,M_-,s \in \mathbb{R}^n$}
-                    \KwResult{Klassifikation von s}
-                    $V= $\{k-nächste Nachbarn von s\}\;
+                    \KwResult{Klassifikation von $s$}
+                    $V= $\{k-nächste Nachbarn von $s$\}\;
                     \If{$|M_+ \cap V| > |M_- \cap V| $}{
                         \KwRet{+}\;
                     }
@@ -650,18 +648,21 @@
                 (Erklärung zu den Schaubildern)
                         
             \subsection{Anwendung bei mehr als zwei Klassen}
-                Es ist ebenfalls möglich den k-nearest Neighbour nicht nur für zwei Klassen anzuwenden, sondern auch auf endlich viele. Hier steht man jedoch vor der Herausforderung, falls die Anzahl Klassen ansteigt, wächst im gleichen Zug die Anzahl der benötigten Trainingsdaten stark an.[1.4]
-                Steigt die Anzahl der Klassen weiter, ist eine diskrete Klassifikation nicht mehr geeignet und eine stetige Abbildungsfunktion   führt dies weniger zu einer diskreten Klassifikation sondern zu einer stetigen Abbildungsfunktion.[1.5]
+                Es ist ebenfalls möglich den \emph{k-nearest Neighbour} nicht nur für zwei Klassen anzuwenden, sondern auch auf endlich viele Klassen zu erweitern. Hier steht man jedoch vor der Herausforderung, falls die Anzahl Klassen ansteigt, wächst im gleichen Zug die Anzahl der benötigten Trainingsdaten stark an.\cite{ertel2016_p211}\par
+                Noch weiter verschärft wird dieses Szenario, wenn nicht genug Trainingsdaten oder Speicherressourcen zur Verfügung stehen. 
+                %problematisch wird die Situation wenn man nicht genug Trainingsdaten zur Verfügung stehen oder Speicherressourcen nicht ausreichen.
+                Steigt die Anzahl der Klassen weiter, ist eine diskrete Klassifikation nicht mehr ideal und eine stetige Abbildungsfunktion ist für die Anwendung zweckmäßiger.\cite{ertel2016_p211}
+                \par
+                Auf die Betrachtung der Laufzeit wird in Kapitel 10 eingegangen.
                 
             \subsection{Kritik an der k-nearest Neighbour Methode}
-                Analog gilt ebenfalls für die k-nearest Neighbour Methode, dass die Anwendung des Algorithmus allein keine Trennebene erzeugen kann.
-                Andererseits kann festgehalten werden, dass der k-nearest Neighbour Algorithmus eine schwächere Anfälligkeit gegenüber statistischen Ausreißern aufweist. Grund dafür ist die Betrachtung einer größeren Stichprobe der Trainingsdaten.
+                Analog gilt ebenfalls für die \emph{k-nearest Neighbour} Methode, dass die Anwendung des Algorithmus allein keine Trennebene erzeugen kann.
+                Andererseits kann festgehalten werden, dass der Algorithmus eine schwächere Anfälligkeit gegenüber statistischen Ausreißern aufweist. Grund dafür ist die Betrachtung einer größeren Stichprobe der Trainingsdaten.\par
                         
-                Ein weiterer Kritikpunkt lautet, dass bei wachsendem k, also bei Betrachtung eine größer werdenden Gruppe nächster Nachbarn, die Anzahl weiter entfernter Nachbarn einen wesentlichen Einfluss auf den Mehrheitsentscheid und somit auf die Klassifizierung eines Datenpunktes haben. Dies steht im Widerspruch zu dem zentralen Ähnlichkeitsbegriff(** Kap), welcher geringe Abstände als Ähnlichkeitsmaß definierte.
-                Als Möglichkeit zur Verbesserung nennt Wolfgang Ertel, die Stimmen der k-nächsten Nachbarn mit Gewichten zu versehen. Die Stimmgewichte der nächsten Nachbarn sollen mit steigendem Abstand zum zu klassifizierenden Punkt quadratisch abnehmen, um dadurch weniger Einfluss ausüben zu können.[1.6]
-                Das Stimmgewicht eines nächsten Nachbarn kann wie folgt berechnet werden:\\
+                Ein weiterer Kritikpunkt lautet, dass bei wachsendem k, also bei Betrachtung eine größer werdenden Gruppe nächster Nachbarn, die Anzahl weiter entfernter Nachbarn einen nicht unwesentlichen Einfluss auf den Mehrheitsentscheid und somit auf die Klassifizierung eines Datenpunktes haben. Dies steht im Widerspruch zu dem zentralen Ähnlichkeitsbegriff (Vgl. Kapitel 5.1), welcher geringe Abstände als Ähnlichkeitsmaß definierte.\par
+                Eine Möglichkeit zur Verbesserung nennt Wolfgang Ertel, die Stimmen der k-nächsten Nachbarn mit Gewichten zu versehen. Die Stimmgewichte der nächsten Nachbarn sollen mit steigendem Abstand zum zu klassifizierenden Punkt quadratisch abnehmen, um dadurch weniger Einfluss ausüben zu können.\cite{ertel2016_p212}\par
                         
-                Die Bestimmung der Stimmgewichte w ist wie folgt definiert:\\
+                Die Bestimmung der Stimmgewichte $w$ ist wie folgt definiert:\par
                 $x$ ist der zu klassifizierende Punkt und $x_i$ ist der i-te nächste Nachbar von $x$.
                 $$
                     x,x_i \in \mathbb{R}^n
@@ -669,11 +670,13 @@
                 $$
                     w_i:=\frac{1}{1+\alpha d(x,x_i)^2}
                 $$
-                $\alpha$ ist ein Konstante und bestimmt, wie schnell Gewichte mit größer werdendem Abstand zum Ausgangspunkt abnehmen sollen.[1.6] Anhand dieser Formel erkennt man, dass mit wachsendem Abstand der Einfluss weit entfernter Punkte asymptotisch gegen null geht und ist somit eine zielführender Lösungsansatz.[1.6]
+                \par
+                $\alpha$ ist ein Konstante und bestimmt, wie schnell Gewichte mit größer werdendem Abstand zum Ausgangspunkt abnehmen sollen.\cite{ertel2016_p212} Anhand dieser Formel erkennt man, dass mit wachsendem Abstand der Einfluss bzw. das Stimmgewicht weit entfernter Punkte asymptotisch gegen null geht und ist somit ein zielführender Lösungsansatz.\cite{ertel2016_p212}\par
         \section{Voronoi-Diagramme}
-            Im Kapitel **nearest Neighbour wurde bereits erwähnt, dass der nearest-Neighbour Algorithmus im Vergleich zum Perzeptron keine (lineare) Trennebene erzeugen kann. Es ist jedoch möglich durch Hinzunahme eines weiteren Algorithmus nicht nur eine Trennung vorzunehmen sondern auch eine wesentlich komplexere Trennebene aus den gegebenen Trainingsdaten zu schaffen, um so die benötigte Rechenzeit zur Klassifizierung zu vermindern.
-            Wie bereits bei den eager learning Algorithmen erklärt wurde, benötigt die Bestimmung dieser Abbildungsfunktion den Großteil der Rechenzeit. Die Bestimmung der Trennebene ist somit mit einem Zusatzaufwand verbunden. 
-            Auf die Bestimmung eines Voronoi-Diagramms für eine endliche Datenmenge wird nur beschränkt eingegangen, da lediglich das Ergebnis für unsere Anwendung von Interesse ist.
+            Im Kapitel 6.3 (Titel: Kritik an der \emph{nearest Neighbour} Methode) wurde bereits erwähnt, dass der \emph{nearest Neighbour} Algorithmus im Vergleich zum \emph{Perzeptron} keine (lineare) Trennebene erzeugen kann. Es ist jedoch möglich durch Hinzunahme eines weiteren Verfahrens nicht nur eine Trennung vorzunehmen, sondern auch eine wesentlich komplexere Trennebene aus den gegebenen Trainingsdaten zu schaffen, um so die benötigte Rechenzeit zur Klassifizierung zu vermindern.\cite{ertel2016_p209}
+            Wie bereits bei den \emph{eager learning} Algorithmen erklärt wurde, benötigt die Bestimmung dieser Abbildungsfunktion den Großteil der Rechenzeit. Ein Verfahren aus der Kategorie des \emph{lazy learnings} wird auf diese Weise um ein Verfahren, dass man dem \emph{eager learning} zuordnen würde, erweitert.\par Die Bestimmung der Trennebene ist somit mit einem Zusatzaufwand verbunden, jedoch wird der Merkmalsraum um eine nützliche Eigenschaft ergänzt. Denn mithilfe des \emph{Voronoi-Diagramms} wird um jeden Punkt ein beliebig komplexes Polygon erzeugt. Innerhalb jedes Polygons gilt, dass der nächste Nachbar genau jener Punkt ist, um den das Polygon anfangs gebildet wurde.\cite{ertel2016_p208} \par
+            
+            Auf die konkrete Bestimmung eines \emph{Voronoi-Diagramms} für eine endliche Datenmenge wird nur beschränkt eingegangen, da lediglich das Ergebnis für unsere Anwendung von Interesse ist. %Vorallem, weil es den Rahmen der Ausarbeitung sprengen würde.
                         
         \section{Voronoi-Diagramm Beispiel}
             \begin{Figure}
@@ -695,20 +698,22 @@
             
                         
             % Schaubild\\
-            Nachdem das Voronoi-Diagramm für eine Menge von Trainingsdaten ermitteln wurde, kann eine Trennebene eingezeichnet werden (siehe Abb. 21). Die Trennung hat die Eigenschaft, dass sich innerhalb Trennebene nur Datenpunkte einer Klasse befinden. Wird anschließend der Versuch unternommen eine Klassifizierung durchzuführen, kann man dies anhand der Trennlinie mit geringem Aufwand unternehmen.
+            Erklärungen zu den Schaubildern\par
+            Nachdem das Voronoi-Diagramm für eine Menge von Trainingsdaten ermitteln wurde, kann eine Trennebene eingezeichnet werden (siehe Abb. 21). Die Trennung hat die Eigenschaft, dass sich innerhalb Trennebene nur Datenpunkte einer Klasse befinden. Wird anschließend der Versuch unternommen eine Klassifizierung durchzuführen, kann man dies anhand der Trennlinie mit geringem Aufwand unternehmen. Für das Beispiel bedeutet das...
                          
         \section{Laufzeiten der nearest-Neighbour Methoden}
-            Laut Wolfgang Ertel “Gibt es kein (maschinelles) Lernverfahren, dass so schnell lernt”[1.2], wie die nearest Neighbour Methode, da in diesem Fall nur Daten gesichert werden müssen. Wie der Rechenaufwand für beide vorgestellten Methoden aussieht wird im Folgenden gezeigt.
+            Laut Wolfgang Ertel: “Gibt es kein [maschinelles] Lernverfahren, dass so schnell lernt”\cite{ertel2016_p213}, wie die \emph{nearest Neighbour} Methode, da in diesem Fall nur Daten gesichert werden müssen.\par
+            Wie der Rechenaufwand für beide vorgestellten Methoden aussieht wird im Folgenden gezeigt.
                         
             \subsection{Laufzeit nearest-Neighbour Algorithmus}
-                Bei der Betrachtung des nearest-Neighbour Algorithmus fällt auf, dass jeder enthaltene Punkt der Trainingsdaten auf eine minimale Distanz zum Betrachtungspunkt untersucht werden muss. Somit gilt für die Laufzeit:
-                $\mathcal{O}(n)$.   
+                Bei der Betrachtung des \emph{nearest Neighbour} Algorithmus fällt auf, dass jeder enthaltene Punkt der Trainingsdaten auf eine minimale Distanz zum Betrachtungspunkt untersucht werden muss. Somit gilt für die Laufzeit:\par
+              \centering  $\mathcal{O}(n)$\par   
             
             \subsection{Laufzeit k-nearest-Neighbour Algorithmus}
-                Der k-nearest-Neighbour Algorithmus hat ähnlich, wie der nearest-Neighbour, eine Laufzeit von n, jedoch entsteht bei der Iteration über alle ermittelten nächsten Nachbarn ein zusätzlicher Rechenaufwand der Größe k. Dadurch ergibt sich für die Laufzeit:
-                $\mathcal{O}(n+k)$.
-                Bei den nearest-Neighbour Methoden gibt es keine Fallunterscheidung in bessere oder schlechtere Ausgangssituationen, da bei keiner Konstellation der Trainingsdaten Unterschiede in Ablauf entstehen.
-                Nicht außer Acht gelassen werden darf die ist Tatsache, dass mit n nur die Anzahl Trainingsdaten gemeint ist und nicht verwechselt werden darf mit der Anzahl Dimensionen aus denen ein Punkt aus dem Merkmalsraum geformt ist.
+                Der \emph{k-nearest Neighbour} Algorithmus hat ähnlich, wie der \emph{nearestNeighbour}, eine Grundlaufzeit von $n$, jedoch entsteht bei der Iteration über alle ermittelten nächsten Nachbarn ein zusätzlicher Rechenaufwand der Größe $k$. Dadurch ergibt sich für die Laufzeit:\par
+                \centering $\mathcal{O}(n+k)$\par
+                Bei den \emph{nearest Neighbour} Methoden gibt es keine Fallunterscheidung in bessere oder schlechtere Ausgangssituationen, da bei keiner Konstellation der Trainingsdaten Unterschiede in Ablauf entstehen. \par
+                Nicht außer Acht gelassen werden darf die ist Tatsache, dass mit $n$ nur die Anzahl verfügbarer Trainingsdaten gemeint ist und nicht verwechselt werden darf mit der Anzahl Dimensionen aus denen ein Punkt aus dem Merkmalsraum geformt ist. 
 
     %\end{multicols}
 
