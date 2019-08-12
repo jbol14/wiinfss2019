@@ -460,7 +460,7 @@
                 Ein Beispiel hierfür wäre, die zur Klassifikation benötigten Trainingsdaten einer Apfelsortiermaschine, bestehend aus Größe und Farbe.\cite{ertel2016_p193} Nachdem uns ein Experte vorgibt, wie eine bestimmte Apfelsorte auszusehen hat, versucht unser System, abhängig vom Typ des Algorithmus, selbstständig eine Generalisierung vorzunehmen. 
                         
         \section{Nearest-Neighbour Lernverfahren}
-            Gehört zu den faulen Lernverfahren, da initial außer dem Abspeichern der Trainingsdaten kein zusätzlicher Rechenaufwand betrieben wird. Als Ziel des Systems kann man bezeichnen, dass mittels Trainingsdaten versucht wird neue Daten zu klassifizieren bzw. einordnen zu können. (Vgl. Kapitel ** lernender Agent)
+            Gehört zu den faulen Lernverfahren, da initial außer dem Abspeichern der Trainingsdaten kein zusätzlicher Rechenaufwand betrieben wird. Als Ziel des Systems kann man bezeichnen, dass mittels Trainingsdaten versucht wird neue Daten zu klassifizieren bzw. einordnen zu können. (Vgl. Kapitel 3.2.1 lernender Agent)
                         
             \subsection{Nearest-Neighbour Methode}
                 Einführend werden zur Anschaulichkeit nur zwei mögliche Klassen, denen ein Datenpunkt zugeordnet werden kann, betrachtet. Jedoch kann die Methode des \emph{nearest- Neighbour} problemlos auf mehr Klassen erweitert werden.\par
@@ -469,59 +469,71 @@
                 Zu Beginn werden die Mengen $M_+$ und $M_-$ als Trainingsdaten, $s$ als den zu klassifizierenden Datenpunkt und $t$ als den nächsten Nachbarn von $s$ definiert. Die Funktion \emph{argmin\{\}} erhält eine endliche Menge als Eingabe und gibt die kleinste ermittelte Größe als Rückgabewert zurück. Analog würde für \emph{argmax\{\}} gelten, dass der größte ermittelte Wert zurückgegeben wird.\par
                         
                 Die Idee des \emph{nearest-Neighbour} Verfahrens ist, wenn der nächste Nachbarn von $s$ erfolgreich bestimmt werden konnte, kann aufgrund der Ähnlichkeit zwischen beiden Datenpunkten die Aussage getroffen werden, dass $s$ vermutlich der gleichen Klasse angehört wie $t$. Dadurch ist unsere Klassifizierung erfolgt.\par
-                Der Algorithmus ist wie folgt definiert:\par
-                \begin{algorithm}[H]
-                    \KwData{$M_+,M_-,s \in \mathbb{R}^n$}
-                    \KwResult{Klassifikation von $s$}
-                        \For{$x \in M_+ \cup M_-$}{
-                            $t= argmin$\{$d(s,x)$\}\;
-                        }
-                        \eIf{$t \in M_+$}{
-                            \KwRet{+}\;
-                        }
-                        {
-                            \KwRet{-}\;
-                        }
-                    \caption{Nearest Neighbour Algorithm}
-                \end{algorithm}
+               
                         
             \subsection{Nearest-Neighbour Algorithmus}
+             Der Algorithmus ist wie folgt definiert:\par
+                            \begin{algorithm}[H]
+                                \KwData{$M_+,M_-,s \in \mathbb{R}^n$}
+                                \KwResult{Klassifikation von $s$}
+                                    \For{$x \in M_+ \cup M_-$}{
+                                        $t= argmin$\{$d(s,x)$\}\;
+                                    }
+                                    \eIf{$t \in M_+$}{
+                                        \KwRet{+}\;
+                                    }
+                                    {
+                                        \KwRet{-}\;
+                                    }
+                                \caption{Nearest Neighbour Algorithm}
+                            \end{algorithm}
+				
+				Als nächstes wird das \emph{nearest Neighbour} Verfahren anhand eines Beispiels ausgeführt.
+				In Abb. 10 sind zwei Klassen \{rot, grün\} sind als Trainingsdaten vorgegeben und dazu ein schwarzer Punkt dessen Klasse ermittelt werden soll. Alle Daten sind Teil des Raumes $\mathbb{R}^2$.\par
                 %Bilder Nearst Neighbour
                 \includegraphics[width=\linewidth]{nn1.png}
                 \captionof{figure}{Ausgangssituation}
+                \par
+                Im nächsten Schritt wird die Distanz mithilfe der gewählten Abstandsfunktion (hier: euklidische Norm) zwischen Ausgangspunkt und jedem Punkt innerhalb des Merkmalsraumes bestimmt. In den Abbildungen 11, 12 und 13 als blau gekennzeichnet. 
                         
                 \includegraphics[width=\linewidth]{nn2.png}
-                \captionof{figure}{}
+                \captionof{figure}{Bestimmen des ersten Abstands}
                         
                 \includegraphics[width=\linewidth]{nn3.png}
-                \captionof{figure}{}
+                \captionof{figure}{Bestimmen des zweiten Abstands}
                         
-                \includegraphics[width=\linewidth]{nn4.png}
-                \captionof{figure}{}
-                        
+              %  \includegraphics[width=\linewidth]{nn4.png}
+               % \captionof{figure}{} % nicht sicher ob diese Grafik gebraucht wird
+              	Der gefundene Wert der \emph{argmin\{\}} Funktion verändert sich nicht mehr, nachdem die minimale Distanz ermittelt wurde. Nach Durchlauf aller $n$ Trainingsdaten kann die \emph{argmin\{\}}-Funktion dadurch mit Sicherheit den kleinsten Wert zurückliefern.\par 
                 \includegraphics[width=\linewidth]{nn5.png}
-                \captionof{figure}{}
-                        
+                \captionof{figure}{Bestimmen des $n$-ten Abstands}
+                \par
+               	
                 \includegraphics[width=\linewidth]{nn6.png}
-                \captionof{figure}{Situation nach Durchlauf des Algorithmus}
+                \captionof{figure}{Nach Durchlauf des Algorithmus}
+                Im letzten Schritt kann die Klasse des neuen Punktes gesetzt werden, wie in Abb. 13 zu sehen, gehört der nächste Nachbar zur grünen Klasse. Daraus kann man schließen, dass der schwarze Punkt aufgrund seiner Ähnlichkeit zum grünen Punkt auch zur selben Klasse gehört.\par
                         
             \subsection{Kritik an der Nearest-Neighbour Methode}
-                Das \emph{nearest Neighbour} Verfahren ist ein mächtiges Werkzeug zum Klassifizieren von Daten, da der Algorithmus selbst anhand nicht linear separable Mengen eine Zuordnung treffen kann.\cite{ertel2016} Wenn das Lernverfahren jedoch mit dem bereits behandelten \emph{Perzeptron} (Kapitel **)verglichen wird, fällt auf, dass der \emph{nearest Neighbour} Algorithmus im $\mathbb{R}^2$ keine lineare Trennlinie bzw. im Raum des $\mathbb{R}^n$ keine trennende Hyperfläche erzeugt. Dies ist insoweit ungünstig, da anhand dieser Trennfunktion für jeden weiteren zu klassifizierenden Punkt weniger Aufwand betrieben werden muss, die zugehörige Klasse zu ermitteln.\cite{ertel2016}\par
+                Das \emph{nearest Neighbour} Verfahren ist ein mächtiges Werkzeug zum Klassifizieren von Daten, da der Algorithmus selbst anhand nicht linear separable Mengen eine Zuordnung treffen kann.\cite{ertel2016} Wenn das Lernverfahren jedoch mit dem bereits behandelten \emph{Perzeptron} aus Kapitel 4 verglichen wird, fällt auf, dass der \emph{nearest Neighbour} Algorithmus im $\mathbb{R}^2$ keine lineare Trennlinie bzw. im Raum des $\mathbb{R}^n$ keine trennende Hyperfläche erzeugt. Dies ist insoweit ungünstig, da anhand dieser Trennfunktion für jeden weiteren zu klassifizierenden Punkt weniger Aufwand betrieben werden muss, die zugehörige Klasse zu ermitteln.\cite{ertel2016}\par
                 Weiterer Kritikpunkt des nearest Neighbour ist, dass im Falle von statistischen Ausreißern in den Trainingsdaten Datenpunkte möglicherweise falsch zugeordnet werden. Ein statistischer Ausreißer bedeutet im Falle des \emph{nearest Neighbour} Algorithmus, dass sich innerhalb der Trainingsdaten ein oder mehr falsch klassifizierte Datenpunkte befinden. Dieses Problem besteht selbst dann, wenn in unmittelbarer Nähe zum Betrachtungspunkt weitere korrekt klassifizierte Trainingsdaten zur Verfügung stehen. Das liegt daran, dass bei dieser Variante des \emph{nearest-Neighbours} nur der erste nächste Nachbarn zur Klassifizierung betrachtet wird.\cite{ertel2016}\par
                          
                % Schaubild Beispiel Nearest Neighbour mit Ausreißer.
-                Eine Abbildung, die nochmal verdeutlichen soll, wie ein einziger statistischer Ausreißer bei dem \emph{nearest Neighbour} Verfahren fehlerhafte Klassifizierungen verursacht.\par 
-                In Abbildung 16 sieht man ...
+                In Abbildung 15 wird diese Ausgangssituation mit fehlerhaften Trainingsdaten beschrieben, um zu verdeutlichen, wie ein einzelner Irrtum das gesamte Verfahren verfälschen kann. \par 
+              
                 \includegraphics[width=\linewidth]{errnn1.png}
-                \captionof{figure}{Ausgangssituation}
-                            
+                \captionof{figure}{Ausgangssituation mit Ausreißer}
+                  Man erkennt, dass sich ein rot klassifizierter Punkt in unmittelbarer Nähe von mindestens drei Punkten der grünen Klasse befindet. % die nochmal verdeutlichen soll, wie ein einziger statistischer Ausreißer bei dem \emph{nearest Neighbour} Verfahren fehlerhafte Klassifizierungen verursacht.\par 
+                                %In Abbildung 16 sieht man ...
+               	Auf diese Daten wird nun analog zu Kapitel 6.2 das Lernverfahren des \emph{nearest Neighbour} angewendet.\par
                 \includegraphics[width=\linewidth]{errnn2.png}
-                \captionof{figure}{}
+                \captionof{figure}{Bestimmen des minimalen Abstands}
+                Es werden erneut alle Datenpunkte auf minimalen Abstand zum (schwarzen) Ausgangspunkt überprüft. Die \emph{argmin\{\}}-Funktion liefert für diesen Fall den statistischen Ausreißer als Referenzpunkt zurück.
                             
                 \includegraphics[width=\linewidth]{errnn3.png}
-                \captionof{figure}{}
+                \captionof{figure}{Fehlklassifizierung nach Durchlauf}
+                Abschließend erfolgt die Klassifizierung zur Klasse rot.\par Demnach ist es dem System nicht möglich zu wissen, ob ein Punkt aus den Trainingsdaten fehlerhaft oder korrekt ist und kann auch für diesen Fall nicht auf andere verfügbare Daten zurückgreifen. Für dieses Problem ist die \emph{nearest Neighbour} Methode, wie sie in diesem Kapitel beschrieben ist, nicht mächtig genug.
                          
-        \section{k-nearest-Neighbour Methode}
+        \section{k-nearest Neighbour Methode}
             Ist eine Variante des \emph{nearest Neighbour}. Bei der Verwendung des \emph{k-nearest Neighbour} Algorithmus wird statt einem nächsten Nachbarn eine k-große Gruppe an nächsten Nachbarn betrachtet. Die Entscheidung zu welcher Klasse ein neuer Datenpunkt gehören soll, erfolgt durch einen Mehrheitsentscheid innerhalb dieser ermittelten k-nächsten Nachbarn.\cite{ertel2016}\par
             Es werden die gleichen Bezeichner für den Algorithmus verwendet, die auch für den \emph{nearest Neighbour} angewandt wurden und um die Variable $V$ erweitert.\par $V$ bezeichnet die k-nächsten Nachbarn von $s$ innerhalb der Trainingsdaten.
         
@@ -543,25 +555,36 @@
                     }
                            
                     \caption{k-Nearest Neighbour Algorithm}
-                \end{algorithm}
-                            
+                \end{algorithm}\par
+                
+                
+               	Im Folgenden wird ein Beispiel für den \emph{k-nearest Neighbour} behandelt. Es stehen in Abb. 18 rot und grün klassifizierte Punkte als Trainingsdaten zur Verfügung und zu bestimmen ist die Klasse des schwarzen Punktes.\par  
                 % Schaubilder
                 \includegraphics[width=\linewidth]{nn1.png}
-                \captionof{figure}{}
-                            
-                \includegraphics[width=\linewidth]{nn2.png}
-                \captionof{figure}{}
+                \captionof{figure}{Ausgangssituation}\par
+                Für den Fall $k=1$, also die Betrachtung nur eines einzelnen nächsten Nachbars, kann auf das Ergebnis aus Kapitel 6.2 verwiesen werden.\par  
+              	              
+          %      \includegraphics[width=\linewidth]{nn2.png} Werden beide nicht benötigt
+           %     \captionof{figure}{}
                          
-                \includegraphics[width=\linewidth]{knn2_b.png}
-                \captionof{figure}{}
+          %      \includegraphics[width=\linewidth]{knn2_b.png}
+          %      \captionof{figure}{}
                         
                 \includegraphics[width=\linewidth]{knn3.png}
-                \captionof{figure}{}
-                        
+                \captionof{figure}{Fall $k=2$}
+                Der Fall $k=2$ kann aus Abb. 19 entnommen werden. Hierbei wird die Menge betrachteter nächster Nachbarn auf zwei erhöht und führt dazu, dass bei Anwendung des Algorithmus die Variable $V$ jeweils einen Punkt aus der roten und grünen Klasse enthält.\par
+                \centering$V=$\{rot,grün\} \centering 
+                \par Als nächstes werden die Schnittmengen von $V$ mit den jeweiligen Klassen ausgewertet.\par 
+                Es folgt also:\par
+                | $V \cap $ Rot |$ = 1$ und | $V \cap$ Grün $| = 1$\par
+               	Für die Klasse vom schwarzen Punkt bedeutet dies, dass seine Klasse zufällig aus der Menge \{Rot, Grün\} ausgewählt werden muss.       
                 \includegraphics[width=\linewidth]{knn4.png}
-                \captionof{figure}{}
-                        
-                (Erklärung zu den Schaubildern)
+                \captionof{figure}{Fall $k=3$}\par
+            	In Abb. 20 wird die Anzahl nächster Nachbarn mit Stimmrecht erneut um eins erhöht. Die Verbindungen zwischen dem schwarzen Punkt und allen anderen zeigen, welche der Punkte im Merkmalsraum die kleinsten Abstände aufweisen. Dadurch enthält $V=$ \{rot, rot, grün\} und daraus folgt demnach für die Schnittmengen:\par
+            	\centering | $V \cap $ Rot |$ = 2$ und | $V \cap$ Grün $| = 1$\par
+            	Für die Zugehörigkeit des schwarzen Punktes ergibt sich somit eine Klassifizierung in Richtung der roten Klasse.
+            	
+            	Auf die gleiche Weise kann $k \rightarrow n$ weitergeführt werden.
                         
             \subsection{Anwendung bei mehr als zwei Klassen}
                 Es ist ebenfalls möglich den \emph{k-nearest Neighbour} nicht nur für zwei Klassen anzuwenden, sondern auch auf endlich viele Klassen zu erweitern. Hier steht man jedoch vor der Herausforderung, falls die Anzahl Klassen ansteigt, wächst im gleichen Zug die Anzahl der benötigten Trainingsdaten stark an.\cite{ertel2016_p211}\par
@@ -590,13 +613,13 @@
                 $\alpha$ ist ein Konstante und bestimmt, wie schnell Gewichte mit größer werdendem Abstand zum Ausgangspunkt abnehmen sollen.\cite{ertel2016_p212} Anhand dieser Formel erkennt man, dass mit wachsendem Abstand der Einfluss bzw. das Stimmgewicht weit entfernter Punkte asymptotisch gegen null geht und ist somit ein zielführender Lösungsansatz.\cite{ertel2016_p212}\par
         \section{Voronoi-Diagramme}
             Im Kapitel 6.3 (Titel: Kritik an der \emph{nearest Neighbour} Methode) wurde bereits erwähnt, dass der \emph{nearest Neighbour} Algorithmus im Vergleich zum \emph{Perzeptron} keine (lineare) Trennebene erzeugen kann. Es ist jedoch möglich durch Hinzunahme eines weiteren Verfahrens nicht nur eine Trennung vorzunehmen, sondern auch eine wesentlich komplexere Trennebene aus den gegebenen Trainingsdaten zu schaffen, um so die benötigte Rechenzeit zur Klassifizierung zu vermindern.\cite{ertel2016_p209}
-            Wie bereits bei den \emph{eager learning} Algorithmen erklärt wurde, benötigt die Bestimmung dieser Abbildungsfunktion den Großteil der Rechenzeit. Ein Verfahren aus der Kategorie des \emph{lazy learnings} wird auf diese Weise um ein Verfahren, dass man dem \emph{eager learning} zuordnen würde, erweitert.\par Die Bestimmung der Trennebene ist somit mit einem Zusatzaufwand verbunden, jedoch wird der Merkmalsraum um eine nützliche Eigenschaft ergänzt. Denn mithilfe des \emph{Voronoi-Diagramms} wird um jeden Punkt ein beliebig komplexes Polygon erzeugt. Innerhalb jedes Polygons gilt, dass der nächste Nachbar genau jener Punkt ist, um den das Polygon anfangs gebildet wurde.\cite{ertel2016_p208} \par
+            Wie bereits bei den \emph{Eager Learning} Algorithmen erklärt wurde, benötigt die Bestimmung dieser Abbildungsfunktion den Großteil der Rechenzeit. Ein Verfahren aus der Kategorie des \emph{Lazy Learnings} wird auf diese Weise um ein Verfahren, dass man dem \emph{Eager Learning} zuordnen würde, erweitert.\par Die Bestimmung der Trennebene ist somit mit einem Zusatzaufwand verbunden, jedoch wird der Merkmalsraum um eine nützliche Eigenschaft ergänzt. Denn mithilfe des \emph{Voronoi-Diagramms} wird um jeden Punkt ein beliebig komplexes Polygon erzeugt. Innerhalb jedes Polygons gilt, dass der nächste Nachbar genau jener Punkt ist, um den das Polygon anfangs gebildet wurde.\cite{ertel2016_p208} \par
             
             Auf die konkrete Bestimmung eines \emph{Voronoi-Diagramms} für eine endliche Datenmenge wird nur beschränkt eingegangen, da lediglich das Ergebnis für unsere Anwendung von Interesse ist. %Vorallem, weil es den Rahmen der Ausarbeitung sprengen würde.
                         
         \section{Voronoi-Diagramm Beispiel}
             \includegraphics[width=\linewidth]{vor1.png}
-            \captionof{figure}{Zu klassifizierende Punkte}
+            \captionof{figure}{Zu klassifizierende Punkte} 
                         
             \includegraphics[width=\linewidth]{vor2.png}
             \captionof{figure}{Voronoi-Diagramm}
