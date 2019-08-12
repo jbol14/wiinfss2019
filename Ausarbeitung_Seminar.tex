@@ -86,7 +86,8 @@
                 Wolfgang Ertel definiert \emph{Data Mining} wie folgt:\\
                 \begin{quote}
                     \glqq Der Prozess des Gewinnens von Wissen aus Daten sowie dessen Darstellung und Anwendung wird als \emph{Data Mining} bezeichnet. Die verwendeten Methoden kommen meist aus der Statistik oder dem maschinellen Lernen und sollten auch auf sehr große Datenmengen mit vertretbarem Aufwand anwendbar sein.\grqq\\
-                    \raggedleft \zitat W. Ertel,\\ Grundkurs künstliche Intelligenz, Springer Fachmedien, 2016, S. 196    
+                    \raggedleft\footnotesize\cite[S.196]{ertel2016} 
+                    %\zitat W. Ertel,\\ Grundkurs künstliche Intelligenz, Springer Fachmedien, 2016, S. 196    
                 \end{quote}
 
                 Anhand dieser Definition soll der Umfang der Arbeit festgelegt werden. Es sollen grundlegende Methoden der \emph{deskriptiven Statistik} und Prinzipien des \emph{maschinellen Lernens} vorgestellt werden.\\
@@ -207,7 +208,8 @@
                     \captionof{figure}{
                         Soft- und Hardware-Agent
                     }
-                    \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien, S. 18, Abb. 1.5 und S. 19 Abb. 1.6
+                    \raggedleft \footnotesize\cite[S.18, Abb. 1.5, S19, Abb. 1.6]{ertel2016}
+                    % \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien, S. 18, Abb. 1.5 und S. 19 Abb. 1.6
                 \end{Figure}
                 Auch bezüglich ihrer Intelligenz unterscheiden sich Agenten voneinander.
                 Ein Agent, der lediglich eine Abbildung von der Menge aller möglichen Eingaben auf die Menge aller möglichen Ausgaben implementiert wird als \emph{Reflex-Agent} bezeichnet. Ein Reflex-Agent ist in der Lage, Probleme zu lösen, bei denen es sich um Markov-Entscheidungsprozesse handelt. Zur optimalen Lösung dieser Klasse von Problemen ist lediglich Wissen über den aktuellen Zustand der Umgebung erforderlich.\cite{ertel2016}
@@ -220,7 +222,8 @@
                    \centering
                    \includegraphics[scale=1]{lernenderagent.png}
                    \captionof{figure}{lernender Agent}
-                   \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien Wiesbaden, 2016, S. 194, Abb. 8.4 (rechts)
+                   \raggedleft\footnotesize\cite[S.194, Abb. 8.4(rechts)]{ertel2016}
+                   %\quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien, 2016, S. 194, Abb. 8.4 (rechts)
                 \end{Figure}
                 Die \emph{Aufgabe} des \emph{lernenden Agenten}, ist das lernen einer Abbildung von einem Merkmalsvektor auf eine Klasse oder einen stetigen Funktionswert anhand von \emph{Trainingsdaten}. Es muss im Vorfeld festgelegt werden, welche Art von Agent, das heißt welches Lernverfahren, eingesetzt wird (Vergleichen Sie hierzu \emph{Perzeptron, Kapitel 4} und \emph{Nearest Neighbour Methoden}).
                 Bei der Auswahl der Trainingsdaten ist zu beachten, dass diese repräsentativ für die zu lernende Aufgabe sind, da die gelernte Abbildung ansonsten nur schlecht auf unbekannte Daten generalisiert.\\
@@ -406,12 +409,13 @@
                             f(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }x=(1,1)\\
                             0, & \mbox{sonst}\end{array}\right. 
                         $$
-                        % Bild einfügen
+                        % Bild
                         \begin{Figure}
                             \centering
                             \includegraphics[scale=0.5]{AND.png}
                             \captionof{figure}{Hyperebene, die die mit $1$ und $0$ klassifizierten Elemente voneinander trennt}
-                            \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien Wiesbaden, 2016, S. 201, Abb. 8.8(links)
+                            \raggedleft\footnotesize\cite[S. 201, Abb. 8.8(links)]{ertel2016}
+                            % \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien, 2016, S. 201, Abb. 8.8(links)
                         \end{Figure}
                         Am Bild wird deutlich, dass die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene von der Menge der Vektoren, die auf $0$ abbilden.
                         \newline
@@ -424,12 +428,13 @@
                             f(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }x=(1,0) \vee x = (0,1)\\
                             0, & \mbox{sonst}\end{array}\right. 
                         $$
-                        % Bild einfügen
+                        % Bild
                         \begin{Figure}
                             \centering
                             \includegraphics[scale=0.5]{XOR.png}
                             \captionof{figure}{Versuch, die Klassen zu trennen}
-                            \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien Wiesbaden, 2016, S. 201, Abb. 8.8 (rechts)
+                            \raggedleft\footnotesize\cite[S.201. Abb. 8.8(rechts)]{ertel2016}
+                            % \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien Wiesbaden, 2016, S. 201, Abb. 8.8 (rechts)
                         \end{Figure}
                         Auch in diesem Fall wird durch einen Blick auf den Graphen deutlich, dass es Möglichkeit gibt, die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene, die der Gleichung der Form
                         $$
@@ -479,9 +484,6 @@
                 $$
                     d_m(x,y):= \sum_{i=1}^{n} |x_i -y_i|
                 $$
-                /formatierung
-                Formel
-                /formatierung
                          
             \subsection{Hamming-Abstand}
                 Ist ein Abstandsmaß, dass bei Zeichenketten häufig Verwendung findet:
@@ -712,6 +714,4 @@
 
     \bibliography{literatur}
     \bibliographystyle{alpha}
-
-
 \end{document}
