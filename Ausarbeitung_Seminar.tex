@@ -430,23 +430,29 @@
                 $$     
             
             \subsection{Manhattan-Abstand}
-                Hierbei werden nur Geraden, die parallel zu den Ursprungsachsen verlaufen, betrachtet. Man bewegt sich nur auf der horizontalen und vertikalen Ebene, um zwei Punkte zu verbinden. Die Distanz entspricht der aufsummierten Länge, der verwendeten Geraden.\par
-                **Schaubild**
-                **Noch eine Erklärung zum Schaubild**\par
+               	Hierbei werden nur Geraden, die parallel zu einer Ursprungsachsen verlaufen, betrachtet, um zwei Punkte zu verbinden. Die Distanz ergibt sich aus der aufsummierten Gesamtlänge jeder der dabei verwendeten Geraden.\par 
+                %Hierbei bewegt man sich nur auf der horizontalen und vertikalen Ebene, um zwei Punkte zu verbinden. 
+                Formal beschreibt der \emph{Manhattan-Abstand}, dass die Distanz zwischen zwei Elementen aus einem mehrdimensionalen Raum den Differenzen jeder Komponente als absoluten Wert aufsummiert entspricht.\par %, der verwendeten Geraden.\par
+               
 				
-                Die formale Definition des Manhattan-Abstands lautet:
+                In Formelnotation sieht der \emph{Manhattan-Abstand} wie folgt aus:
                 $$
                     x,y \in \mathbb{R}^n 
                 $$
                 $$
                     d_m(x,y):= \sum_{i=1}^{n} |x_i -y_i|
-                $$
-                         
+                $$\par
+                Ein Beispiel hierfür ist in Abbildung 10 zu sehen, wobei die folgenden Daten gegeben sind:\par
+               	$x,y \in \mathbb{R}^2$ mit $x= (2, 2)$ und $y= (5,4)$ 
+             	\includegraphics[width=\linewidth]{manhattanDistance.png}
+	           	\captionof{figure}{Beispiel Manhattan-Abstand}\par
+              	Für die Distanz ergibt sich dadurch: $d_m(x,y)= |2-5|+|2-4|=|-3|+|-2|=5$                  
+                                %**Noch eine Erklärung zum Schaubild**\par        
             \subsection{Hamming-Abstand}
                 Ist ein Abstandsmaß, dass bei Zeichenketten häufig Verwendung findet und gibt die Unterschiedlichkeit zwischen zwei endlichen Elementen aus einem Zeichenraum $\Sigma$ als Wert wieder.\par
 	            $$ x,y \in \Sigma^n $$
 	            $$ d_h(x,y):= |x_i \neq y_i |$$\par
-                Es folgt ein Beispiel, wie der Manhattan Abstand zwischen zwei Zeichenketten (hier: Binärzahlen) aussehen würde.\par
+                Es folgt ein Beispiel, wie der \emph{Hamming-Abstand} zwischen zwei Zeichenketten (hier: Binärzahlen) aussehen würde.\par
                 $\sum=\{0,1\}$ als Alphabet.\par
                 $x = 01101$\par
                 $y= 10001$\par
@@ -488,13 +494,13 @@
                                 \caption{Nearest Neighbour Algorithm}
                             \end{algorithm}
 				
-				Als nächstes wird das \emph{nearest Neighbour} Verfahren anhand eines Beispiels ausgeführt.
-				In Abb. 10 sind zwei Klassen \{rot, grün\} als Trainingsdaten vorgegeben und dazu ein schwarzer Punkt dessen Klasse ermittelt werden soll. Alle Daten sind Teil des Raumes $\mathbb{R}^2$.\par
+				Als Nächstes wird das \emph{nearest Neighbour} Verfahren anhand eines Beispiels ausgeführt.
+				In Abb. 11 sind zwei Klassen \{rot, grün\} als Trainingsdaten vorgegeben und dazu ein schwarzer Punkt dessen Klasse ermittelt werden soll. Alle Daten sind Teil des Raumes $\mathbb{R}^2$.\par
                 %Bilder Nearst Neighbour
                 \includegraphics[width=\linewidth]{nn1.png}
                 \captionof{figure}{Ausgangssituation}
                 \par
-                Im nächsten Schritt wird die Distanz mithilfe der gewählten Abstandsfunktion (hier: euklidische Norm) zwischen Ausgangspunkt und jedem Punkt innerhalb des Merkmalsraumes bestimmt. In den Abbildungen 11, 12 und 13 als blau gekennzeichnet. 
+                Im nächsten Schritt wird die Distanz mithilfe der gewählten Abstandsfunktion (hier: euklidische Norm) zwischen Ausgangspunkt und jedem Punkt innerhalb des Merkmalsraumes bestimmt. In den Abbildungen 12, 13 und 14 in blau gekennzeichnet. 
                         
                 \includegraphics[width=\linewidth]{nn2.png}
                 \captionof{figure}{Bestimmen des ersten Abstands}
@@ -511,14 +517,14 @@
                	
                 \includegraphics[width=\linewidth]{nn6.png}
                 \captionof{figure}{Nach Durchlauf des Algorithmus}
-                Im letzten Schritt kann die Klasse des neuen Punktes gesetzt werden, wie in Abb. 13 zu sehen, gehört der nächste Nachbar zur grünen Klasse. Daraus kann man schließen, dass der schwarze Punkt aufgrund seiner Ähnlichkeit zum grünen Punkt auch zur selben Klasse gehört.\par
+                Im letzten Schritt kann die Klasse des neuen Punktes gesetzt werden, wie in Abb. 14 zu sehen, gehört der nächste Nachbar zur grünen Klasse. Daraus kann man schließen, dass der schwarze Punkt aufgrund seiner Ähnlichkeit zum grünen Punkt auch zur selben Klasse gehört.\par
                         
             \subsection{Kritik an der Nearest-Neighbour Methode}
                 Das \emph{nearest Neighbour} Verfahren ist ein mächtiges Werkzeug zum Klassifizieren von Daten, da der Algorithmus selbst anhand nicht linear separable Mengen eine Zuordnung treffen kann.\cite{ertel2016} Wenn das Lernverfahren jedoch mit dem bereits behandelten \emph{Perzeptron} aus Kapitel 4 verglichen wird, fällt auf, dass der \emph{nearest Neighbour} Algorithmus im $\mathbb{R}^2$ keine lineare Trennlinie bzw. im Raum des $\mathbb{R}^n$ keine trennende Hyperfläche erzeugt. Dies ist insoweit ungünstig, da anhand dieser Trennfunktion für jeden weiteren zu klassifizierenden Punkt weniger Aufwand betrieben werden muss, die zugehörige Klasse zu ermitteln.\cite{ertel2016}\par
                 Weiterer Kritikpunkt des nearest Neighbour ist, dass im Falle von statistischen Ausreißern in den Trainingsdaten Datenpunkte möglicherweise falsch zugeordnet werden. Ein statistischer Ausreißer bedeutet im Falle des \emph{nearest Neighbour} Algorithmus, dass sich innerhalb der Trainingsdaten ein oder mehr falsch klassifizierte Datenpunkte befinden. Dieses Problem besteht selbst dann, wenn in unmittelbarer Nähe zum Betrachtungspunkt weitere korrekt klassifizierte Trainingsdaten zur Verfügung stehen. Das liegt daran, dass bei dieser Variante des \emph{nearest-Neighbours} nur der erste nächste Nachbarn zur Klassifizierung betrachtet wird.\cite{ertel2016}\par
                          
                % Schaubild Beispiel Nearest Neighbour mit Ausreißer.
-                In Abbildung 15 wird diese Ausgangssituation mit fehlerhaften Trainingsdaten beschrieben, um zu verdeutlichen, wie ein einzelner Irrtum das gesamte Verfahren verfälschen kann. \par 
+                In Abbildung 16 wird diese Ausgangssituation mit fehlerhaften Trainingsdaten beschrieben, um zu verdeutlichen, wie ein einzelner Irrtum das gesamte Verfahren verfälschen kann. \par 
               
                 \includegraphics[width=\linewidth]{errnn1.png}
                 \captionof{figure}{Ausgangssituation mit Ausreißer}
@@ -558,9 +564,9 @@
                 \end{algorithm}\par
                 
                 
-               	Im Folgenden wird ein Beispiel für den \emph{k-nearest Neighbour} behandelt. Es stehen in Abb. 18 rot und grün klassifizierte Punkte als Trainingsdaten zur Verfügung und zu bestimmen ist die Klasse des schwarzen Punktes.\par  
+               	Im Folgenden wird ein Beispiel für den \emph{k-nearest Neighbour} behandelt. Es stehen in Abb. 19 rot und grün klassifizierte Punkte als Trainingsdaten zur Verfügung und zu bestimmen ist die Klasse des schwarzen Punktes.\par  
                 % Schaubilder
-                \includegraphics[width=\linewidth]{nn1.png}
+                \includegraphics[width=\linewidth]{knn1_neu.png} %muss noch geändert werden, da Beispiel bearbeitet wurde...
                 \captionof{figure}{Ausgangssituation}\par
                 Für den Fall $k=1$, also die Betrachtung nur eines einzelnen nächsten Nachbars, kann auf das Ergebnis aus Kapitel 6.2 verwiesen werden.\par  
               	              
@@ -572,15 +578,15 @@
                         
                 \includegraphics[width=\linewidth]{knn3.png}
                 \captionof{figure}{Fall $k=2$}
-                Der Fall $k=2$ kann aus Abb. 19 entnommen werden. Hierbei wird die Menge betrachteter nächster Nachbarn auf zwei erhöht und führt dazu, dass bei Anwendung des Algorithmus die zwei kleinsten Abstände über die Abstandsfunktion zu ermitteln sind. Die Variable $V$ enthält nach Bestimmen aller Distanzen jeweils einen Punkt aus der roten und grünen Klasse.\par
+                Der Fall $k=2$ kann aus Abb. 20 entnommen werden. Hierbei wird die Menge betrachteter nächster Nachbarn auf zwei erhöht und führt dazu, dass bei Anwendung des Algorithmus die zwei kleinsten Abstände über die Abstandsfunktion zu ermitteln sind. Die Variable $V$ enthält nach Bestimmen aller Distanzen jeweils einen Punkt aus der roten und grünen Klasse.\par
                 $V=$\{rot,grün\}\par
-                \par Als nächstes werden die Schnittmengen von $V$ mit den jeweiligen Klassen ausgewertet.\par 
+                \par Als Nächstes werden die Schnittmengen von $V$ mit den jeweiligen Klassen ausgewertet.\par 
                 Es folgt also:\par
                 | $V \cap $ Rot |$ = 1$ und | $V \cap$ Grün $| = 1$\par
                	Für die Klasse vom schwarzen Punkt bedeutet dies, dass seine Klasse zufällig aus der Menge \{Rot, Grün\} ausgewählt werden muss.       
                 \includegraphics[width=\linewidth]{knn4.png}
                 \captionof{figure}{Fall $k=3$}\par
-            	In Abb. 20 wird die Anzahl nächster Nachbarn mit Stimmrecht erneut um eins erhöht. Die Verbindungen zwischen dem schwarzen Punkt und allen anderen zeigen, welche der Punkte im Merkmalsraum die kleinsten Abstände aufweisen. Dadurch enthält $V=$ \{rot, rot, grün\} und daraus folgt demnach für die Schnittmengen:\par
+            	In Abb. 21 wird die Anzahl nächster Nachbarn mit Stimmrecht erneut um eins erhöht. Die Verbindungen zwischen dem schwarzen Punkt und allen anderen zeigen, welche der Punkte im Merkmalsraum die kleinsten Abstände aufweisen. Dadurch enthält $V=$ \{rot, rot, grün\} und daraus folgt demnach für die Schnittmengen:\par
             	| $V \cap $ Rot |$ = 2$ und | $V \cap$ Grün $| = 1$\par
             	Für die Zugehörigkeit des schwarzen Punktes ergibt sich somit eine Klassifizierung in Richtung der roten Klasse.
             	
@@ -618,17 +624,17 @@
             Auf die konkrete Bestimmung eines \emph{Voronoi-Diagramms} für eine endliche Datenmenge wird nur beschränkt eingegangen, da lediglich das Ergebnis für unsere Anwendung von Interesse ist. %Vorallem, weil es den Rahmen der Ausarbeitung sprengen würde.
                         
         \subsection{Voronoi-Diagramm Beispiel}
-        	Als Beispiel wird die folgende Ausgangssituation (siehe Abb. 21) betrachtet. Zwei Klassen als grüne Plus und rote Minus gekennzeichnet dienen als Menge von Trainingsdaten. Für diese Menge soll nun ein \emph{Voronoi-Diagramm} erstellt werden. \par 
-        	Auf den ersten Blick erkennt man außerdem, dass die Trennung in keinem Falle durch eine lineare Gerade erzeugt werden kann, da sich links und rechts von grünen Klasse jeweils Punkte der roten Klasse befinden. Dadurch kann man die Aussage treffen, dass die vorgegebene Trainingsdatenmenge nicht Teil der linear separablen Mengen ist und demnach zu keiner Lösung bei Verwendung der \emph{Perzeptron}-Lernregel führen würden.\par
+        	Als Beispiel wird die folgende Ausgangssituation eines zweidimensionalen Merkmalsraumes betrachtet (siehe Abb. 22). Zwei Klassen als grüne Plus und rote Minus gekennzeichnet dienen als Menge von Trainingsdaten. Für diese Menge soll nun als Nächstes das zugehörige \emph{Voronoi-Diagramm} genauer untersucht werden. \par 
+        	Auf den ersten Blick erkennt man, dass die Trennung in keinem Falle durch eine lineare Gerade erzeugt werden kann, da sich links und rechts von grünen Klasse jeweils Punkte der roten Klasse befinden. Dadurch kann man die Aussage treffen, dass die vorgegebene Trainingsdatenmenge nicht Teil der linear separablen Mengen ist und demnach zu keiner Lösung bei Verwendung der \emph{Perzeptron}-Lernregel führen würden.\par
             \includegraphics[width=\linewidth]{vor1.png}
             \captionof{figure}{Ausgangszustand}\par 
           		              
             \includegraphics[width=\linewidth]{vor2.png}
             \captionof{figure}{Eintragen der Polygone}\par
-           	In Abbildung 22 fällt auf, dass unabhängig von der Klasse eines Punktes eine Gerade orthogonal auf der Mitte einer imaginären Verbindung zwischen dem betrachteten Punkt und seinen umliegenden Nachbarn liegt. Diese Geraden bilden, wenn für alle näheren Nachbar eingezeichnet, das Polygon in welchem er sich befindet. Dies lässt sich auf die Eigenschaft des \emph{Voronoi-Diagramms} zurückführen, dass innerhalb des Polygons jeder Punkt näher am zentralen Punkt gelegen ist, als an jedem anderen Punkt innerhalb des Merkmalsraums.\par         
+           	In Abbildung 23 fällt auf, dass unabhängig von der Klasse eines Punktes eine Gerade orthogonal auf der Mitte einer imaginären Verbindung zwischen dem betrachteten Punkt und seinen umliegenden Nachbarn liegt. Diese Geraden bilden, wenn für alle näheren Nachbar eingezeichnet, das Polygon in welchem er sich befindet. Dies lässt sich auf die Eigenschaft des \emph{Voronoi-Diagramms} zurückführen, dass innerhalb des Polygons jeder Punkt näher am zentralen Punkt gelegen ist, als an jedem anderen Punkt innerhalb des Merkmalsraums.\par         
             \includegraphics[width=\linewidth]{vor3.png}
             \captionof{figure}{Trennung von zwei Klassen}\par
-            Nachdem das \emph{Voronoi-Diagramm} für eine Menge von Trainingsdaten ermitteln wurde, kann eine Trennebene eingezeichnet werden (siehe Abb. 23). Die Trennung hat die Eigenschaft, dass sich innerhalb Trennebene nur Datenpunkte einer Klasse befinden. Wird anschließend der Versuch unternommen eine Klassifizierung durchzuführen, kann man dies anhand der Trennlinie mit geringem Aufwand unternehmen, indem geprüft auf welcher Seite der Trennung sich der zu bestimmende Punkt befindet. Infolgedessen wird die Berechnungszeit gestrichen, die man ohne \emph{Voronoi-Diagramm} für das Ermitteln aller Abstände zum Betrachtungspunkt genutzt hätte.\par
+            Nachdem das \emph{Voronoi-Diagramm} für eine Menge von Trainingsdaten ermitteln wurde, kann eine Trennebene eingezeichnet werden (siehe Abb. 24). Die Trennung hat die Eigenschaft, dass sich innerhalb Trennebene nur Datenpunkte einer Klasse befinden. Wird anschließend der Versuch unternommen eine Klassifizierung durchzuführen, kann man dies anhand der Trennlinie mit geringem Aufwand unternehmen, indem geprüft auf welcher Seite der Trennung sich der zu bestimmende Punkt befindet. Infolgedessen wird die Berechnungszeit gestrichen, die man ohne \emph{Voronoi-Diagramm} für das Ermitteln aller Abstände zum Betrachtungspunkt genutzt hätte.\par
             Die Diskussion in welchem Verhältnis die Berechnung des \emph{Voronoi-Diagrammms} zu der Zeit, die man für jede Ausführung einspart, steht, würde den Rahmen dieser Ausarbeitung übersteigen und wird nicht weiter ausgeführt.\par
             Man kann folglich mithilfe dieses Beispiels den Beweis erbringen, dass die \emph{nearest Neighbour} Methode ein mächtigeres Klassifizierungsverfahren ist als das \emph{Perzpetron}.
                          
