@@ -407,7 +407,7 @@
             \subsection{Was ist Ähnlichkeit?}
                 Als Ähnlichkeit wird häufig bezeichnet, wenn in zwei oder mehr beobachteten Objekten, in zu untersuchenden Ausprägungen, Übereinstimmungen zu finden sind.\par
                 Hierzu passend ist das Beispiel eines Arztes, der sich während einer Diagnose eines seiner Patienten daran erinnert, bereits in der Vergangenheit bei anderen Patienten die gleichen Symptome beobachtet zu haben.\cite{ertel2016} Durch das Erinnern, an einen Fall in der Vergangenheit und dem enstandenden Vergleich zur Gegenwart, ist es dem Arzt möglich seinen momentanen Patienten zu helfen, da die gleichen Behandlungsmethoden verwenden werden können.\par
-                Da für Menschen Ähnlichkeit intuitiver ist als für Maschinen, stellt sich die Frage, wie man einer Maschine vermitteln kann, wann Objekte zueinander ähnlich sind und vorallem, wie man dieses Konzept in eine für Maschinen verständliche Sprache übersetzt und umgesetzt werden kann.\par
+                Weil für Menschen Ähnlichkeit intuitiver ist als für Maschinen, stellt sich die Frage, wie man einer Maschine vermitteln kann, wann Objekte zueinander ähnlich sind und vorallem, wie man dieses Konzept in eine für Maschinen verständliche Sprache übersetzt und umgesetzt werden kann.\par
                 Zu diesem Zwecke wird die aus der Mathematik bekannten Datenstruktur der Vektoren betrachtet.
                 %Um diese Frage beantworten zu können, betrachten mit einer aus der Mathematik bekannten Datenstruktur der Vektoren.
                 Vektoren sind in diesem System Tupel von Daten. Innerhalb dieses Systems werden Vektoren mit Werten der reellen Zahlen verwendet und für Werte aus anderen Räumen wird eine eindeutige Repräsentation gesucht.\par Beispielsweise könnte eine Übersetzung von Zeichenketten in den reellen Raum über ein ASCII-System erfolgen.\par 
@@ -418,7 +418,7 @@
                 Folglich kann man, innerhalb dieser definierten Menge, zwischen Elementen Abstände bestimmen, was sich besonders nützlich für die im Folgenden behandelten Anwendungen erweist. \par
                 Ein Entwickler muss sich zusätzlich bei der Auswahl einer Metrik im Klaren sein, welche Abstandsfunktion für seine Anwendung am besten geeignet ist.
             \subsection{Euklidische Norm}
-                Die verbreiteste Abstandsfunktion, die meist mit dem Satz des Pythagoras eingeführt und berechnet werden kann, ist die der euklidischen Norm und ist wie folgt definiert:
+                Eine namenhafte Abstandsfunktion, die meist mit dem Satz des Pythagoras eingeführt und berechnet werden kann, ist die der euklidischen Norm und ist wie folgt definiert:
                 $$ x,y \in \mathbb{R}^n $$
                 $$
                     d_e(x,y):= |x - y| = \sqrt{\sum_{i=1}^{n}(x_i -y_i)^2}
@@ -430,7 +430,7 @@
                 $$     
             
             \subsection{Manhattan-Abstand}
-                Betrachtet hierbei werden nur Geraden, die parallel zu den Ursprungsachsen verlaufen. Man bewegt sich nur auf der horizontalen und vertikalen Ebene, um zwei Punkte zu verbinden. Die Distanz entspricht der aufsummierten Länge, der dadurch gebildeten Geraden.\par
+                Hierbei werden nur Geraden, die parallel zu den Ursprungsachsen verlaufen, betrachtet. Man bewegt sich nur auf der horizontalen und vertikalen Ebene, um zwei Punkte zu verbinden. Die Distanz entspricht der aufsummierten Länge, der verwendeten Geraden.\par
                 **Schaubild**
                 **Noch eine Erklärung zum Schaubild**\par
 				
@@ -489,7 +489,7 @@
                             \end{algorithm}
 				
 				Als nächstes wird das \emph{nearest Neighbour} Verfahren anhand eines Beispiels ausgeführt.
-				In Abb. 10 sind zwei Klassen \{rot, grün\} sind als Trainingsdaten vorgegeben und dazu ein schwarzer Punkt dessen Klasse ermittelt werden soll. Alle Daten sind Teil des Raumes $\mathbb{R}^2$.\par
+				In Abb. 10 sind zwei Klassen \{rot, grün\} als Trainingsdaten vorgegeben und dazu ein schwarzer Punkt dessen Klasse ermittelt werden soll. Alle Daten sind Teil des Raumes $\mathbb{R}^2$.\par
                 %Bilder Nearst Neighbour
                 \includegraphics[width=\linewidth]{nn1.png}
                 \captionof{figure}{Ausgangssituation}
@@ -572,8 +572,8 @@
                         
                 \includegraphics[width=\linewidth]{knn3.png}
                 \captionof{figure}{Fall $k=2$}
-                Der Fall $k=2$ kann aus Abb. 19 entnommen werden. Hierbei wird die Menge betrachteter nächster Nachbarn auf zwei erhöht und führt dazu, dass bei Anwendung des Algorithmus die Variable $V$ jeweils einen Punkt aus der roten und grünen Klasse enthält.\par
-                \centering$V=$\{rot,grün\} \centering 
+                Der Fall $k=2$ kann aus Abb. 19 entnommen werden. Hierbei wird die Menge betrachteter nächster Nachbarn auf zwei erhöht und führt dazu, dass bei Anwendung des Algorithmus die zwei kleinsten Abstände über die Abstandsfunktion zu ermitteln sind. Die Variable $V$ enthält nach Bestimmen aller Distanzen jeweils einen Punkt aus der roten und grünen Klasse.\par
+                $V=$\{rot,grün\}\par
                 \par Als nächstes werden die Schnittmengen von $V$ mit den jeweiligen Klassen ausgewertet.\par 
                 Es folgt also:\par
                 | $V \cap $ Rot |$ = 1$ und | $V \cap$ Grün $| = 1$\par
@@ -581,10 +581,10 @@
                 \includegraphics[width=\linewidth]{knn4.png}
                 \captionof{figure}{Fall $k=3$}\par
             	In Abb. 20 wird die Anzahl nächster Nachbarn mit Stimmrecht erneut um eins erhöht. Die Verbindungen zwischen dem schwarzen Punkt und allen anderen zeigen, welche der Punkte im Merkmalsraum die kleinsten Abstände aufweisen. Dadurch enthält $V=$ \{rot, rot, grün\} und daraus folgt demnach für die Schnittmengen:\par
-            	\centering | $V \cap $ Rot |$ = 2$ und | $V \cap$ Grün $| = 1$\par
+            	| $V \cap $ Rot |$ = 2$ und | $V \cap$ Grün $| = 1$\par
             	Für die Zugehörigkeit des schwarzen Punktes ergibt sich somit eine Klassifizierung in Richtung der roten Klasse.
             	
-            	Auf die gleiche Weise kann $k \rightarrow n$ weitergeführt werden.
+            	Auf die gleiche Weise kann die Bestimmung der Klasse eines Datenpunktes mit $k \rightarrow n$ weitergeführt werden.
                         
             \subsection{Anwendung bei mehr als zwei Klassen}
                 Es ist ebenfalls möglich den \emph{k-nearest Neighbour} nicht nur für zwei Klassen anzuwenden, sondern auch auf endlich viele Klassen zu erweitern. Hier steht man jedoch vor der Herausforderung, falls die Anzahl Klassen ansteigt, wächst im gleichen Zug die Anzahl der benötigten Trainingsdaten stark an.\cite{ertel2016_p211}\par
@@ -613,23 +613,24 @@
                 $\alpha$ ist ein Konstante und bestimmt, wie schnell Gewichte mit größer werdendem Abstand zum Ausgangspunkt abnehmen sollen.\cite{ertel2016_p212} Anhand dieser Formel erkennt man, dass mit wachsendem Abstand der Einfluss bzw. das Stimmgewicht weit entfernter Punkte asymptotisch gegen null geht und ist somit ein zielführender Lösungsansatz.\cite{ertel2016_p212}\par
         \section{Voronoi-Diagramme}
             Im Kapitel 6.3 (Titel: Kritik an der \emph{nearest Neighbour} Methode) wurde bereits erwähnt, dass der \emph{nearest Neighbour} Algorithmus im Vergleich zum \emph{Perzeptron} keine (lineare) Trennebene erzeugen kann. Es ist jedoch möglich durch Hinzunahme eines weiteren Verfahrens nicht nur eine Trennung vorzunehmen, sondern auch eine wesentlich komplexere Trennebene aus den gegebenen Trainingsdaten zu schaffen, um so die benötigte Rechenzeit zur Klassifizierung zu vermindern.\cite{ertel2016_p209}
-            Wie bereits bei den \emph{Eager Learning} Algorithmen erklärt wurde, benötigt die Bestimmung dieser Abbildungsfunktion den Großteil der Rechenzeit. Ein Verfahren aus der Kategorie des \emph{Lazy Learnings} wird auf diese Weise um ein Verfahren, dass man dem \emph{Eager Learning} zuordnen würde, erweitert.\par Die Bestimmung der Trennebene ist somit mit einem Zusatzaufwand verbunden, jedoch wird der Merkmalsraum um eine nützliche Eigenschaft ergänzt. Denn mithilfe des \emph{Voronoi-Diagramms} wird um jeden Punkt ein beliebig komplexes Polygon erzeugt. Innerhalb jedes Polygons gilt, dass der nächste Nachbar genau jener Punkt ist, um den das Polygon anfangs gebildet wurde.\cite{ertel2016_p208} \par
+            Wie bereits bei den \emph{Eager Learning} Algorithmen erklärt wurde, benötigt die Bestimmung dieser Abbildungsfunktion den Großteil der Rechenzeit. Ein Verfahren aus der Kategorie des \emph{Lazy Learnings} wird auf diese Weise um ein Verfahren, dass man dem \emph{Eager Learning} zuordnen würde, erweitert.\par Die Bestimmung der Trennebene ist daher mit einem Zusatzaufwand verbunden, jedoch wird der Merkmalsraum um eine nützliche Eigenschaft ergänzt. Denn mithilfe des \emph{Voronoi-Diagramms} wird um jeden Punkt ein beliebig komplexes Polygon erzeugt. Innerhalb jedes Polygons gilt, dass der nächste Nachbar genau jener Punkt ist, um den das Polygon anfangs gebildet wurde.\cite{ertel2016_p208} \par
             
             Auf die konkrete Bestimmung eines \emph{Voronoi-Diagramms} für eine endliche Datenmenge wird nur beschränkt eingegangen, da lediglich das Ergebnis für unsere Anwendung von Interesse ist. %Vorallem, weil es den Rahmen der Ausarbeitung sprengen würde.
                         
-        \section{Voronoi-Diagramm Beispiel}
+        \subsection{Voronoi-Diagramm Beispiel}
+        	Als Beispiel wird die folgende Ausgangssituation (siehe Abb. 21) betrachtet. Zwei Klassen als grüne Plus und rote Minus gekennzeichnet dienen als Menge von Trainingsdaten. Für diese Menge soll nun ein \emph{Voronoi-Diagramm} erstellt werden. \par 
+        	Auf den ersten Blick erkennt man außerdem, dass die Trennung in keinem Falle durch eine lineare Gerade erzeugt werden kann, da sich links und rechts von grünen Klasse jeweils Punkte der roten Klasse befinden. Dadurch kann man die Aussage treffen, dass die vorgegebene Trainingsdatenmenge nicht Teil der linear separablen Mengen ist und demnach zu keiner Lösung bei Verwendung der \emph{Perzeptron}-Lernregel führen würden.\par
             \includegraphics[width=\linewidth]{vor1.png}
-            \captionof{figure}{Zu klassifizierende Punkte} 
-                        
+            \captionof{figure}{Ausgangszustand}\par 
+          		              
             \includegraphics[width=\linewidth]{vor2.png}
-            \captionof{figure}{Voronoi-Diagramm}
-                        
+            \captionof{figure}{Eintragen der Polygone}\par
+           	In Abbildung 22 fällt auf, dass unabhängig von der Klasse eines Punktes eine Gerade orthogonal auf der Mitte einer imaginären Verbindung zwischen dem betrachteten Punkt und seinen umliegenden Nachbarn liegt. Diese Geraden bilden, wenn für alle näheren Nachbar eingezeichnet, das Polygon in welchem er sich befindet. Dies lässt sich auf die Eigenschaft des \emph{Voronoi-Diagramms} zurückführen, dass innerhalb des Polygons jeder Punkt näher am zentralen Punkt gelegen ist, als an jedem anderen Punkt innerhalb des Merkmalsraums.\par         
             \includegraphics[width=\linewidth]{vor3.png}
-            \captionof{figure}{Trennung von zwei Klassen}
-                        
-            % Schaubild\\
-            Erklärungen zu den Schaubildern\par
-            Nachdem das Voronoi-Diagramm für eine Menge von Trainingsdaten ermitteln wurde, kann eine Trennebene eingezeichnet werden (siehe Abb. 21). Die Trennung hat die Eigenschaft, dass sich innerhalb Trennebene nur Datenpunkte einer Klasse befinden. Wird anschließend der Versuch unternommen eine Klassifizierung durchzuführen, kann man dies anhand der Trennlinie mit geringem Aufwand unternehmen. Für das Beispiel bedeutet das...
+            \captionof{figure}{Trennung von zwei Klassen}\par
+            Nachdem das \emph{Voronoi-Diagramm} für eine Menge von Trainingsdaten ermitteln wurde, kann eine Trennebene eingezeichnet werden (siehe Abb. 23). Die Trennung hat die Eigenschaft, dass sich innerhalb Trennebene nur Datenpunkte einer Klasse befinden. Wird anschließend der Versuch unternommen eine Klassifizierung durchzuführen, kann man dies anhand der Trennlinie mit geringem Aufwand unternehmen, indem geprüft auf welcher Seite der Trennung sich der zu bestimmende Punkt befindet. Infolgedessen wird die Berechnungszeit gestrichen, die man ohne \emph{Voronoi-Diagramm} für das Ermitteln aller Abstände zum Betrachtungspunkt genutzt hätte.\par
+            Die Diskussion in welchem Verhältnis die Berechnung des \emph{Voronoi-Diagrammms} zu der Zeit, die man für jede Ausführung einspart, steht, würde den Rahmen dieser Ausarbeitung übersteigen und wird nicht weiter ausgeführt.\par
+            Man kann folglich mithilfe dieses Beispiels den Beweis erbringen, dass die \emph{nearest Neighbour} Methode ein mächtigeres Klassifizierungsverfahren ist als das \emph{Perzpetron}.
                          
         \section{Laufzeiten der nearest-Neighbour Methoden}
             Laut Wolfgang Ertel: “Gibt es kein [maschinelles] Lernverfahren, dass so schnell lernt”\cite{ertel2016_p213}, wie die \emph{nearest Neighbour} Methode, da in diesem Fall nur Daten gesichert werden müssen.\par
@@ -637,11 +638,11 @@
                         
             \subsection{Laufzeit nearest-Neighbour Algorithmus}
                 Bei der Betrachtung des \emph{nearest Neighbour} Algorithmus fällt auf, dass jeder enthaltene Punkt der Trainingsdaten auf eine minimale Distanz zum Betrachtungspunkt untersucht werden muss. Somit gilt für die Laufzeit:\par
-              \centering  $\mathcal{O}(n)$\par   
+              	$\mathcal{O}(n)$\par   
             
             \subsection{Laufzeit k-nearest-Neighbour Algorithmus}
                 Der \emph{k-nearest Neighbour} Algorithmus hat ähnlich, wie der \emph{nearestNeighbour}, eine Grundlaufzeit von $n$, jedoch entsteht bei der Iteration über alle ermittelten nächsten Nachbarn ein zusätzlicher Rechenaufwand der Größe $k$. Dadurch ergibt sich für die Laufzeit:\par
-                \centering $\mathcal{O}(n+k)$\par
+                $\mathcal{O}(n+k)$\par 
                 Bei den \emph{nearest Neighbour} Methoden gibt es keine Fallunterscheidung in bessere oder schlechtere Ausgangssituationen, da bei keiner Konstellation der Trainingsdaten Unterschiede in Ablauf entstehen. \par
                 Nicht außer Acht gelassen werden darf die ist Tatsache, dass mit $n$ nur die Anzahl verfügbarer Trainingsdaten gemeint ist und nicht verwechselt werden darf mit der Anzahl Dimensionen aus denen ein Punkt aus dem Merkmalsraum geformt ist. 
 
