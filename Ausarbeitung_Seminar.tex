@@ -702,6 +702,7 @@
                 Auf die Betrachtung der Laufzeit wird in Kapitel 10 eingegangen.
                 
             \subsection{Kritik an der k-nearest Neighbour Methode}
+            \label{subsec:kritikknn}
                 Analog gilt ebenfalls für die \emph{k-nearest Neighbour} Methode, dass die Anwendung des Algorithmus allein keine Trennebene erzeugen kann.
                 Andererseits kann festgehalten werden, dass der Algorithmus eine schwächere Anfälligkeit gegenüber statistischen Ausreißern aufweist. Grund dafür ist die Betrachtung einer größeren Stichprobe der Trainingsdaten.\par
                         
@@ -719,7 +720,7 @@
                 \par
                 $\alpha$ ist ein Konstante und bestimmt, wie schnell Gewichte mit größer werdendem Abstand zum Ausgangspunkt abnehmen sollen.\cite{ertel2016_p212} Anhand dieser Formel erkennt man, dass mit wachsendem Abstand der Einfluss bzw. das Stimmgewicht weit entfernter Punkte asymptotisch gegen null geht und ist somit ein zielführender Lösungsansatz.\cite{ertel2016_p212}\par
         \section{Voronoi-Diagramme}
-            Im Kapitel 6.3 (Titel: Kritik an der \emph{nearest Neighbour} Methode) wurde bereits erwähnt, dass der \emph{nearest Neighbour} Algorithmus im Vergleich zum \emph{Perzeptron} keine (lineare) Trennebene erzeugen kann. Es ist jedoch möglich durch Hinzunahme eines weiteren Verfahrens nicht nur eine Trennung vorzunehmen, sondern auch eine wesentlich komplexere Trennebene aus den gegebenen Trainingsdaten zu schaffen, um so die benötigte Rechenzeit zur Klassifizierung zu vermindern.\cite{ertel2016_p209}
+            Im Kapitel \ref{subsec:kritikknn} (Titel: Kritik an der \emph{nearest Neighbour} Methode) wurde bereits erwähnt, dass der \emph{nearest Neighbour} Algorithmus im Vergleich zum \emph{Perzeptron} keine (lineare) Trennebene erzeugen kann. Es ist jedoch möglich durch Hinzunahme eines weiteren Verfahrens nicht nur eine Trennung vorzunehmen, sondern auch eine wesentlich komplexere Trennebene aus den gegebenen Trainingsdaten zu schaffen, um so die benötigte Rechenzeit zur Klassifizierung zu vermindern.\cite{ertel2016_p209}
             Wie bereits bei den \emph{Eager Learning} Algorithmen erklärt wurde, benötigt die Bestimmung dieser Abbildungsfunktion den Großteil der Rechenzeit. Ein Verfahren aus der Kategorie des \emph{Lazy Learnings} wird auf diese Weise um ein Verfahren, dass man dem \emph{Eager Learning} zuordnen würde, erweitert.\par Die Bestimmung der Trennebene ist somit mit einem Zusatzaufwand verbunden, jedoch wird der Merkmalsraum um eine nützliche Eigenschaft ergänzt. Denn mithilfe des \emph{Voronoi-Diagramms} wird um jeden Punkt ein beliebig komplexes Polygon erzeugt. Innerhalb jedes Polygons gilt, dass der nächste Nachbar genau jener Punkt ist, um den das Polygon anfangs gebildet wurde.\cite{ertel2016_p208} \par
             
             Auf die konkrete Bestimmung eines \emph{Voronoi-Diagramms} für eine endliche Datenmenge wird nur beschränkt eingegangen, da lediglich das Ergebnis für unsere Anwendung von Interesse ist. %Vorallem, weil es den Rahmen der Ausarbeitung sprengen würde.
@@ -733,7 +734,7 @@
                 \hspace*{.1\linewidth}
                 \begin{minipage}[b]{.4\linewidth}
                     \includegraphics[width=\linewidth]{vor2.png}
-                    \captionof{figure}{Voronoi-Diagramm}
+                    \captionof{figure}{Eintragen der Polygone}
                 \end{minipage}
             \end{Figure}
             
@@ -744,9 +745,6 @@
                 }
             \end{Figure}
             
-                        
-            % Schaubild\\
-            Erklärungen zu den Schaubildern\par
             Nachdem das Voronoi-Diagramm für eine Menge von Trainingsdaten ermitteln wurde, kann eine Trennebene eingezeichnet werden (siehe Abb. 21). Die Trennung hat die Eigenschaft, dass sich innerhalb Trennebene nur Datenpunkte einer Klasse befinden. Wird anschließend der Versuch unternommen eine Klassifizierung durchzuführen, kann man dies anhand der Trennlinie mit geringem Aufwand unternehmen. Für das Beispiel bedeutet das...
                          
         \section{Laufzeiten der nearest-Neighbour Methoden}
