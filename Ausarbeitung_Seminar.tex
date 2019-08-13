@@ -16,6 +16,8 @@
 
 \usepackage{lipsum}
 
+\captionsetup{font=scriptsize}
+
 %Eigene Bildumgebug definieren, weil das sonst seltsam ausgeht mit multicols
 \newenvironment{Figure}
   {\par\medskip\noindent\minipage{\linewidth}}
@@ -85,7 +87,7 @@
     %\begin{multicols}{2}
         \section{Einleitung}
             \subsection{Umfang dieser Arbeit}
-                Im Rahmend dieser Arbeit sollen Grundlagen des \emph{Data Mining} und des \emph{maschinellen Lernens} dargelegt werden.\\
+                Im Rahmen dieser Arbeit sollen Grundlagen des \emph{Data Mining} und des \emph{maschinellen Lernens} dargelegt werden.\\
                 Wolfgang Ertel definiert \emph{Data Mining} wie folgt:\\
                 \begin{quote}
                     \glqq Der Prozess des Gewinnens von Wissen aus Daten sowie dessen Darstellung und Anwendung wird als \emph{Data Mining} bezeichnet. Die verwendeten Methoden kommen meist aus der Statistik oder dem maschinellen Lernen und sollten auch auf sehr große Datenmengen mit vertretbarem Aufwand anwendbar sein.\grqq\\
@@ -94,7 +96,7 @@
                 \end{quote}
 
                 Anhand dieser Definition soll der Umfang der Arbeit festgelegt werden. Es sollen grundlegende Methoden der \emph{deskriptiven Statistik} und Prinzipien des \emph{maschinellen Lernens} vorgestellt werden.\\
-                Im Bereich des \emph{maschinellen Lernens} sollen insbesondere Lernverfahren aus dem Bereich des \emph{Lernens mit Lehrer} (auch \emph{supervised learning} genannt). Bei diesen Lernverfahren handelt es sich um solche, die \emph{Trainingsdaten} verwenden, um einen diskreten Klassen- oder stetigen Funktionswert berechnen. \cite{ertel2016}
+                Im Bereich des \emph{maschinellen Lernens} sollen insbesondere Lernverfahren aus dem Bereich des \emph{Lernens mit Lehrer} (auch \emph{supervised learning} genannt) behandelt werden. Bei diesen Lernverfahren handelt es sich um solche, die \emph{Trainingsdaten} verwenden, um einen diskreten Klassen- oder stetigen Funktionswert berechnen. \cite{ertel2016}
 
             % \subsection{Maschinelles Lernen als Teilmenge künstlicher Intelligenz}
             % Blindtext, überarbeiten
@@ -228,7 +230,7 @@
                    \raggedleft\footnotesize\cite[S.194, Abb. 8.4(rechts)]{ertel2016}
                    %\quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien, 2016, S. 194, Abb. 8.4 (rechts)
                 \end{Figure}
-                Die \emph{Aufgabe} des \emph{lernenden Agenten}, ist das lernen einer Abbildung von einem Merkmalsvektor auf eine Klasse oder einen stetigen Funktionswert anhand von \emph{Trainingsdaten}. Es muss im Vorfeld festgelegt werden, welche Art von Agent, das heißt welches Lernverfahren, eingesetzt wird (Vergleichen Sie hierzu \emph{Perzeptron, Kapitel 4} und \emph{Nearest Neighbour Methoden}).
+                Die \emph{Aufgabe} des \emph{lernenden Agenten}, ist das lernen einer Abbildung von einem Merkmalsvektor auf eine Klasse oder einen stetigen Funktionswert anhand von \emph{Trainingsdaten}. Es muss im Vorfeld festgelegt werden, welche Art von Agent, das heißt welches Lernverfahren, eingesetzt wird (siehe Abschnitt \ref{sec:perzeptron}, S. \pageref{sec:perzeptron} \emph{Perzeptron} und Abschnitt \ref{subsec:nn-methode}, S. \pageref{subsec:nn-methode} \emph{Nearest Neighbour Methoden}).
                 Bei der Auswahl der Trainingsdaten ist zu beachten, dass diese repräsentativ für die zu lernende Aufgabe sind, da die gelernte Abbildung ansonsten nur schlecht auf unbekannte Daten generalisiert.\\
                 Nachdem der Agent eine Abbildung anhand von Trainingsdaten gelern hat muss diese anhand eines geeigneten \emph{Leistungsmaßes} unter Verwendung von \emph{Testdaten} evaluiert werden. \emph{Testdaten} sind dabei Merkmalsvektoren, für die  die richtige Klasseneinteilung oder der richtige Funktionswert bereits bekannt sind, die aber keine Trainingsdaten waren.
 
@@ -237,6 +239,7 @@
                 Der in der Lernphase betrieben Aufwand rechnet sich aber in der Anwendung, da diese Klasse von Lernverfahren, sobald die Abbildung gelernt wurde, sehr effizient auf neue Beispiele angewendet werden kann.\cite{ertel2016} 
 
         \section{Das Perzeptron}
+        \label{sec:perzeptron}
             In diesem Abschnitt der Arbeit soll mit dem \emph{Perzeptron} ein einfaches, aber dennoch aufschlussreiches Beispiel für eine konkrete Implementierung eines lernenden Agenten gegeben werden.
             \newline
             Das Perzeptron ist eine \emph{linearer Klassifizierer}, das heißt, es ist in der Lage, einen Eingabevektor auf eine von zwei Klassen abzubilden, sofern es eine Hyperebene gibt, die die beiden Klassen voneinander trennt.
@@ -508,6 +511,7 @@
             Gehört zu den faulen Lernverfahren, da initial außer dem Abspeichern der Trainingsdaten kein zusätzlicher Rechenaufwand betrieben wird. Als Ziel des Systems kann man bezeichnen, dass mittels Trainingsdaten versucht wird neue Daten zu klassifizieren bzw. einordnen zu können. (Vgl. Kapitel 3.2.1 lernender Agent)
                         
             \subsection{Nearest-Neighbour Methode}
+            \label{subsec:nn-methode}
                 Einführend werden zur Anschaulichkeit nur zwei mögliche Klassen, denen ein Datenpunkt zugeordnet werden kann, betrachtet. Jedoch kann die Methode des \emph{nearest- Neighbour} problemlos auf mehr Klassen erweitert werden.\par
                 Unsere Datenpunkte sind Vektoren des $\mathbb{R}^n$, wobei jede Komponente einer konkreten Ausprägung entspricht.\par
                 Beispielsweise könnte der Versuch einen Patienten mittels eines Vektors darzustellen, wie folgt aussehen. Indem man jeder Komponente des Vektors eine konkrete Ausprägung des Patienten zuordnet, wie z.B. einer Komponente das Alter oder die Größe der Person, kann auf diese Weise ein Vektor einen Patienten repräsentieren und alle für unser System benötigten Informationen enthalten.\par
@@ -720,6 +724,7 @@
             \end{Figure}
             
             \begin{Figure}
+                \centering
                 \includegraphics[width=.4\linewidth]{vor3.png}
                 \captionof{figure}{Trennung von zwei Klassen
                 }
@@ -736,11 +741,15 @@
                         
             \subsection{Laufzeit nearest-Neighbour Algorithmus}
                 Bei der Betrachtung des \emph{nearest Neighbour} Algorithmus fällt auf, dass jeder enthaltene Punkt der Trainingsdaten auf eine minimale Distanz zum Betrachtungspunkt untersucht werden muss. Somit gilt für die Laufzeit:\par
-              \centering  $\mathcal{O}(n)$\par   
+                $$
+                    \mathcal{O}(n)
+                $$   
             
             \subsection{Laufzeit k-nearest-Neighbour Algorithmus}
-                Der \emph{k-nearest Neighbour} Algorithmus hat ähnlich, wie der \emph{nearestNeighbour}, eine Grundlaufzeit von $n$, jedoch entsteht bei der Iteration über alle ermittelten nächsten Nachbarn ein zusätzlicher Rechenaufwand der Größe $k$. Dadurch ergibt sich für die Laufzeit:\par
-                \centering $\mathcal{O}(n+k)$\par
+                Der \emph{k-nearest Neighbour} Algorithmus hat ähnlich, wie der \emph{nearestNeighbour}, eine Grundlaufzeit von $n$, jedoch entsteht bei der Iteration über alle ermittelten nächsten Nachbarn ein zusätzlicher Rechenaufwand der Größe $k$. Dadurch ergibt sich für die Laufzeit:
+                $$
+                    \mathcal{O}(n+k)
+                $$
                 Bei den \emph{nearest Neighbour} Methoden gibt es keine Fallunterscheidung in bessere oder schlechtere Ausgangssituationen, da bei keiner Konstellation der Trainingsdaten Unterschiede in Ablauf entstehen. \par
                 Nicht außer Acht gelassen werden darf die ist Tatsache, dass mit $n$ nur die Anzahl verfügbarer Trainingsdaten gemeint ist und nicht verwechselt werden darf mit der Anzahl Dimensionen aus denen ein Punkt aus dem Merkmalsraum geformt ist. 
 
