@@ -702,6 +702,7 @@
                 Auf die Betrachtung der Laufzeit wird in Kapitel 10 eingegangen.
                 
             \subsection{Kritik an der k-nearest Neighbour Methode}
+            \label{subsec:kritikknn}
                 Analog gilt ebenfalls für die \emph{k-nearest Neighbour} Methode, dass die Anwendung des Algorithmus allein keine Trennebene erzeugen kann.
                 Andererseits kann festgehalten werden, dass der Algorithmus eine schwächere Anfälligkeit gegenüber statistischen Ausreißern aufweist. Grund dafür ist die Betrachtung einer größeren Stichprobe der Trainingsdaten.\par
                         
@@ -719,35 +720,43 @@
                 \par
                 $\alpha$ ist ein Konstante und bestimmt, wie schnell Gewichte mit größer werdendem Abstand zum Ausgangspunkt abnehmen sollen.\cite{ertel2016_p212} Anhand dieser Formel erkennt man, dass mit wachsendem Abstand der Einfluss bzw. das Stimmgewicht weit entfernter Punkte asymptotisch gegen null geht und ist somit ein zielführender Lösungsansatz.\cite{ertel2016_p212}\par
         \section{Voronoi-Diagramme}
-            Im Kapitel 6.3 (Titel: Kritik an der \emph{nearest Neighbour} Methode) wurde bereits erwähnt, dass der \emph{nearest Neighbour} Algorithmus im Vergleich zum \emph{Perzeptron} keine (lineare) Trennebene erzeugen kann. Es ist jedoch möglich durch Hinzunahme eines weiteren Verfahrens nicht nur eine Trennung vorzunehmen, sondern auch eine wesentlich komplexere Trennebene aus den gegebenen Trainingsdaten zu schaffen, um so die benötigte Rechenzeit zur Klassifizierung zu vermindern.\cite{ertel2016_p209}
+            Im Kapitel \ref{subsec:kritikknn} (Titel: Kritik an der \emph{nearest Neighbour} Methode) wurde bereits erwähnt, dass der \emph{nearest Neighbour} Algorithmus im Vergleich zum \emph{Perzeptron} keine (lineare) Trennebene erzeugen kann. Es ist jedoch möglich durch Hinzunahme eines weiteren Verfahrens nicht nur eine Trennung vorzunehmen, sondern auch eine wesentlich komplexere Trennebene aus den gegebenen Trainingsdaten zu schaffen, um so die benötigte Rechenzeit zur Klassifizierung zu vermindern.\cite{ertel2016_p209}
             Wie bereits bei den \emph{Eager Learning} Algorithmen erklärt wurde, benötigt die Bestimmung dieser Abbildungsfunktion den Großteil der Rechenzeit. Ein Verfahren aus der Kategorie des \emph{Lazy Learnings} wird auf diese Weise um ein Verfahren, dass man dem \emph{Eager Learning} zuordnen würde, erweitert.\par Die Bestimmung der Trennebene ist somit mit einem Zusatzaufwand verbunden, jedoch wird der Merkmalsraum um eine nützliche Eigenschaft ergänzt. Denn mithilfe des \emph{Voronoi-Diagramms} wird um jeden Punkt ein beliebig komplexes Polygon erzeugt. Innerhalb jedes Polygons gilt, dass der nächste Nachbar genau jener Punkt ist, um den das Polygon anfangs gebildet wurde.\cite{ertel2016_p208} \par
             
             Auf die konkrete Bestimmung eines \emph{Voronoi-Diagramms} für eine endliche Datenmenge wird nur beschränkt eingegangen, da lediglich das Ergebnis für unsere Anwendung von Interesse ist. %Vorallem, weil es den Rahmen der Ausarbeitung sprengen würde.
                         
         \subsection{Voronoi-Diagramm Beispiel}
+        Als Beispiel wird die folgende Ausgangssituation (siehe Abb. \ref{fig:v1}) betrachtet. Zwei Klassen als grüne Plus und rote Minus gekennzeichnet dienen als Menge von Trainingsdaten. Für diese Menge soll nun ein \emph{Voronoi-Diagramm} erstellt werden. \par 
+        Auf den ersten Blick erkennt man außerdem, dass die Trennung in keinem Falle durch eine lineare Gerade erzeugt werden kann, da sich links und rechts von grünen Klasse jeweils Punkte der roten Klasse befinden. Dadurch kann man die Aussage treffen, dass die vorgegebene Trainingsdatenmenge nicht Teil der linear separablen Mengen ist und demnach zu keiner Lösung bei Verwendung der \emph{Perzeptron}-Lernregel führen würden.
             \begin{Figure}
                 \begin{minipage}[b]{.4\linewidth}
                     \includegraphics[width=\linewidth]{vor1.png}
-                \captionof{figure}{Zu klassifizierende Punkte}    
+                \captionof{figure}{Zu klassifizierende Punkte}
+                \label{fig:v1}   
                 \end{minipage}
                 \hspace*{.1\linewidth}
                 \begin{minipage}[b]{.4\linewidth}
                     \includegraphics[width=\linewidth]{vor2.png}
-                    \captionof{figure}{Voronoi-Diagramm}
+                    \captionof{figure}{Eintragen der Polygone}
+                    \label{fig:v2}
                 \end{minipage}
             \end{Figure}
+
+            In Abbildung \ref{fig:v2} fällt auf, dass unabhängig von der Klasse eines Punktes eine Gerade orthogonal auf der Mitte einer imaginären Verbindung zwischen dem betrachteten Punkt und seinen umliegenden Nachbarn liegt. Diese Geraden bilden, wenn für alle näheren Nachbar eingezeichnet, das Polygon in welchem er sich befindet. Dies lässt sich auf die Eigenschaft des \emph{Voronoi-Diagramms} zurückführen, dass innerhalb des Polygons jeder Punkt näher am zentralen Punkt gelegen ist, als an jedem anderen Punkt innerhalb des Merkmalsraums.
             
             \begin{Figure}
                 \centering
                 \includegraphics[width=.4\linewidth]{vor3.png}
                 \captionof{figure}{Trennung von zwei Klassen
+                \label{fig:v3}
                 }
             \end{Figure}
+
+            Nachdem das \emph{Voronoi-Diagramm} für eine Menge von Trainingsdaten ermitteln wurde, kann eine Trennebene eingezeichnet werden (siehe Abb. \ref{fig:v3}). Die Trennung hat die Eigenschaft, dass sich innerhalb Trennebene nur Datenpunkte einer Klasse befinden. Wird anschließend der Versuch unternommen eine Klassifizierung durchzuführen, kann man dies anhand der Trennlinie mit geringem Aufwand unternehmen, indem geprüft auf welcher Seite der Trennung sich der zu bestimmende Punkt befindet. Infolgedessen wird die Berechnungszeit gestrichen, die man ohne \emph{Voronoi-Diagramm} für das Ermitteln aller Abstände zum Betrachtungspunkt genutzt hätte.\par
+            Die Diskussion in welchem Verhältnis die Berechnung des \emph{Voronoi-Diagrammms} zu der Zeit, die man für jede Ausführung einspart, steht, würde den Rahmen dieser Ausarbeitung übersteigen und wird nicht weiter ausgeführt.\par
+            Man kann folglich mithilfe dieses Beispiels den Beweis erbringen, dass die \emph{nearest Neighbour} Methode ein mächtigeres Klassifizierungsverfahren ist als das \emph{Perzpetron}.
             
-                        
-            % Schaubild\\
-            Erklärungen zu den Schaubildern\par
-            Nachdem das Voronoi-Diagramm für eine Menge von Trainingsdaten ermitteln wurde, kann eine Trennebene eingezeichnet werden (siehe Abb. 21). Die Trennung hat die Eigenschaft, dass sich innerhalb Trennebene nur Datenpunkte einer Klasse befinden. Wird anschließend der Versuch unternommen eine Klassifizierung durchzuführen, kann man dies anhand der Trennlinie mit geringem Aufwand unternehmen. Für das Beispiel bedeutet das...
+            % Nachdem das Voronoi-Diagramm für eine Menge von Trainingsdaten ermitteln wurde, kann eine Trennebene eingezeichnet werden (siehe Abb. \ref{fig:v3}). Die Trennung hat die Eigenschaft, dass sich innerhalb Trennebene nur Datenpunkte einer Klasse befinden. Wird anschließend der Versuch unternommen eine Klassifizierung durchzuführen, kann man dies anhand der Trennlinie mit geringem Aufwand unternehmen. Für das Beispiel bedeutet das...
                          
         \section{Laufzeiten der nearest-Neighbour Methoden}
             Laut Wolfgang Ertel: \glqq Gibt es kein [maschinelles] Lernverfahren, dass so schnell lernt”\cite{ertel2016_p213}, wie die \emph{nearest Neighbour} Methode, da in diesem Fall nur Daten gesichert werden müssen.\par
