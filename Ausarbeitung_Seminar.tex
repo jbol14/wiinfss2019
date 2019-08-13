@@ -13,6 +13,7 @@
 \usepackage[]{algorithm2e}
 \usepackage{caption}
 \usepackage{wrapfig}
+\usepackage{url}
 
 \usepackage{lipsum}
 
@@ -86,17 +87,28 @@
 
     %\begin{multicols}{2}
         \section{Einleitung}
-            \subsection{Umfang dieser Arbeit}
-                Im Rahmen dieser Arbeit sollen Grundlagen des \emph{Data Mining} und des \emph{maschinellen Lernens} dargelegt werden.\\
-                Wolfgang Ertel definiert \emph{Data Mining} wie folgt:\\
-                \begin{quote}
-                    \glqq Der Prozess des Gewinnens von Wissen aus Daten sowie dessen Darstellung und Anwendung wird als \emph{Data Mining} bezeichnet. Die verwendeten Methoden kommen meist aus der Statistik oder dem maschinellen Lernen und sollten auch auf sehr große Datenmengen mit vertretbarem Aufwand anwendbar sein.\grqq\\
-                    \raggedleft\footnotesize\cite[S.196]{ertel2016} 
-                    %\zitat W. Ertel,\\ Grundkurs künstliche Intelligenz, Springer Fachmedien, 2016, S. 196    
-                \end{quote}
 
-                Anhand dieser Definition soll der Umfang der Arbeit festgelegt werden. Es sollen grundlegende Methoden der \emph{deskriptiven Statistik} und Prinzipien des \emph{maschinellen Lernens} vorgestellt werden.\\
-                Im Bereich des \emph{maschinellen Lernens} sollen insbesondere Lernverfahren aus dem Bereich des \emph{Lernens mit Lehrer} (auch \emph{supervised learning} genannt) behandelt werden. Bei diesen Lernverfahren handelt es sich um solche, die \emph{Trainingsdaten} verwenden, um einen diskreten Klassen- oder stetigen Funktionswert berechnen. \cite{ertel2016}
+            Als \emph{Data Mining} werden Verfahren bezeichnet, deren Ziel es ist, Wissen aus großen Datenmengen zu extrahieren. Dazu werden Verfahren aus der \emph{Statistik} und des \emph{maschinellen Lernens} eingesetzt.\cite{ertel2016}
+            \emph{Maschinelles Lernen} ist ein Teilbereich der \emph{Künstlichen Intelligenz}, dessen Aufgabe das Lernen von Abbildungen einer Eingabemenge in eine Ausgabemenge ist. Typische Anwendungen sind die \emph{Klassifikation}, also eine Abbildung einer Eingabe auf eine Klasse, und \emph{Approximation}, sprich die Berechnung eines Funktionswertes, der möglichst nahe an der Realität ist\cite{ertel2016,mlfor}.
+            In den vergangenen Jahren hat das \emph{maschinelle Lernen} große Fortschritte gemacht, was im Wesentlichen auf die Zunahme von Reichenleistung und Speicherkapazität zurückgeführt werden kann.\cite{mlfor}
+            So werden bereits heute medizinische Diagnosen unter Verwendung sogenannter \emph{Expertensysteme} gestellt\cite{ertel2016} und Behandlungspläne für Krebspatienten durch maschinelles Lernen unter Verwendung der Patientendaten anderer Patienten automatisch erstellt.\cite{mlfor}
+            Der Online-Versandhändler Amazon setzt Data Minig ein um seinen Kunden relevante Artikel zu präsentieren und der Suchmaschinenanbieter Google verwendet Suchanfragen und Nutzungsdaten des Android-Betriebssystems, um personalisierte Werbung zu schalten.\cite{ertel2016}
+            Mit zunehmender Bedeutung von \emph{Data Mining} und \emph{maschinellem Lernen} sind auch leicht zu verwendende Frameworks erschienen, die dem Anwender einen leichten Einstieg in die Materie ermöglichen. Zu den bekanntesten Vertretern gehören \emph{Scikit Learn}, ein Framework für die Programmiersprache Python, und \emph{Tensorflow}, ein Framework von Google.
+            Dennoch ist eine grundlegende Kenntnis der zur Verfügung stehenden Algorthmen sinnvoll um diese effizient einzusetzen.
+             
+
+            % \subsection{Umfang dieser Arbeit}
+
+                %Im Rahmen dieser Arbeit sollen Grundlagen des \emph{Data Mining} und des \emph{maschinellen Lernens} dargelegt werden.\\
+                %Wolfgang Ertel definiert \emph{Data Mining} wie folgt:\\
+                %\begin{quote}
+                %     \glqq Der Prozess des Gewinnens von Wissen aus Daten sowie dessen Darstellung und Anwendung wird als \emph{Data Mining} bezeichnet. Die verwendeten Methoden kommen meist aus der Statistik oder dem maschinellen Lernen und sollten auch auf sehr große Datenmengen mit vertretbarem Aufwand anwendbar sein.\grqq\\
+                %     \raggedleft\footnotesize\cite[S.196]{ertel2016} 
+                %     %\zitat W. Ertel,\\ Grundkurs künstliche Intelligenz, Springer Fachmedien, 2016, S. 196    
+                % \end{quote}
+
+                % Anhand dieser Definition soll der Umfang der Arbeit festgelegt werden. Es sollen grundlegende Methoden der \emph{deskriptiven Statistik} und Prinzipien des \emph{maschinellen Lernens} vorgestellt werden.\\
+                % Im Bereich des \emph{maschinellen Lernens} sollen insbesondere Lernverfahren aus dem Bereich des \emph{Lernens mit Lehrer} (auch \emph{supervised learning} genannt) behandelt werden. Bei diesen Lernverfahren handelt es sich um solche, die \emph{Trainingsdaten} verwenden, um einen diskreten Klassen- oder stetigen Funktionswert berechnen. \cite{ertel2016}
 
             % \subsection{Maschinelles Lernen als Teilmenge künstlicher Intelligenz}
             % Blindtext, überarbeiten
