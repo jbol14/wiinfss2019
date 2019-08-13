@@ -279,7 +279,7 @@
             \subsection{Abbildungsvorschrift}
                 Wie bereits erwähnt handelt es sich beim \emph{Perzeptron} um einen linearen Klassifizierer, der genau die linear separablen Mengen klassifizieren kann. Das heißt, das Perzeptron ist eine Abbildung eines Eingabevektors $x$ auf einen diskreten Klassenwert. Es wird definiert durch die Abbildungsvorschrift
                 $$
-            P(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }\sum_{i=1}^nw_ix_i > 0\\ 0, & \mbox{falls} \sum_{i=1}^n w_ix_i \leq 0 \end{array}\right. 
+                    P(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }\sum_{i=1}^nw_ix_i > 0\\ 0, & \mbox{falls} \sum_{i=1}^n w_ix_i \leq 0 \end{array}\right. 
                 $$
 
                 Aus der Abbildungsvorschrift wird ersichtlich, dass $n$ Skalare, $w_1,\dots,w_n$ benötigt werden. Der Vektor $w = (w_1,\dots, w_n)$ wird im als \emph{Gewichtsvektor} bezeichnet. Dieser Gewichtsvektor $w$ ist im Allgemeinen zunächst unbekannt und muss in einem vorgelagerten Schritt gelernt werden.
@@ -325,12 +325,14 @@
                         \begin{Figure}
                             \begin{minipage}[b]{.4\linewidth}
                                 \includegraphics[scale=0.5]{bsp1.png}
-                                \captionof{figure}{Situation vor Iteration 1}    
+                                \captionof{figure}
+                                {Situation vor Iteration 1} \label{fig:bspPL1}   
                             \end{minipage}
                             \hspace{.1\linewidth}
                             \begin{minipage}[b]{.4\linewidth}
                                 \includegraphics[scale=0.5]{bsp2.png}
-                                \captionof{figure}{Situation nach Iteration 1}    
+                                \captionof{figure}{Situation nach Iteration 1}
+                                \label{fig:bspPL2}    
                             \end{minipage}
                         \end{Figure}
 
@@ -355,12 +357,14 @@
                         \begin{Figure}
                             \begin{minipage}[b]{.4\linewidth}
                                 \includegraphics[scale=0.5]{bsp3.png}
-                                \captionof{figure}{Situation vor Iteration 3}    
+                                \captionof{figure}{Situation vor Iteration 3} 
+                                \label{fig:bspPL3}
                             \end{minipage}
                             \hspace{.1\linewidth}
                             \begin{minipage}[b]{.4\linewidth}
                                 \includegraphics[scale=0.5]{bsp4.png}
-                                \captionof{figure}{Situation nach Iteration 3}    
+                                \captionof{figure}{Situation nach Iteration 3}
+                                \label{fig:bspPL4}    
                             \end{minipage}     
                         \end{Figure}
                         4. Durchlauf:\\
@@ -374,9 +378,11 @@
                         \begin{Figure}
                             \centering
                             \includegraphics[scale=0.5]{bsp4.png}
-                            \captionof{figure}{Situation nach Terminierung des Lernverfahrens}    
+                            \captionof{figure}{Situation nach Terminierung des Lernverfahrens}
+                            \label{fig:bspPL5}    
                         \end{Figure}
                         Der Gewichtsvektor $w = (2.2,1.2)$, klassifiziert alle Elemente der Trainingsdaten korrekt, der Lernalgorithmus termiert und gibt $w = (2.2,1.2)$ als Ergebnis zurück.\\
+                        Die Abbildungen \ref{fig:bspPL1}, \ref{fig:bspPL2}, \ref{fig:bspPL3}, \ref{fig:bspPL4} und \ref{fig:bspPL5} veranscheulichen wie eine Anpassung des Gewichtsvektors $w$ die Trennebene beeinflusst.
                         Zu beachten ist auch, dass der richtige Vektor bereits in der vorletzten Iteration gefunden wird. Da dieser Vektor aber noch auf allen Trainingsdaten getestet werden muss bedarf es einer weiteren Iteration.
 
                     \subsubsection{Finden guter Initialwerte für $w$}
@@ -431,13 +437,23 @@
                         $$
                         % Bild
                         \begin{Figure}
-                            \centering
-                            \includegraphics[scale=0.5]{AND.png}
-                            \captionof{figure}{Hyperebene, die die mit $1$ und $0$ klassifizierten Elemente voneinander trennt}
-                            \raggedleft\footnotesize\cite[S. 201, Abb. 8.8(links)]{ertel2016}
-                            % \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien, 2016, S. 201, Abb. 8.8(links)
+                            \begin{minipage}[b]{.4\linewidth}
+                                \includegraphics[scale=0.5]{AND.png}
+                                \captionof{figure}{Hyperebene, die die mit $1$ und $0$ klassifizierten Elemente voneinander trennt}
+                                \raggedleft\footnotesize\cite[S. 201, Abb. 8.8(links)]{ertel2016}
+                                \label{fig:and}
+                                % \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien, 2016, S. 201, Abb. 8.8(links)    
+                            \end{minipage}
+                            \hspace{.1\linewidth}
+                            \begin{minipage}[b]{.4\linewidth}
+                                \includegraphics[scale=0.5]{XOR.png}
+                                \captionof{figure}{Versuch, die Klassen zu trennen}
+                                \raggedleft\footnotesize\cite[S.201. Abb. 8.8(rechts)]{ertel2016}
+                                \label{fig:xor}
+                            % \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien Wiesbaden, 2016, S. 201, Abb. 8.8 (rechts)
+                            \end{minipage}
                         \end{Figure}
-                        Am Bild wird deutlich, dass die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene von der Menge der Vektoren, die auf $0$ abbilden.
+                        An Abb. \ref{fig:and} wird deutlich, dass die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene von der Menge der Vektoren, die auf $0$ abbilden.
                         \newline
                         Anders verhält es sich bei der logischen XOR-Funktion:
                         $$
@@ -449,14 +465,7 @@
                             0, & \mbox{sonst}\end{array}\right. 
                         $$
                         % Bild
-                        \begin{Figure}
-                            \centering
-                            \includegraphics[scale=0.5]{XOR.png}
-                            \captionof{figure}{Versuch, die Klassen zu trennen}
-                            \raggedleft\footnotesize\cite[S.201. Abb. 8.8(rechts)]{ertel2016}
-                            % \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien Wiesbaden, 2016, S. 201, Abb. 8.8 (rechts)
-                        \end{Figure}
-                        Auch in diesem Fall wird durch einen Blick auf den Graphen deutlich, dass es Möglichkeit gibt, die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene, die der Gleichung der Form
+                        Auch in diesem Fall wird durch einen Blick auf den Graphen (Abb. \ref{fig:xor}) deutlich, dass es Möglichkeit gibt, die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene, die der Gleichung der Form
                         $$
                             \sum_{i=1}^nw_ix_i = \theta
                         $$
