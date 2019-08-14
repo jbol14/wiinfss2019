@@ -189,6 +189,7 @@
                 \\
                 Lernverfahren die hingegen \emph{ohne} Trainingsdaten auskommen werden als Verfahren aus dem Bereich \emph{Lernen ohne Lehrer} (\emph{unsupervised learning}) bezeichnet.\\
                 In dieser Arbeit beschränken wir uns ausschließlich auf Lernverfahren, die auf der Verwendung von Trainingsdaten beruhen, bleiben also im Bereich des \emph{Lernens mit Lehrer}.
+
             \subsection{Agenten}
                 Der Begriff des \emph{Agenten} ist in vielen Teilbereichen der Informatik von zentraler Bedeutung, allerdings wird der Agentenbegriff in verschiedenen Teilbereichen unterschiedlich ausgelegt. So stellt ein Agent in der klassischen Informatik eine Abbildung von einer Eingabe auf eine Ausgabe dar und wird als \emph{Software-Agent} bezeichnet, während ein Agent in der Robotik einen \emph{Hardware-Agenten} bezeichnet, der eine Erweiterung des Software-Agenten um Sensoren und Aktoren darstellt, die es dem Hardware-Agenten ermöglichen, seine Umgebung wahrzunehmen und zu verändern. \cite{ertel2016}
                 \begin{Figure}
@@ -256,6 +257,7 @@
                 $$ \cite{ertel2016}
 
                 Aus der Abbildungsvorschrift wird ersichtlich, dass $n$ Skalare, $w_1,\dots,w_n$ benötigt werden. Der Vektor $w = (w_1,\dots, w_n)$ wird als \emph{Gewichtsvektor} bezeichnet. Dieser Gewichtsvektor $w$ ist im Allgemeinen zunächst unbekannt und muss in einem vorgelagerten Schritt gelernt werden.
+
             \subsection{Lernverfahren}
                 Eine Möglichkeit, den Gewichtsvektor $w$ zu ermitteln stellt der Algorithmus PerzeptronLernen dar, der in diesem Abschnitt vorgestellt werden soll. Der Algorithmus PerzeptronLernen nimmt als Eingabe zwei Mengen $M_+$ und $M_-$, wobei die Menge $M_+$ Eingabevektoren enthält, von denen bereits bekannt ist, dass sie mit $1$ klassifiziert werden sollen. Analog enthält die Menge $M_-$ Eingabevektoren, von denen bereits bekannt ist, dass sie mit $0$ klassifiziert werden sollen.
                 \newline
@@ -264,6 +266,7 @@
                 Für alle Elemente $x \in M_+$ wird geprüft, ob $w \cdot x := \sum_{i=1}^nw_ix_i \leq 0$ erfüllt ist. Ist dies der Fall, so wissen wir, dass das Element $x$ falsch klassifiziert wurde, der Gewichtsvektor $w$ also noch nicht richtig sein kann. Folglich wird der Gewichtsvektor $w$ angepasst, indem der Wert des falsch klassifizierten Elementes $x \in M_+$ komponentenweise aufaddiert wird.
                 \newline
                 Analog wird für die Elemente aus $M_-$ vorgegangen, nur das hier geprüft wird, ob $\sum_{i=1}^nw_ix_i > 0$ gilt und $w$ gegebenfalls durch Substraktion des Wertes des Eingabevektros $x$ angepasst wird.
+
                 \subsubsection{Algorithmus PerzeptronLernen}
                     \begin{algorithm}[H]
                         \KwData{$M_+,M_-, w \in\mathbb{R}^n$ beliebig}
@@ -393,55 +396,55 @@
                     Mit $w_{i+1}$ ist also eine neue Schwelle ungleich $0$ gefunden, die das Gewünschte liefert. Damit ist gezeigt, dass das Perzeptron auch solche Mengen klassifizieren kann, die durch eine nicht durch den Nullpunkt verlaufende Hyperebene voneinander getrennt werden können. Damit ist das Perzeptron in der Lage tatsächlich alle linear separablen Mengen zu klassifizieren.
                     \newline
                     Zu beachten ist, dass der Schwellwert $w_{i+1}$ zunächt unbekannt ist, und erst im Verlaufe des Lernverfahrens zusammen mit dem Gewichstsvektor $w$ gelernt wird.
-                \subsection{Probleme des Perzeptrons}
-                        Obwohl das Perzeptron ein sehr einfaches maschinelles Lernverfahren ist, so hat es in der Praxis, außer als Vorstufe zu neuronalen Netzen, keine Bedeutung. Aufgrund der Einschränkung auf linear seprablen Mengen stößt das Perzeptron schnell an seine Grenzen.
-                        Dies wird bereits an einem einfachen Beispiel deutlich.
-                        \newline
-                        Gehen wir davon aus, dass das Perzeptron die booleschen Funktionen lernen soll. Das heißt es sollen Abbildungen der Form $$\{0,1\}\times\{0,1\} \rightarrow \{0,1\}$$ gelernt werden.
-                        Zunächst betrachten wir die logische UND-Funktion, das heißt die Abbildung
-                        $$
-                            f:\{0,1\}\times\{0,1\}\rightarrow\{0,1\}: x\mapsto f(x)
-                        $$
-                        mit
-                        $$
-                            f(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }x=(1,1)\\
-                            0, & \mbox{sonst}\end{array}\right. 
-                        $$
-                        % Bild
-                        \begin{Figure}
-                            \begin{minipage}[b]{.4\linewidth}
-                                \includegraphics[scale=0.5]{AND.png}
-                                \captionof{figure}{Hyperebene, die die mit $1$ und $0$ klassifizierten Elemente voneinander trennt}
-                                \raggedleft\footnotesize\cite[S. 201, Abb. 8.8(links)]{ertel2016}
-                                \label{fig:and}
+                
+            \subsection{Probleme des Perzeptrons}
+                    Obwohl das Perzeptron ein sehr einfaches maschinelles Lernverfahren ist, so hat es in der Praxis, außer als Vorstufe zu neuronalen Netzen, keine Bedeutung. Aufgrund der Einschränkung auf linear seprablen Mengen stößt das Perzeptron schnell an seine Grenzen.
+                    Dies wird bereits an einem einfachen Beispiel deutlich.
+                    \newline
+                    Gehen wir davon aus, dass das Perzeptron die booleschen Funktionen lernen soll. Das heißt es sollen Abbildungen der Form $$\{0,1\}\times\{0,1\} \rightarrow \{0,1\}$$ gelernt werden.
+                    Zunächst betrachten wir die logische UND-Funktion, das heißt die Abbildung
+                    $$
+                        f:\{0,1\}\times\{0,1\}\rightarrow\{0,1\}: x\mapsto f(x)
+                    $$
+                    mit
+                    $$
+                        f(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }x=(1,1)\\
+                        0, & \mbox{sonst}\end{array}\right. 
+                    $$
+                    % Bild
+                    \begin{Figure}
+                        \begin{minipage}[b]{.4\linewidth}
+                            \includegraphics[scale=0.5]{AND.png}
+                            \captionof{figure}{Hyperebene, die die mit $1$ und $0$ klassifizierten Elemente voneinander trennt}
+                            \raggedleft\footnotesize\cite[S. 201, Abb. 8.8(links)]{ertel2016}                                \label{fig:and}
                                 % \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien, 2016, S. 201, Abb. 8.8(links)    
-                            \end{minipage}
-                            \hspace{.1\linewidth}
-                            \begin{minipage}[b]{.4\linewidth}
-                                \includegraphics[scale=0.5]{XOR.png}
-                                \captionof{figure}{Versuch, die Klassen zu trennen}
-                                \raggedleft\footnotesize\cite[S.201. Abb. 8.8(rechts)]{ertel2016}
-                                \label{fig:xor}
+                        \end{minipage}
+                        \hspace{.1\linewidth}
+                        \begin{minipage}[b]{.4\linewidth}
+                            \includegraphics[scale=0.5]{XOR.png}
+                            \captionof{figure}{Versuch, die Klassen zu trennen}
+                            \raggedleft\footnotesize\cite[S.201. Abb. 8.8(rechts)]{ertel2016}
+                            \label{fig:xor}
                             % \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien Wiesbaden, 2016, S. 201, Abb. 8.8 (rechts)
-                            \end{minipage}
-                        \end{Figure}
-                        An Abb. \ref{fig:and} wird deutlich, dass die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene von der Menge der Vektoren, die auf $0$ abbilden.
-                        \newline
-                        Anders verhält es sich bei der logischen XOR-Funktion:
-                        $$
-                            f:\{0,1\}\times\{0,1\}\rightarrow\{0,1\}: x\mapsto f(x)
-                        $$
-                        mit
-                        $$
-                            f(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }x=(1,0) \vee x = (0,1)\\
-                            0, & \mbox{sonst}\end{array}\right. 
-                        $$
-                        % Bild
-                        Auch in diesem Fall wird durch einen Blick auf den Graphen (Abb. \ref{fig:xor}) deutlich, dass es Möglichkeit gibt, die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene, die der Gleichung der Form
-                        $$
-                            \sum_{i=1}^nw_ix_i = \theta
-                        $$
-                        genügt, von der Menge der Vektoren, die auf $0$ abbilden, zu trennen\cite{ertel2016}.
+                        \end{minipage}
+                    \end{Figure}
+                    An Abb. \ref{fig:and} wird deutlich, dass die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene von der Menge der Vektoren, die auf $0$ abbilden.
+                    \newline
+                    Anders verhält es sich bei der logischen XOR-Funktion:
+                    $$
+                        f:\{0,1\}\times\{0,1\}\rightarrow\{0,1\}: x\mapsto f(x)
+                    $$
+                    mit
+                    $$
+                        f(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }x=(1,0) \vee x = (0,1)\\
+                        0, & \mbox{sonst}\end{array}\right. 
+                    $$
+                    % Bild
+                    Auch in diesem Fall wird durch einen Blick auf den Graphen (Abb. \ref{fig:xor}) deutlich, dass es Möglichkeit gibt, die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene, die der Gleichung der Form
+                    $$
+                        \sum_{i=1}^nw_ix_i = \theta
+                    $$
+                    genügt, von der Menge der Vektoren, die auf $0$ abbilden, zu trennen\cite{ertel2016}.
 
 % Ende mein Teil
                         
