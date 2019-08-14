@@ -481,7 +481,7 @@
                     d_e(x,y):= |x - y| = \sqrt{\sum_{i=1}^{n}(x_i -y_i)^2}
                 $$
 
-                In unterschiedlichen Anwendungsfällen können bestimmte Merkmale eine wichtigere Rolle spielen als andere.\cite{ertel2016_p207} Dazu wird die euklidische Norm um einen Gewichtsvektor $w$ erweitert, wobei dieser die Gewichtung jeder einzelnen Komponente bestimmt.\par Eine gewichtete Variante der euklidischen Norm sieht wie folgt aus:\par
+                In unterschiedlichen Anwendungsfällen können bestimmte Merkmale eine wichtigere Rolle spielen als andere.\cite{ertel2016} Dazu wird die euklidische Norm um einen Gewichtsvektor $w$ erweitert, wobei dieser die Gewichtung jeder einzelnen Komponente bestimmt.\par Eine gewichtete Variante der euklidischen Norm sieht wie folgt aus:\par
                 $$
                     w,x,y \in \mathbb{R}^n
                 $$
@@ -707,7 +707,7 @@
                 $$
                     V=\{\text{rot,grün}\}
                 $$ 
-                Als nächstes werden die Schnittmengen von $V$ mit den jeweiligen Klassen ausgewertet.\par 
+                Als Nächstes werden die Schnittmengen von $V$ mit den jeweiligen Klassen ausgewertet.\par 
                 Es folgt also:
                 $$
                     |V \cap \text{Rot}| = 1 \text{ und } | V \cap \text{Grün} | = 1
@@ -723,10 +723,10 @@
             	Auf die gleiche Weise kann $k \rightarrow n$ weitergeführt werden.
                         
             \subsection{Anwendung bei mehr als zwei Klassen}
-                Es ist ebenfalls möglich den \emph{k-nearest Neighbour} nicht nur für zwei Klassen anzuwenden, sondern auch auf endlich viele Klassen zu erweitern. Hier steht man jedoch vor der Herausforderung, falls die Anzahl Klassen ansteigt, wächst im gleichen Zug die Anzahl der benötigten Trainingsdaten stark an.\cite{ertel2016_p211}\par
+                Es ist ebenfalls möglich den \emph{k-nearest Neighbour} nicht nur für zwei Klassen anzuwenden, sondern auch auf endlich viele Klassen zu erweitern. Hier steht man jedoch vor der Herausforderung, falls die Anzahl Klassen ansteigt, wächst im gleichen Zug die Anzahl der benötigten Trainingsdaten stark an.\cite{ertel2016}\par
                 Noch weiter verschärft wird dieses Szenario, wenn nicht genug Trainingsdaten oder Speicherressourcen zur Verfügung stehen. 
                 %problematisch wird die Situation wenn man nicht genug Trainingsdaten zur Verfügung stehen oder Speicherressourcen nicht ausreichen.
-                Steigt die Anzahl der Klassen weiter, ist eine diskrete Klassifikation nicht mehr ideal und eine stetige Abbildungsfunktion ist für die Anwendung zweckmäßiger.\cite{ertel2016_p211}
+                Steigt die Anzahl der Klassen weiter, ist eine diskrete Klassifikation nicht mehr ideal und eine stetige Abbildungsfunktion ist für die Anwendung zweckmäßiger.\cite{ertel2016}
                 \par
                 Auf die Betrachtung der Laufzeit wird in Kapitel \ref{sec:laufzeit} eingegangen.
                 
@@ -736,7 +736,7 @@
                 Andererseits kann festgehalten werden, dass der Algorithmus eine schwächere Anfälligkeit gegenüber statistischen Ausreißern aufweist. Grund dafür ist die Betrachtung einer größeren Stichprobe der Trainingsdaten.\par
                         
                 Ein weiterer Kritikpunkt lautet, dass bei wachsendem k, also bei Betrachtung eine größer werdenden Gruppe nächster Nachbarn, die Anzahl weiter entfernter Nachbarn einen nicht unwesentlichen Einfluss auf den Mehrheitsentscheid und somit auf die Klassifizierung eines Datenpunktes haben. Dies steht im Widerspruch zu dem zentralen Ähnlichkeitsbegriff (Vgl. Kapitel 5.1), welcher geringe Abstände als Ähnlichkeitsmaß definierte.\par
-                Eine Möglichkeit zur Verbesserung nennt Wolfgang Ertel, die Stimmen der k-nächsten Nachbarn mit Gewichten zu versehen. Die Stimmgewichte der nächsten Nachbarn sollen mit steigendem Abstand zum zu klassifizierenden Punkt quadratisch abnehmen, um dadurch weniger Einfluss ausüben zu können.\cite{ertel2016_p212}\par
+                Eine Möglichkeit zur Verbesserung nennt Wolfgang Ertel, die Stimmen der k-nächsten Nachbarn mit Gewichten zu versehen. Die Stimmgewichte der nächsten Nachbarn sollen mit steigendem Abstand zum zu klassifizierenden Punkt quadratisch abnehmen, um dadurch weniger Einfluss ausüben zu können.\cite{ertel2016}\par
 
                         
                 Die Bestimmung der Stimmgewichte $w$ ist wie folgt definiert:\par
@@ -748,11 +748,11 @@
                     w_i:=\frac{1}{1+\alpha d(x,x_i)^2}
                 $$
                 \par
-                $\alpha$ ist ein Konstante und bestimmt, wie schnell Gewichte mit größer werdendem Abstand zum Ausgangspunkt abnehmen sollen.\cite{ertel2016_p212} Anhand dieser Formel erkennt man, dass mit wachsendem Abstand der Einfluss bzw. das Stimmgewicht weit entfernter Punkte asymptotisch gegen null geht und ist somit ein zielführender Lösungsansatz.\cite{ertel2016_p212}\par
+                $\alpha$ ist ein Konstante und bestimmt, wie schnell Gewichte mit größer werdendem Abstand zum Ausgangspunkt abnehmen sollen.\cite{ertel2016} Anhand dieser Formel erkennt man, dass mit wachsendem Abstand der Einfluss bzw. das Stimmgewicht weit entfernter Punkte asymptotisch gegen null geht und ist somit ein zielführender Lösungsansatz.\cite{ertel2016}\par
 
         \section{Voronoi-Diagramme}
-            Im Kapitel \ref{subsec:kritikknn} (Titel: Kritik an der \emph{nearest Neighbour} Methode) wurde bereits erwähnt, dass der \emph{nearest Neighbour} Algorithmus im Vergleich zum \emph{Perzeptron} keine (lineare) Trennebene erzeugen kann. Es ist jedoch möglich durch Hinzunahme eines weiteren Verfahrens nicht nur eine Trennung vorzunehmen, sondern auch eine wesentlich komplexere Trennebene aus den gegebenen Trainingsdaten zu schaffen, um so die benötigte Rechenzeit zur Klassifizierung zu vermindern.\cite{ertel2016_p209}
-            Wie bereits bei den \emph{Eager Learning} Algorithmen erklärt wurde, benötigt die Bestimmung dieser Abbildungsfunktion den Großteil der Rechenzeit. Ein Verfahren aus der Kategorie des \emph{Lazy Learnings} wird auf diese Weise um ein Verfahren, dass man dem \emph{Eager Learning} zuordnen würde, erweitert.\par Die Bestimmung der Trennebene ist daher mit einem Zusatzaufwand verbunden, jedoch wird der Merkmalsraum um eine nützliche Eigenschaft ergänzt. Denn mithilfe des \emph{Voronoi-Diagramms} wird um jeden Punkt ein beliebig komplexes Polygon erzeugt. Innerhalb jedes Polygons gilt, dass der nächste Nachbar genau jener Punkt ist, um den das Polygon anfangs gebildet wurde.\cite{ertel2016_p208} \par
+            Im Kapitel \ref{subsec:kritikknn} (Titel: Kritik an der \emph{nearest Neighbour} Methode) wurde bereits erwähnt, dass der \emph{nearest Neighbour} Algorithmus im Vergleich zum \emph{Perzeptron} keine (lineare) Trennebene erzeugen kann. Es ist jedoch möglich durch Hinzunahme eines weiteren Verfahrens nicht nur eine Trennung vorzunehmen, sondern auch eine wesentlich komplexere Trennebene aus den gegebenen Trainingsdaten zu schaffen, um so die benötigte Rechenzeit zur Klassifizierung zu vermindern.\cite{ertel2016}
+            Wie bereits bei den \emph{Eager Learning} Algorithmen erklärt wurde, benötigt die Bestimmung dieser Abbildungsfunktion den Großteil der Rechenzeit. Ein Verfahren aus der Kategorie des \emph{Lazy Learnings} wird auf diese Weise um ein Verfahren, dass man dem \emph{Eager Learning} zuordnen würde, erweitert.\par Die Bestimmung der Trennebene ist daher mit einem Zusatzaufwand verbunden, jedoch wird der Merkmalsraum um eine nützliche Eigenschaft ergänzt. Denn mithilfe des \emph{Voronoi-Diagramms} wird um jeden Punkt ein beliebig komplexes Polygon erzeugt. Innerhalb jedes Polygons gilt, dass der nächste Nachbar genau jener Punkt ist, um den das Polygon anfangs gebildet wurde.\cite{ertel2016} \par
             
             Auf die konkrete Bestimmung eines \emph{Voronoi-Diagramms} für eine endliche Datenmenge wird nur beschränkt eingegangen, da lediglich das Ergebnis für unsere Anwendung von Interesse ist. %Vorallem, weil es den Rahmen der Ausarbeitung sprengen würde.
                         
@@ -801,7 +801,7 @@
                 $$   
             
             \subsection{Laufzeit        k-nearest-Neighbour Algorithmus}
-                Der \emph{k-nearest Neighbour} Algorithmus hat ähnlich, wie der \emph{nearestNeighbour}, eine Grundlaufzeit von $n$, jedoch entsteht bei der Iteration über alle ermittelten nächsten Nachbarn ein zusätzlicher Rechenaufwand der Größe $k$. Dadurch ergibt sich für die Laufzeit:
+                Der \emph{k-nearest Neighbour} Algorithmus hat ähnlich, wie der \emph{nearest Neighbour}, eine Grundlaufzeit von $n$, jedoch entsteht bei der Iteration über alle ermittelten nächsten Nachbarn ein zusätzlicher Rechenaufwand der Größe $k$. Dadurch ergibt sich für die Laufzeit:
                 $$
                     \mathcal{O}(n+k)
                 $$
