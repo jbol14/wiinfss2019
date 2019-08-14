@@ -280,7 +280,7 @@
                     \begin{algorithm}[H]
                         \KwData{$M_+,M_-, w \in\mathbb{R}^n$ beliebig}
                         \KwResult{Gewichtsvektor $w$}
-                        \Repeat{Alle Vektoren korrekt klassifiziert}{
+                        \Repeat{Alle Vektoren $\in M_+ \cup M_-$ korrekt klassifiziert}{
                             \For{$x \in M_+$}{
                                 \If{$w\cdot x \leq 0$}{$w = w + x$}
                             }
@@ -290,8 +290,8 @@
                                 }
                             }
                         }
-                        \caption{PerzeptronLernen}
-                    \end{algorithm} \cite{ertel2016}
+                        \caption{PerzeptronLernen nach \cite[S.202]{ertel2016}}
+                    \end{algorithm}
                 
                     \subsubsection{Beispiel}
                         Das Vorgehen des Lernverfahrens soll im Folgenden anhand eines einfachen Beispiels verdeutlicht werden.
