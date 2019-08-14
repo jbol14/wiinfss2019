@@ -92,8 +92,8 @@
             \emph{Maschinelles Lernen} ist ein Teilbereich der \emph{Künstlichen Intelligenz}, dessen Aufgabe das Lernen von Abbildungen einer Eingabemenge in eine Ausgabemenge ist. Typische Anwendungen sind die \emph{Klassifikation}, also eine Abbildung einer Eingabe auf eine Klasse, und \emph{Approximation}, sprich die Berechnung eines Funktionswertes, der möglichst nahe an der Realität ist\cite{ertel2016,mlfor}.
             In den vergangenen Jahren hat das \emph{maschinelle Lernen} große Fortschritte gemacht, was im Wesentlichen auf die Zunahme von Rechenleistung und Speicherkapazität zurückgeführt werden kann.\cite{mlfor}
             So werden bereits heute medizinische Diagnosen unter Verwendung sogenannter \emph{Expertensysteme} gestellt\cite{ertel2016} und Behandlungspläne für Krebspatienten durch maschinelles Lernen unter Verwendung der Patientendaten anderer Patienten automatisch erstellt.\cite{mlfor}
-            Der Online-Versandhändler Amazon setzt Data Minig ein um seinen Kunden relevante Artikel zu präsentieren.\cite{ertel2016}
-            Auch bei der Kreditvergabe setzen Finazdienstleister heutzutage maschinelle Lernverfahren ein um Kreditanfragen zu prüfen.\cite{mlfor}
+            Der Online-Versandhändler Amazon setzt Data Minig ein, um seinen Kunden relevante Artikel zu präsentieren.\cite{ertel2016}
+            Auch bei der Kreditvergabe setzen Finazdienstleister heutzutage maschinelle Lernverfahren ein, um Kreditanfragen zu prüfen.\cite{mlfor}
             Mit zunehmender Bedeutung von \emph{Data Mining} und \emph{maschinellem Lernen} sind auch leicht zu verwendende Frameworks erschienen, die dem Anwender einen leichten Einstieg in die Materie ermöglichen. Zu den bekanntesten Vertretern gehören \emph{Scikit Learn}\footnote{\url{https://scikit-learn.org/stable/}}, ein Framework für die Programmiersprache Python, und \emph{Tensorflow}\footnote{\url{https://www.tensorflow.org}}, ein Framework von Google.
             Da künstliche Intelligenz und insbesondere maschinelles Lernen bereits Einfluss auf das tägliche Leben haben, und davon auszugehen ist, dass dieser Einfluss in den kommenden Jahren weiter zunimmt, soll im Rahmen dieser Arbeit ein grundlegendes Verständnis für die zugrundeliegenden Verfahren hergestellt werden. Wir werden uns dabei auf statistische Lage-, Streuungs- und Zusammenhangsmaße im Bereich der Statistik und auf Lernverfahren mit Lehrer im Bereich des maschinellen Lernens konzentrieren.
 
@@ -106,10 +106,10 @@
                 % Qualitative Merkmale sind solche, deren Ausprägungen sich in ihrer Art unterscheiden. 
                 % \cite{kohn2005}
             \subsection{Nominalskala}
-                Die einfachste Skalierung in der deskriptiven Statistik ist die sogenannte \emph{Nominalskala}. Die untersuchten Merkmale lassen sich nur im Hinblick auf Gleich- beziehungsweise Ungleichheit untersuchen, eine Ordnung der Merkmalsausprägungen ist nicht möglich. 
+                Die einfachste Skalierung in der deskriptiven Statistik ist die sogenannte \emph{Nominalskala}. Die untersuchten Merkmale lassen sich nur im Hinblick auf Gleich- beziehungsweise Ungleichheit untersuchen; eine Ordnung der Merkmalsausprägungen ist nicht möglich. 
                 \cite{kohn2005}
                 \subsubsection{Beispiel}
-                    An einer Kreuzug werden die vorbeifahrenden Autos hinsichtlich ihrer Farbe untersucht. Mögliche Ausprägungen des untersuchten Merkmals Farbe sind etwa \emph{Grün}, \emph{Schwarz}, \emph{Weiß}, \emph{Gelb} und \emph{Rot}. Zwar lassen sich die Merkmalsausprägungen voneinander unterscheiden, offensichtlich ist ein rotes Auto nicht besser oder schlechter als ein gelbes oder schwarzes Auto.
+                    An einer Kreuzug werden die vorbeifahrenden Autos hinsichtlich ihrer Farbe untersucht. Mögliche Ausprägungen des untersuchten Merkmals Farbe sind etwa \emph{Grün}, \emph{Schwarz}, \emph{Weiß}, \emph{Gelb} und \emph{Rot}. Zwar lassen sich die Merkmalsausprägungen voneinander unterscheiden, aber offensichtlich ist ein rotes Auto nicht besser oder schlechter als ein gelbes oder schwarzes Auto.
                 \subsection{Ordinalskala}
                     Ordinalskalierte Merkmale sind solche, bei denen neben der Unterscheidbarkeit der Merkmalsausprägungen auch eine natürliche Reihenfolge der Ausprägungen zugrunde liegt, wobei der Abstand zwischen den einzelnen Merkmalsausprägungen aber nicht sinnvoll interpretierbar ist. \cite{kohn2005}
                     \subsubsection{Beispiel}
@@ -118,7 +118,7 @@
                     Eine Skala deren Merkmalsausprägungen relle Zahlen sind, und die auch die Ordnungsstruktur der reellen Zahlen aufweist, wird \emph{metrische Skala} genannt. Neben der Unterscheidung verschiedener Merkmalsausprägungen und der zugrunde liegenden Ordnungsrelation zeichnen sich metrische Zahlen dadurch aus, dass die Merkmalsausprägungen jeden möglichen Wert annehmen können. Da die Werte reelle Zahlen sind gibt es also überabzählbar unendlich viele Merkmalsausprägungen und der Wertebereich metrischer Skalen wird \emph{stetig} genannt. Neben der Stetigkeit des Wertebeichs ist die Möglichkeit der sinnvollen Interpretation der Abstände von metrisch skalierten Merkmalen eine charakterisierende Eigenschaft ebendieser.
                     \cite{kohn2005}
                     \subsubsection{Beispiel}
-                        Die Entfernung zweier Punkte in Metern weist die Eigenschaften metrisch skalierter Merkmale auf: Zum kann die Entfernung zweier Punkte jeden beliebigen reellen Wert annehmen, zum anderen lassen sich verschiedene Merkmalsausprägungen problemlos ordnen; eine Entfernung von $ 0,5m $ ist kleiner als eine Entfernung von $ 0,78m $. Darüber hinaus ist auch der Abstand interpretierbar, so ist ein Abstand von $4m$ augenscheinlich viermal so groß wie ein Abstand von $1m$.
+                        Die Entfernung zweier Punkte in Metern weist die Eigenschaften metrisch skalierter Merkmale auf: Zum Beispiel kann die Entfernung zweier Punkte jeden beliebigen reellen Wert annehmen, zum anderen lassen sich verschiedene Merkmalsausprägungen problemlos ordnen; eine Entfernung von $ 0,5m $ ist kleiner als eine Entfernung von $ 0,78m $. Darüber hinaus ist auch der Abstand interpretierbar, so ist ein Abstand von $4m$ augenscheinlich viermal so groß wie ein Abstand von $1m$.
                     \subsubsection{Weitere Unterscheidung metrischer Merkmale}
                         Anhand der Existenz eines natürlichen Nullpunktes lassen sich metrisch skalierte Merkmale weiter unterscheiden. Ein metrisches Merkmal heißt \emph{intervallskaliert}, wenn es keinen natürlichen Nullpunkt gibt. \cite{kohn2005} Ein Beispiel hierfür ist die Temperatur, der Nullpunkt ist willkürlich festgesetz. Misst man die Temperatur in Grad Celsius, so entspricht der Nullpunkt dem Gefrierpunkt von Wasser, misst man jedoch in Grad Fahrenheit, so entspricht der Gefriepunkt von Wasser $32$ Grad Fahrenheit und der Nullpunkt in Grad Fahrenheit entspricht etwa $-17,78$ Grad Celsius.
                         \newline
@@ -165,7 +165,7 @@
                         In beiden Fällen ist jedoch zu beachten, dass die Maßeinheit der Varianz, aufgrund der Quadrierung des Abstandes zum Mittelwert, nicht mehr der Maßeinheit der urspürnglichen Werte entspricht.\cite{kohn2005}
                     
                     \subsubsection{Standardabweichung}
-                        Die \emph{Standardabweichung} $\sigma$ ist die positive Quadratwurzel der Varianz. Wie bereits erläutert etnspricht die Maßeinheit der Varianz nicht der ursprünglichen Maßeinheit der Werte. Dieses Manko lässt sich mit der Standardabweichung beheben.
+                        Die \emph{Standardabweichung} $\sigma$ ist die positive Quadratwurzel der Varianz. Wie bereits erläutert entspricht die Maßeinheit der Varianz nicht der ursprünglichen Maßeinheit der Werte. Dieses Manko lässt sich mit der Standardabweichung beheben.
                         $$ \sigma := + \sqrt{\sigma^2} $$
                         Durch das Ziehen der Quadratwurzel misst die Standardabweichung die mittlere Streuung um den Mittelwert in der gleichen Maßeinheit wie die ursprünglichen Werte.\cite{kohn2005}
 
@@ -194,7 +194,7 @@
         \section{Maschinelles Lernen}
             
             \subsection{Lernen mit und ohne Lehrer}
-                Eine erste Einteilung verschiedener maschineller Lernverfahren ist die, ob das Lernverfahren auf Trainingsdaten, also auf solche Daten, für die eine korrekte Klasseneinordnung oder Funktionswert bereits bekannt ist, verwenden. In diesem Fall wird von \emph{Lernen mit Lehrer} oder \emph{supervised learning}gesprochen. Die richtige Klassifikation wird häufig von \emph{Experten} vorgenommen.\cite{ertel2016}
+                Eine erste Einteilung verschiedener maschineller Lernverfahren ist die, ob das Lernverfahren auf Trainingsdaten, also auf solche Daten, für die eine korrekte Klasseneinordnung oder Funktionswert bereits bekannt ist, verwenden. In diesem Fall wird von \emph{Lernen mit Lehrer} oder \emph{supervised learning} gesprochen. Die richtige Klassifikation wird häufig von \emph{Experten} vorgenommen.\cite{ertel2016}
                 \\
                 Lernverfahren die hingegen \emph{ohne} Trainingsdaten auskommen werden als Verfahren aus dem Bereich \emph{Lernen ohne Lehrer} (\emph{unsupervised learning}) bezeichnet.\\
                 In dieser Arbeit beschränken wir uns ausschließlich auf Lernverfahren, die auf der Verwendung von Trainingsdaten beruhen, bleiben also im Bereich des \emph{Lernens mit Lehrer}.
@@ -228,7 +228,7 @@
                 \end{Figure}
                 Die \emph{Aufgabe} des \emph{lernenden Agenten} ist das lernen einer Abbildung von einem Merkmalsvektor auf eine Klasse oder einen stetigen Funktionswert anhand von \emph{Trainingsdaten}. Es muss im Vorfeld festgelegt werden, welche Art von Agent, das heißt welches Lernverfahren, eingesetzt wird (siehe Abschnitt \ref{sec:perzeptron}, S. \pageref{sec:perzeptron} \emph{Perzeptron} und Abschnitt \ref{subsec:nn-methode}, S. \pageref{subsec:nn-methode} \emph{Nearest Neighbour Methoden}).
                 Bei der Auswahl der Trainingsdaten ist zu beachten, dass diese repräsentativ für die zu lernende Aufgabe sind, da die gelernte Abbildung ansonsten nur schlecht auf unbekannte Daten generalisiert.\\
-                Nachdem der Agent eine Abbildung anhand von Trainingsdaten gelern hat muss diese anhand eines geeigneten \emph{Leistungsmaßes} unter Verwendung von \emph{Testdaten} evaluiert werden. \emph{Testdaten} sind dabei Merkmalsvektoren, für die  die richtige Klasseneinteilung oder der richtige Funktionswert bereits bekannt sind, die aber keine Trainingsdaten waren\cite{ertel2016}.
+                Nachdem der Agent eine Abbildung anhand von Trainingsdaten gelern hat, muss diese anhand eines geeigneten \emph{Leistungsmaßes} unter Verwendung von \emph{Testdaten} evaluiert werden. \emph{Testdaten} sind dabei Merkmalsvektoren, für die  die richtige Klasseneinteilung oder der richtige Funktionswert bereits bekannt sind, die aber keine Trainingsdaten waren\cite{ertel2016}.
 
             \subsection{Eager Learning}
                 Als \emph{Eager Learning} werden solche Lernverfahren bezeichnet, bei denen in einem ersten Schritt in einer (in der Regel aufwändigen) Lernphase bestehendes Wissen aus den Trainingsdaten in Form einer Abbildung extrahiert wird.
@@ -268,7 +268,7 @@
                 Aus der Abbildungsvorschrift wird ersichtlich, dass $n$ Skalare, $w_1,\dots,w_n$ benötigt werden. Der Vektor $w = (w_1,\dots, w_n)$ wird als \emph{Gewichtsvektor} bezeichnet. Dieser Gewichtsvektor $w$ ist im Allgemeinen zunächst unbekannt und muss in einem vorgelagerten Schritt gelernt werden.
 
             \subsection{Lernverfahren}
-                Eine Möglichkeit, den Gewichtsvektor $w$ zu ermitteln stellt der Algorithmus PerzeptronLernen dar, der in diesem Abschnitt vorgestellt werden soll. Der Algorithmus PerzeptronLernen nimmt als Eingabe zwei Mengen $M_+$ und $M_-$, wobei die Menge $M_+$ Eingabevektoren enthält, von denen bereits bekannt ist, dass sie mit $1$ klassifiziert werden sollen. Analog enthält die Menge $M_-$ Eingabevektoren, von denen bereits bekannt ist, dass sie mit $0$ klassifiziert werden sollen.
+                Eine Möglichkeit, den Gewichtsvektor $w$ zu ermitteln, stellt der Algorithmus PerzeptronLernen dar, der in diesem Abschnitt vorgestellt werden soll. Der Algorithmus PerzeptronLernen nimmt als Eingabe zwei Mengen $M_+$ und $M_-$, wobei die Menge $M_+$ Eingabevektoren enthält, von denen bereits bekannt ist, dass sie mit $1$ klassifiziert werden sollen. Analog enthält die Menge $M_-$ Eingabevektoren, von denen bereits bekannt ist, dass sie mit $0$ klassifiziert werden sollen.
                 \newline
                 Nun wird ein beliebiger initialer Gewichtsvektor $w$ gewählt.
                 \newline
@@ -365,16 +365,16 @@
                             \captionof{figure}{Situation nach Terminierung des Lernverfahrens}
                             \label{fig:bspPL5}    
                         \end{Figure}
-                        Der Gewichtsvektor $w = (2.2,1.2)$, klassifiziert alle Elemente der Trainingsdaten korrekt, der Lernalgorithmus termiert und gibt $w = (2.2,1.2)$ als Ergebnis zurück.\\
-                        Die Abbildungen \ref{fig:bspPL1}, \ref{fig:bspPL2}, \ref{fig:bspPL3}, \ref{fig:bspPL4} und \ref{fig:bspPL5} veranschaulichen wie eine Anpassung des Gewichtsvektors $w$ die Trennebene beeinflusst.
+                        Der Gewichtsvektor $w = (2.2,1.2)$, klassifiziert alle Elemente der Trainingsdaten korrekt, der Lernalgorithmus terminiert und gibt $w = (2.2,1.2)$ als Ergebnis zurück.\\
+                        Die Abbildungen \ref{fig:bspPL1}, \ref{fig:bspPL2}, \ref{fig:bspPL3}, \ref{fig:bspPL4} und \ref{fig:bspPL5} veranschaulichen, wie eine Anpassung des Gewichtsvektors $w$ die Trennebene beeinflusst.
                         Zu beachten ist auch, dass der richtige Vektor bereits in der vorletzten Iteration gefunden wird. Da dieser Vektor aber noch auf allen Trainingsdaten getestet werden muss bedarf es einer weiteren Iteration.
 
                     \subsubsection{Finden guter Initialwerte für $w$}
                     Die asymptotische Laufzeitanalyse des Algorithmus PerzeptonLernen in Abhängigkeit der Eingabegröße $n$, wobei $n$ der Anzahl der Trainingsdaten entspricht, gestaltet sich als schwierig. Einzig das Best-Case-Szenario, bei dem der initiale Gewichtsvektor so gewählt wird, dass es keiner Anpassung bedarf, lässt sich asymptotisch mit $\Omega(n)$ nach unten abschätzen, da jedes Element aus den Trainingsdaten, also $M_+ \cup M_-$, mindestens einmal überprüft werden muss. Für die Average-Case und Worst-Case Laufzeiten lässt sich so jedoch keine Aussage treffen, da die Wahl von $w$ deutlich größere Auswirkungen auf die Laufzeit des Lernverfahrens hat.
-                    Folglich kann die Laufzeit des Algorithmus bei Verwendung eines optimalen intialen Gewichtsvektors $w$ auf $\mathcal{O}(n)$ reduziert werden. Allerdings entspricht das finden optimaler Gewichtsvektoren genau dem Ausführen des Lernverfahrens, dieses hat schließlich zum Ziel, ein $w$ zu finden, dass die Mengen trennt, was äquivalent dazu ist, dass das $w$, bei Verwendung als initialem Gewichtsvektor im Lernverfahren nicht mehr angepasst werden muss, da es alle Trainingsdaten korrekt klassifiziert.
+                    Folglich kann die Laufzeit des Algorithmus bei Verwendung eines optimalen intialen Gewichtsvektors $w$ auf $\mathcal{O}(n)$ reduziert werden. Allerdings entspricht das Finden optimaler Gewichtsvektoren genau dem Ausführen des Lernverfahrens, dieses hat schließlich zum Ziel, ein $w$ zu finden, dass die Mengen trennt, was äquivalent dazu ist, dass das $w$ bei Verwendung als initialem Gewichtsvektor im Lernverfahren nicht mehr angepasst werden muss, da es alle Trainingsdaten korrekt klassifiziert.
                     Ein finden optimaler Gewichtsvektoren ist also keine Option zu Verbesserung der Laufzeit.
                     \newline
-                    Dennoch lassen sich durh die Verwendung heuristisch bestimmter \glqq guter\grqq\  Gewichtsvektoren $w$ im Durchschnitt Laufzeitverbesserungen erreichen.
+                    Dennoch lassen sich durch die Verwendung heuristisch bestimmter \glqq guter\grqq\  Gewichtsvektoren $w$ im Durchschnitt Laufzeitverbesserungen erreichen.
                     Eine geeignete Heuristik sieht wie folgt aus: 
                     \newline
                     Alle $x\in M_+$ werden aufaddiert und davon wird die Summer aller $x\in M_-$ abgezogen.
@@ -491,7 +491,7 @@
 
             
             \subsection{Manhattan-Abstand}
-                Hierbei werden nur Geraden, die parallel zu einer Ursprungsachsen verlaufen, betrachtet, um zwei Punkte zu verbinden. Die Distanz ergibt sich aus der aufsummierten Gesamtlänge jeder der dabei verwendeten Geraden.\par 
+                Hierbei werden nur Geraden, die parallel zu einer Ursprungsachsen verlaufen betrachtet, um zwei Punkte zu verbinden. Die Distanz ergibt sich aus der aufsummierten Gesamtlänge jeder der dabei verwendeten Geraden.\par 
                 %Hierbei bewegt man sich nur auf der horizontalen und vertikalen Ebene, um zwei Punkte zu verbinden. 
                 Formal beschreibt der \emph{Manhattan-Abstand}, dass die Distanz zwischen zwei Elementen aus einem mehrdimensionalen Raum den Differenzen jeder Komponente als absoluten Wert aufsummiert entspricht.\par %, der verwendeten Geraden.\par
 
@@ -527,7 +527,7 @@
                 $D_h(x,y)=3$, da wir nur an den Stellen $i=\{1,2,3\}$ also in $ x_1,x_2,x_3$ Unterschiede zu $y_1,y_2,y_3$ vorfinden.
                         
             \subsection{Lazy Learning Lernverfahren}  
-                Stehen im Gegensatz zu den \emph{Eager Learning Lernverfahren}. Das \emph{Lazy Learning} wird auch faules Lernen gennant und ist eine weitere Kategorie von Lernverfahren. Diese Art von Verfahren sind gekennzeichnet dadurch, dass es genügt alle vorhandenen Trainingsdaten in eine vom System verwendete Datenstruktur zu sichern. Es wird keine Klassifikationsabbildung ermittelt, wie bei dem \emph{Eager Learning}. % dass der Großteil der benötigten Rechenzeit nicht wie beim eager Learning zum Ermitteln einer Klassifikationsabbildung verwendet wird, sondern es genügt alle Trainingsdaten in eine vom System verwendete Datenstruktur zu sichern. 
+                Stehen im Gegensatz zu den \emph{Eager Learning Lernverfahren}. Das \emph{Lazy Learning} heißt übersetzt faules Lernen und ist eine weitere Kategorie von Lernverfahren. Diese Art von Verfahren sind gekennzeichnet dadurch, dass es genügt alle vorhandenen Trainingsdaten in eine vom System verwendete Datenstruktur zu sichern. Es wird keine Klassifikationsabbildung ermittelt, wie bei dem \emph{Eager Learning}. % dass der Großteil der benötigten Rechenzeit nicht wie beim eager Learning zum Ermitteln einer Klassifikationsabbildung verwendet wird, sondern es genügt alle Trainingsdaten in eine vom System verwendete Datenstruktur zu sichern. 
                             
             % \subsection{Trainingsdaten}
                 % Sind Daten, deren    korrekte Klassifikation   bekannt ist und werden meist von Experten vorgegeben.
@@ -539,12 +539,12 @@
                         
             \subsection{Nearest-Neighbour Methode}
             \label{subsec:nn-methode}
-                Einführend werden zur Anschaulichkeit nur zwei mögliche Klassen, denen ein Datenpunkt zugeordnet werden kann, betrachtet. Jedoch kann die Methode des \emph{nearest- Neighbour} problemlos auf mehr Klassen erweitert werden.\par
+                Einführend werden zur Anschaulichkeit nur zwei mögliche Klassen, denen ein Datenpunkt zugeordnet werden kann, betrachtet. Jedoch kann die Methode des \emph{nearest Neighbour} problemlos auf mehr Klassen erweitert werden.\par
                 Unsere Datenpunkte sind Vektoren des $\mathbb{R}^n$, wobei jede Komponente einer konkreten Ausprägung entspricht.\par
                 Beispielsweise könnte der Versuch einen Patienten mittels eines Vektors darzustellen, wie folgt aussehen. Indem man jeder Komponente des Vektors eine konkrete Ausprägung des Patienten zuordnet, wie z.B. einer Komponente das Alter oder die Größe der Person, kann auf diese Weise ein Vektor einen Patienten repräsentieren und alle für unser System benötigten Informationen enthalten.\par
-                Zu Beginn werden die Mengen $M_+$ und $M_-$ als Trainingsdaten, $s$ als den zu klassifizierenden Datenpunkt und $t$ als den nächsten Nachbarn von $s$ definiert. Die Funktion \emph{argmin\{\}} erhält eine endliche Menge als Eingabe und gibt die kleinste ermittelte Größe als Rückgabewert zurück. Analog würde für \emph{argmax\{\}} gelten, dass der größte ermittelte Wert zurückgegeben wird.\par
+                Zu Beginn werden die Mengen $M_+$ und $M_-$ als Trainingsdaten, $s$ als den zu klassifizierenden Datenpunkt und $t$ als den nächsten Nachbarn von $s$ definiert. Die Funktion \emph{argmin\{\}} erhält eine endliche Menge als Eingabe und gibt die Stelle an dem ein Minimum auftritt als Rückgabewert zurück. Analog würde für \emph{argmax\{\}} gelten, dass die Stelle an der ein Maximum auftritt zurückgegeben wird.\par
                         
-                Die Idee des \emph{nearest-Neighbour} Verfahrens ist, wenn der nächste Nachbarn von $s$ erfolgreich bestimmt werden konnte, kann aufgrund der Ähnlichkeit zwischen beiden Datenpunkten die Aussage getroffen werden, dass $s$ vermutlich der gleichen Klasse angehört wie $t$. Dadurch ist unsere Klassifizierung erfolgt.
+                Die Idee des \emph{nearest Neighbour} Verfahrens ist, wenn der nächste Nachbarn von $s$ erfolgreich bestimmt werden konnte, kann aufgrund der Ähnlichkeit zwischen beiden Datenpunkten die Aussage getroffen werden, dass $s$ vermutlich der gleichen Klasse angehört wie $t$. Dadurch ist unsere Klassifizierung erfolgt.
                
                         
             \subsection{Nearest-Neighbour Algorithmus}
@@ -554,8 +554,9 @@
                                 \KwData{$M_+,M_-,s \in \mathbb{R}^n$}
                                 \KwResult{Klassifikation von $s$}
                                     \For{$x \in M_+ \cup M_-$}{
-                                        $t= argmin$\{$d(s,x)$\}\;
+                                        $d(s,x)$\;
                                     }
+                                    	$t= argmin$\{$d(s,x)$\}\;
                                     \eIf{$t \in M_+$}{
                                         \KwRet{+}\;
                                     }
@@ -613,7 +614,7 @@
                         
             \subsection{Kritik an der      Nearest-Neighbour Methode}
                 Das \emph{nearest Neighbour} Verfahren ist ein mächtiges Werkzeug zum Klassifizieren von Daten, da der Algorithmus selbst anhand nicht linear separable Mengen eine Zuordnung treffen kann.\cite{ertel2016} Wenn das Lernverfahren jedoch mit dem bereits behandelten \emph{Perzeptron} aus Kapitel 4 verglichen wird, fällt auf, dass der \emph{nearest Neighbour} Algorithmus im $\mathbb{R}^2$ keine lineare Trennlinie bzw. im Raum des $\mathbb{R}^n$ keine trennende Hyperfläche erzeugt. Dies ist insoweit ungünstig, da anhand dieser Trennfunktion für jeden weiteren zu klassifizierenden Punkt weniger Aufwand betrieben werden muss, die zugehörige Klasse zu ermitteln.\cite{ertel2016}\par
-                Weiterer Kritikpunkt des nearest Neighbour ist, dass im Falle von statistischen Ausreißern in den Trainingsdaten Datenpunkte möglicherweise falsch zugeordnet werden. Ein statistischer Ausreißer bedeutet im Falle des \emph{nearest Neighbour} Algorithmus, dass sich innerhalb der Trainingsdaten ein oder mehr falsch klassifizierte Datenpunkte befinden. Dieses Problem besteht selbst dann, wenn in unmittelbarer Nähe zum Betrachtungspunkt weitere korrekt klassifizierte Trainingsdaten zur Verfügung stehen. Das liegt daran, dass bei dieser Variante des \emph{nearest-Neighbours} nur der erste nächste Nachbarn zur Klassifizierung betrachtet wird.\cite{ertel2016}\par
+                Weiterer Kritikpunkt des nearest Neighbour ist, dass im Falle von statistischen Ausreißern in den Trainingsdaten Datenpunkte möglicherweise falsch zugeordnet werden. Ein statistischer Ausreißer bedeutet im Falle des \emph{nearest Neighbour} Algorithmus, dass sich innerhalb der Trainingsdaten ein oder mehr falsch klassifizierte Datenpunkte befinden. Dieses Problem besteht selbst dann, wenn in unmittelbarer Nähe zum Betrachtungspunkt weitere korrekt klassifizierte Trainingsdaten zur Verfügung stehen. Das liegt daran, dass bei dieser Variante des \emph{nearest Neighbours} nur der erste nächste Nachbarn zur Klassifizierung betrachtet wird.\cite{ertel2016}\par
 
                          
                % Schaubild Beispiel Nearest Neighbour mit Ausreißer.
