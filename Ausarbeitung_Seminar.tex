@@ -187,7 +187,7 @@
             \subsection{Lernen mit und ohne Lehrer}
                 Eine erste Einteilung verschiedener maschineller Lernverfahren ist die, ob das Lernverfahren auf Trainingsdaten, also auf solche Daten, für die eine korrekte Klasseneinordnung oder Funktionswert bereits bekannt ist, verwenden. In diesem Fall wird von \emph{Lernen mit Lehrer} oder \emph{supervised learning}gesprochen. Die richtige Klassifikation wird häufig von \emph{Experten} vorgenommen.\cite{ertel2016}
                 \\
-                Lernverfahren, die hingegen \emph{ohne} Trainingsdaten auskommen werden als Verfahren aus dem Bereich \emph{Lernen ohne Lehrer} bezeichnet.\\
+                Lernverfahren die hingegen \emph{ohne} Trainingsdaten auskommen werden als Verfahren aus dem Bereich \emph{Lernen ohne Lehrer} (\emph{unsupervised learning}) bezeichnet.\\
                 In dieser Arbeit beschränken wir uns ausschließlich auf Lernverfahren, die auf der Verwendung von Trainingsdaten beruhen, bleiben also im Bereich des \emph{Lernens mit Lehrer}.
             \subsection{Agenten}
                 Der Begriff des \emph{Agenten} ist in vielen Teilbereichen der Informatik von zentraler Bedeutung, allerdings wird der Agentenbegriff in verschiedenen Teilbereichen unterschiedlich ausgelegt. So stellt ein Agent in der klassischen Informatik eine Abbildung von einer Eingabe auf eine Ausgabe dar und wird als \emph{Software-Agent} bezeichnet, während ein Agent in der Robotik einen \emph{Hardware-Agenten} bezeichnet, der eine Erweiterung des Software-Agenten um Sensoren und Aktoren darstellt, die es dem Hardware-Agenten ermöglichen, seine Umgebung wahrzunehmen und zu verändern. \cite{ertel2016}
@@ -208,7 +208,7 @@
             
             \subsubsection{Der lernende Agent}
             \label{subsec:lernenderagent}
-                Der im Rahmen dieser Arbeit zentrale Agentenbegriff ist der des \emph{lernenden Agenten}. Der lernende Agent entspricht einer Abbildung eines Eingabevektors auf eine diskrete Klasse oder einen stetigen Funktionswert. Er unterscheidet sich vom Reflex-Agenten dadurch, dass die konkrete Abbildungsvorschrift nicht vom Programmierer vorgegeben, sondern aus \emph{Trainingsdaten} anhand eines \emph{Lernverfahrens} eigenständig gelernt wird.
+                Der im Rahmen dieser Arbeit zentrale Agentenbegriff ist der des \emph{lernenden Agenten}. Der lernende Agent entspricht einer Abbildung eines Eingabevektors auf eine diskrete Klasse oder einen stetigen Funktionswert. Er unterscheidet sich vom Reflex-Agenten dadurch, dass die konkrete Abbildungsvorschrift nicht vom Programmierer vorgegeben, sondern aus \emph{Trainingsdaten} anhand eines \emph{Lernverfahrens} eigenständig gelernt wird\cite{ertel2016}.
                 \begin{Figure}
                    \centering
                    \includegraphics[scale=1]{lernenderagent.png}
@@ -218,7 +218,7 @@
                 \end{Figure}
                 Die \emph{Aufgabe} des \emph{lernenden Agenten} ist das lernen einer Abbildung von einem Merkmalsvektor auf eine Klasse oder einen stetigen Funktionswert anhand von \emph{Trainingsdaten}. Es muss im Vorfeld festgelegt werden, welche Art von Agent, das heißt welches Lernverfahren, eingesetzt wird (siehe Abschnitt \ref{sec:perzeptron}, S. \pageref{sec:perzeptron} \emph{Perzeptron} und Abschnitt \ref{subsec:nn-methode}, S. \pageref{subsec:nn-methode} \emph{Nearest Neighbour Methoden}).
                 Bei der Auswahl der Trainingsdaten ist zu beachten, dass diese repräsentativ für die zu lernende Aufgabe sind, da die gelernte Abbildung ansonsten nur schlecht auf unbekannte Daten generalisiert.\\
-                Nachdem der Agent eine Abbildung anhand von Trainingsdaten gelern hat muss diese anhand eines geeigneten \emph{Leistungsmaßes} unter Verwendung von \emph{Testdaten} evaluiert werden. \emph{Testdaten} sind dabei Merkmalsvektoren, für die  die richtige Klasseneinteilung oder der richtige Funktionswert bereits bekannt sind, die aber keine Trainingsdaten waren.
+                Nachdem der Agent eine Abbildung anhand von Trainingsdaten gelern hat muss diese anhand eines geeigneten \emph{Leistungsmaßes} unter Verwendung von \emph{Testdaten} evaluiert werden. \emph{Testdaten} sind dabei Merkmalsvektoren, für die  die richtige Klasseneinteilung oder der richtige Funktionswert bereits bekannt sind, die aber keine Trainingsdaten waren\cite{ertel2016}.
 
             \subsection{Eager Learning}
                 Als \emph{Eager Learning} werden solche Lernverfahren bezeichnet, bei denen in einem ersten Schritt in einer (in der Regel aufwändigen) Lernphase bestehendes Wissen aus den Trainingsdaten in Form einer Abbildung extrahiert wird.
@@ -228,9 +228,10 @@
         \label{sec:perzeptron}
             In diesem Abschnitt der Arbeit soll mit dem \emph{Perzeptron} ein einfaches, aber dennoch aufschlussreiches Beispiel für eine konkrete Implementierung eines lernenden Agenten gegeben werden.
             \newline
-            Das Perzeptron ist eine \emph{linearer Klassifizierer}, das heißt, es ist in der Lage, einen Eingabevektor auf eine von zwei Klassen abzubilden, sofern es eine Hyperebene gibt, die die beiden Klassen voneinander trennt.
+            Das Perzeptron ist eine \emph{linearer Klassifizierer}, das heißt, es ist in der Lage, einen Eingabevektor auf eine von zwei Klassen abzubilden, sofern es eine Hyperebene gibt, die die beiden Klassen voneinander trennt\cite{ertel2016}.
 
             \subsection{Linear separable Mengen}
+            \label{subsec:lernverfahren}
                 Zunächst soll verdeutlicht werden was es heißt dass zwei Mengen durch eine Hyperebene voneinander getrennt werden.
                 Hierzu führen wir den Begriff der 
                 \emph{linear separablen Mengen} ein.
@@ -240,7 +241,7 @@
                     \sum_{i=1}^n a_ix_i > \theta \forall x \in M_1$$
                 und
                 $$\sum_{i=1}^n a_ix_i \leq \theta \forall x \in M_2$$
-                gilt.
+                gilt\cite{ertel2016}.
                 \newline
                 In der Terminologie der linearen Algebra beduetet dies, es existiert eine $n-1$ dimensionale Hyperebene, die durch die Gleichung
                 $$
@@ -252,7 +253,7 @@
                 Wie bereits erwähnt handelt es sich beim \emph{Perzeptron} um einen linearen Klassifizierer, der genau die linear separablen Mengen klassifizieren kann. Das heißt, das Perzeptron ist eine Abbildung eines Eingabevektors $x$ auf einen diskreten Klassenwert. Es wird definiert durch die Abbildungsvorschrift
                 $$
                     P(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }\sum_{i=1}^nw_ix_i > 0\\ 0, & \mbox{falls} \sum_{i=1}^n w_ix_i \leq 0 \end{array}\right. 
-                $$
+                $$ \cite{ertel2016}
 
                 Aus der Abbildungsvorschrift wird ersichtlich, dass $n$ Skalare, $w_1,\dots,w_n$ benötigt werden. Der Vektor $w = (w_1,\dots, w_n)$ wird als \emph{Gewichtsvektor} bezeichnet. Dieser Gewichtsvektor $w$ ist im Allgemeinen zunächst unbekannt und muss in einem vorgelagerten Schritt gelernt werden.
             \subsection{Lernverfahren}
@@ -278,7 +279,7 @@
                             }
                         }
                         \caption{PerzeptronLernen}
-                    \end{algorithm}
+                    \end{algorithm} \cite{ertel2016}
                 
                     \subsubsection{Beispiel}
                         Das Vorgehen des Lernverfahrens soll im Folgenden anhand eines einfachen Beispiels verdeutlicht werden.
@@ -370,7 +371,7 @@
                     $$\cite{ertel2016}
 
             \subsection{Erweiterung auf linear affine Mengen}
-                Die bisherige Abbildungsvorschrift des Perzeptrons beruht darauf, dass die beiden Mengen durch eine Hyperebene durch den Nullpunkt trennbar sind. Dies widerspricht aber der Definition linear separabler Mengen, die lediglich voraussetzt, dass es eine beliebige Schwelle, insbesondere also auch solche ungleich $0$. Daher stell sich unweigerlich die Frage, ob das Perzeptron tatsächlich alle linear separablen Mengen korrekt klassifizieren kann, oder solche, die durch eine durch den Ursprung verlaufende Hyperebene trennbar sind. Um zu zeigen, dass das Perzeptron auch solche Mengen, die durch eine durch eine beliebige Schwelle definierte Hyperbene trennbar sind, korrekt klassifizieren kann, greifen wir auf die bekannten Rechenregeln der reellen Zahlen für Ungleichungen zurück.
+                Die bisherige Abbildungsvorschrift des Perzeptrons beruht darauf, dass die beiden Mengen durch eine Hyperebene durch den Nullpunkt trennbar sind. Dies widerspricht aber der Definition linear separabler Mengen, die lediglich voraussetzt, dass es eine beliebige Schwelle, insbesondere also auch solche ungleich $0$ (vgl. Abschnitt \ref{subsec:lernverfahren} ). Daher stell sich unweigerlich die Frage, ob das Perzeptron tatsächlich alle linear separablen Mengen korrekt klassifizieren kann, oder lediglich solche, die durch eine durch den Ursprung verlaufende Hyperebene trennbar sind. Um zu zeigen, dass das Perzeptron auch solche Mengen, die durch eine durch eine beliebige Schwelle definierte Hyperbene trennbar sind, korrekt klassifizieren kann, greifen wir auf die bekannten Rechenregeln der reellen Zahlen für Ungleichungen zurück.
                 Zunächst erweitern wir den Eingabevektor $x$ um eine $n+1$. Komponente, die Konstant auf $-1$ gesetzt wird.
                 \newline 
                 Damit ergibt sich für die Abbildungsvorschrift des Perzeptrons 
@@ -440,7 +441,7 @@
                         $$
                             \sum_{i=1}^nw_ix_i = \theta
                         $$
-                        genügt, von der Menge der Vektoren, die auf $0$ abbilden, zu trennen.
+                        genügt, von der Menge der Vektoren, die auf $0$ abbilden, zu trennen\cite{ertel2016}.
 
 % Ende mein Teil
                         
