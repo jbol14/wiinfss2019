@@ -92,41 +92,12 @@
             \emph{Maschinelles Lernen} ist ein Teilbereich der \emph{Künstlichen Intelligenz}, dessen Aufgabe das Lernen von Abbildungen einer Eingabemenge in eine Ausgabemenge ist. Typische Anwendungen sind die \emph{Klassifikation}, also eine Abbildung einer Eingabe auf eine Klasse, und \emph{Approximation}, sprich die Berechnung eines Funktionswertes, der möglichst nahe an der Realität ist\cite{ertel2016,mlfor}.
             In den vergangenen Jahren hat das \emph{maschinelle Lernen} große Fortschritte gemacht, was im Wesentlichen auf die Zunahme von Rechenleistung und Speicherkapazität zurückgeführt werden kann.\cite{mlfor}
             So werden bereits heute medizinische Diagnosen unter Verwendung sogenannter \emph{Expertensysteme} gestellt\cite{ertel2016} und Behandlungspläne für Krebspatienten durch maschinelles Lernen unter Verwendung der Patientendaten anderer Patienten automatisch erstellt.\cite{mlfor}
-            Der Online-Versandhändler Amazon setzt Data Minig ein um seinen Kunden relevante Artikel zu präsentieren und der Suchmaschinenanbieter Google verwendet Suchanfragen und Nutzungsdaten des Android-Betriebssystems, um personalisierte Werbung zu schalten.\cite{ertel2016}
+            Der Online-Versandhändler Amazon setzt Data Minig ein um seinen Kunden relevante Artikel zu präsentieren.\cite{ertel2016}
             Auch bei der Kreditvergabe setzen Finazdienstleister heutzutage maschinelle Lernverfahren ein um Kreditanfragen zu prüfen.\cite{mlfor}
             Mit zunehmender Bedeutung von \emph{Data Mining} und \emph{maschinellem Lernen} sind auch leicht zu verwendende Frameworks erschienen, die dem Anwender einen leichten Einstieg in die Materie ermöglichen. Zu den bekanntesten Vertretern gehören \emph{Scikit Learn}\footnote{\url{https://scikit-learn.org/stable/}}, ein Framework für die Programmiersprache Python, und \emph{Tensorflow}\footnote{\url{https://www.tensorflow.org}}, ein Framework von Google.
             Da künstliche Intelligenz und insbesondere maschinelles Lernen bereits Einfluss auf das tägliche Leben haben, und davon auszugehen ist, dass dieser Einfluss in den kommenden Jahren weiter zunimmt, soll im Rahmen dieser Arbeit ein grundlegendes Verständnis für die zugrundeliegenden Verfahren hergestellt werden. Wir werden uns dabei auf statistische Lage-, Streuungs- und Zusammenhangsmaße im Bereich der Statistik und auf Lernverfahren mit Lehrer im Bereich des maschinellen Lernens konzentrieren.
-            % Dennoch ist eine grundlegende Kenntnis der zur Verfügung stehenden Algorthmen sinnvoll um diese effizient einzusetzen.
-             
-
-            % \subsection{Umfang dieser Arbeit}
-
-                %Im Rahmen dieser Arbeit sollen Grundlagen des \emph{Data Mining} und des \emph{maschinellen Lernens} dargelegt werden.\\
-                %Wolfgang Ertel definiert \emph{Data Mining} wie folgt:\\
-                %\begin{quote}
-                %     \glqq Der Prozess des Gewinnens von Wissen aus Daten sowie dessen Darstellung und Anwendung wird als \emph{Data Mining} bezeichnet. Die verwendeten Methoden kommen meist aus der Statistik oder dem maschinellen Lernen und sollten auch auf sehr große Datenmengen mit vertretbarem Aufwand anwendbar sein.\grqq\\
-                %     \raggedleft\footnotesize\cite[S.196]{ertel2016} 
-                %     %\zitat W. Ertel,\\ Grundkurs künstliche Intelligenz, Springer Fachmedien, 2016, S. 196    
-                % \end{quote}
-
-                % Anhand dieser Definition soll der Umfang der Arbeit festgelegt werden. Es sollen grundlegende Methoden der \emph{deskriptiven Statistik} und Prinzipien des \emph{maschinellen Lernens} vorgestellt werden.\\
-                % Im Bereich des \emph{maschinellen Lernens} sollen insbesondere Lernverfahren aus dem Bereich des \emph{Lernens mit Lehrer} (auch \emph{supervised learning} genannt) behandelt werden. Bei diesen Lernverfahren handelt es sich um solche, die \emph{Trainingsdaten} verwenden, um einen diskreten Klassen- oder stetigen Funktionswert berechnen. \cite{ertel2016}
-
-            % \subsection{Maschinelles Lernen als Teilmenge künstlicher Intelligenz}
-            % Blindtext, überarbeiten
-            % Maschinelles Lernen stellt einen Teilbereich der künstlichen Intelligenz dar und beschränkt sich auf das Klassifizieren von Daten.
-
-            % \subsection{Machine Learning Frameworks}
-                % Im letzten Jahrzent hat der Teilbereich \emph{maschinelles Lernen} viele Fortschritte gemacht und gehört zu den Bereichen der künstlichen Intelligenz, in denen am meisten geforscht wurde. Dies drückt sich auch in den relativ neuen Frameworks, die in diesem Bereich auf den Markt gekommen sind.
-
-                % \subsubsection{Scikit Learn}
-                %   \emph{Scikit Learn} ist ein Framework für maschinelles Lernen in Python.
-
-                % \subsubsection{Tensorflow}
-                    % \emph{Tensorflow} ist ein ML-Framwork von Google.
 
         \section{Statistische Grundlagen}
-            
             \subsection{Skalenniveaus}
                 Untersuchte Merkmale können anhand ihrer Messbarkeitseigenschaften unterschieden und in die Kategorien \emph{qualitative}, \emph{komparative} und \emph{quantitative Merkmale} eingeteilt werden.
                 Qualitative Merkmale sind solche, deren Ausprägungen sich in ihrer Art unterscheiden. 
@@ -139,9 +110,9 @@
                 \subsection{Ordinalskala}
                     Ordinalskalierte Merkmale sind solche, bei denen neben der Unterscheidbarkeit der Merkmalsausprägungen auch eine natürliche Reihenfolge der Ausprägungen zugrunde liegt, wobei der Abstand zwischen den einzelnen Merkmalsausprägungen aber nicht sinnvoll interpretierbar ist. \cite{kohn2005}
                     \subsubsection{Beispiel}
-                        Die gängigen Kleidergrößen von XS bis XXL verduelichen dies. Offenbar ist eine größe M größer als eine Größe XS, jedoch ist keine Aussage über das Verhältnis des Größenunterschieds der beiden Größen möglich.
+                        Die gängigen Kleidergrößen von XS bis XXL verdeutlichen dies. Offenbar ist eine größe M größer als eine Größe XS, jedoch ist keine Aussage über das Verhältnis des Größenunterschieds der beiden Größen möglich.
                 \subsection{Metrische Skalen}
-                    Eine Skala, deren Merkmalsausprägungen relle Zahlen sind, und die auch die Ordnungsstruktur der reellen Zahlen aufweist, wird \emph{metrische Skala} genannt. Neben der Unterscheidung verschiedener Merkmalsausprägungen under der zugrunde liegenden Ordnungsrelation zeichnen sich metrische Zahlen dadurch aus, dass die Merkmalsausprägungen jeden möglichen Wert annehmen können. Da die Werte reelle Zahlen sind gibt es also überabzählbar unendlich viele Merkmalsausprägungen und der Wertebereich metrischer Skalen wird \emph{stetig} genannt. Neben der Stetigkeit des Wertebeichs ist die Möglichkeit der sinnvollen Interpretation der Abstände von metrisch skalierten Merkmalen eine charakterisierende Eigenschaft ebendieser.
+                    Eine Skala deren Merkmalsausprägungen relle Zahlen sind, und die auch die Ordnungsstruktur der reellen Zahlen aufweist, wird \emph{metrische Skala} genannt. Neben der Unterscheidung verschiedener Merkmalsausprägungen und der zugrunde liegenden Ordnungsrelation zeichnen sich metrische Zahlen dadurch aus, dass die Merkmalsausprägungen jeden möglichen Wert annehmen können. Da die Werte reelle Zahlen sind gibt es also überabzählbar unendlich viele Merkmalsausprägungen und der Wertebereich metrischer Skalen wird \emph{stetig} genannt. Neben der Stetigkeit des Wertebeichs ist die Möglichkeit der sinnvollen Interpretation der Abstände von metrisch skalierten Merkmalen eine charakterisierende Eigenschaft ebendieser.
                     \cite{kohn2005}
                     \subsubsection{Beispiel}
                         Die Entfernung zweier Punkte in Metern weist die Eigenschaften metrisch skalierter Merkmale auf: Zum kann die Entfernung zweier Punkte jeden beliebigen reellen Wert annehmen, zum anderen lassen sich verschiedene Merkmalsausprägungen problemlos ordnen; eine Entfernung von $ 0,5m $ ist kleiner als eine Entfernung von $ 0,78m $. Darüber hinaus ist auch der Abstand interpretierbar, so ist ein Abstand von $4m$ augenscheinlich viermal so groß wie ein Abstand von $1m$.
@@ -153,7 +124,7 @@
                         Ein Beispiel für ein verhältnisskaliertes Merkmal stellt das Gewicht dar. Zwar existieren verschieden Maßeinheiten wie Gramm, Pfund oder Unzen, jedoch entspricht ein Gewicht von $0$ Gramm ebenso einem Gewicht von $0$ Pfund und ebenso $0$ Unzen.
                 
                 \subsection{Lagemaße}
-                    Einen erstenAnsatz zur Datenanalyse liefern sogenannte \emph{Lagemaße}. Sie liefern Aufschluss über die Häufigkeitsverteilung der untersuchten Merkmale einer Stichprobe. \cite{kohn2005}
+                    Einen ersten Ansatz zur Datenanalyse liefern sogenannte \emph{Lagemaße}. Sie liefern Aufschluss über die Häufigkeitsverteilung der untersuchten Merkmale einer Stichprobe. \cite{kohn2005}
                     \subsubsection{Modus}
                         Der \emph{Modus} $x_{mod}$ ist ein sehr einfaches Lagemaß, dass sich hauptsächlich für nominalskalierte Merkmale eignet. Der Modus ist die Merkmalsausprägung mit der größten Häufigkeit. \cite{kohn2005}
                     \subsubsection{Median}
@@ -191,7 +162,7 @@
                         Durch das Ziehen der Quadratwurzel misst die Standardabweichung die mittlere Streuung um den Mittelwert in der gleichen Maßeinheit wie die ursprünglichen Werte.\cite{kohn2005}
 
                 \subsection{Zusammenhangsmaße}
-                    Häufig, so auch im Bereich des \emph{Data Mining}, interessiert man sich jedoch nicht nur für die Ausprägungen eines einzelnen Merkmals. Viel interessanter erscheint eine Untersuchung, wie verschiedene Merkmale zueinander in Beziehung stehen. Lassen sich etwa aus den Beobachtungen eines Merkmals Rückschlüsse auf ein anderes Merkmal ziehen?
+                    Häufig, so auch im Bereich des \emph{Data Mining}, interessiert man sich jedoch nicht nur für die Ausprägungen eines einzelnen Merkmals. Viel interessanter erscheint eine Untersuchung wie verschiedene Merkmale zueinander in Beziehung stehen. Unter Umständen Lassen sich aus den Beobachtungen eines Merkmals Rückschlüsse auf ein anderes Merkmal ziehen.
                     \subsubsection{Kovarianz}
                         Die \emph{Kovarianz} $cov(x,y)$ beschreibt, wie sich zwei Merkmale eines beobachteten Merkmalsvektors zueinander in Bezug auf Abweichung ihres jeweiligen Mittelwerts verhalten. \cite{ertel2016}\\
                         Definition der Kovarianz:\\
@@ -245,13 +216,13 @@
                    \raggedleft\footnotesize\cite[S.194, Abb. 8.4(rechts)]{ertel2016}
                    %\quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien, 2016, S. 194, Abb. 8.4 (rechts)
                 \end{Figure}
-                Die \emph{Aufgabe} des \emph{lernenden Agenten}, ist das lernen einer Abbildung von einem Merkmalsvektor auf eine Klasse oder einen stetigen Funktionswert anhand von \emph{Trainingsdaten}. Es muss im Vorfeld festgelegt werden, welche Art von Agent, das heißt welches Lernverfahren, eingesetzt wird (siehe Abschnitt \ref{sec:perzeptron}, S. \pageref{sec:perzeptron} \emph{Perzeptron} und Abschnitt \ref{subsec:nn-methode}, S. \pageref{subsec:nn-methode} \emph{Nearest Neighbour Methoden}).
+                Die \emph{Aufgabe} des \emph{lernenden Agenten} ist das lernen einer Abbildung von einem Merkmalsvektor auf eine Klasse oder einen stetigen Funktionswert anhand von \emph{Trainingsdaten}. Es muss im Vorfeld festgelegt werden, welche Art von Agent, das heißt welches Lernverfahren, eingesetzt wird (siehe Abschnitt \ref{sec:perzeptron}, S. \pageref{sec:perzeptron} \emph{Perzeptron} und Abschnitt \ref{subsec:nn-methode}, S. \pageref{subsec:nn-methode} \emph{Nearest Neighbour Methoden}).
                 Bei der Auswahl der Trainingsdaten ist zu beachten, dass diese repräsentativ für die zu lernende Aufgabe sind, da die gelernte Abbildung ansonsten nur schlecht auf unbekannte Daten generalisiert.\\
                 Nachdem der Agent eine Abbildung anhand von Trainingsdaten gelern hat muss diese anhand eines geeigneten \emph{Leistungsmaßes} unter Verwendung von \emph{Testdaten} evaluiert werden. \emph{Testdaten} sind dabei Merkmalsvektoren, für die  die richtige Klasseneinteilung oder der richtige Funktionswert bereits bekannt sind, die aber keine Trainingsdaten waren.
 
             \subsection{Eager Learning}
                 Als \emph{Eager Learning} werden solche Lernverfahren bezeichnet, bei denen in einem ersten Schritt in einer (in der Regel aufwändigen) Lernphase bestehendes Wissen aus den Trainingsdaten in Form einer Abbildung extrahiert wird.
-                Der in der Lernphase betrieben Aufwand rechnet sich aber in der Anwendung, da diese Klasse von Lernverfahren, sobald die Abbildung gelernt wurde, sehr effizient auf neue Beispiele angewendet werden kann.\cite{ertel2016} 
+                Der in der Lernphase betrieben Aufwand rechnet sich aber in der Anwendung, da diese Klasse von Lernverfahren, sobald die Abbildung gelernt wurde, sehr effizient auf neue, ungesehene Daten angewendet werden kann.\cite{ertel2016} 
 
         \section{Das Perzeptron}
         \label{sec:perzeptron}
@@ -260,7 +231,7 @@
             Das Perzeptron ist eine \emph{linearer Klassifizierer}, das heißt, es ist in der Lage, einen Eingabevektor auf eine von zwei Klassen abzubilden, sofern es eine Hyperebene gibt, die die beiden Klassen voneinander trennt.
 
             \subsection{Linear separable Mengen}
-                In diesem Abschnitt soll verdeutlicht werden, was es heißt dass zwei Mengen durch eine Hyperebene voneinander getrennt werden.
+                Zunächst soll verdeutlicht werden was es heißt dass zwei Mengen durch eine Hyperebene voneinander getrennt werden.
                 Hierzu führen wir den Begriff der 
                 \emph{linear separablen Mengen} ein.
                 \newline
@@ -283,7 +254,7 @@
                     P(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }\sum_{i=1}^nw_ix_i > 0\\ 0, & \mbox{falls} \sum_{i=1}^n w_ix_i \leq 0 \end{array}\right. 
                 $$
 
-                Aus der Abbildungsvorschrift wird ersichtlich, dass $n$ Skalare, $w_1,\dots,w_n$ benötigt werden. Der Vektor $w = (w_1,\dots, w_n)$ wird im als \emph{Gewichtsvektor} bezeichnet. Dieser Gewichtsvektor $w$ ist im Allgemeinen zunächst unbekannt und muss in einem vorgelagerten Schritt gelernt werden.
+                Aus der Abbildungsvorschrift wird ersichtlich, dass $n$ Skalare, $w_1,\dots,w_n$ benötigt werden. Der Vektor $w = (w_1,\dots, w_n)$ wird als \emph{Gewichtsvektor} bezeichnet. Dieser Gewichtsvektor $w$ ist im Allgemeinen zunächst unbekannt und muss in einem vorgelagerten Schritt gelernt werden.
             \subsection{Lernverfahren}
                 Eine Möglichkeit, den Gewichtsvektor $w$ zu ermitteln stellt der Algorithmus PerzeptronLernen dar, der in diesem Abschnitt vorgestellt werden soll. Der Algorithmus PerzeptronLernen nimmt als Eingabe zwei Mengen $M_+$ und $M_-$, wobei die Menge $M_+$ Eingabevektoren enthält, von denen bereits bekannt ist, dass sie mit $1$ klassifiziert werden sollen. Analog enthält die Menge $M_-$ Eingabevektoren, von denen bereits bekannt ist, dass sie mit $0$ klassifiziert werden sollen.
                 \newline
@@ -374,8 +345,7 @@
                         $(2.2,1.2)\cdot (2,0.6) = 5.12 > 0 \rightarrow$ zweiter Vektor korrekt klassifiziert.\\
                         $M_-$\\
                         $(2.2,1.2)\cdot (-1.2,1.4) = -0.96 < 0 \rightarrow$ dritter Vektor korrekt klassifiziert.\\
-                        $(2.2,1.2)\cdot (0.4,-1) = -0,32 < 0 \rightarrow$ vierter Vektor korrekt klassifiziert.\\
-                        \\
+                        $(2.2,1.2)\cdot (0.4,-1) = -0,32 < 0 \rightarrow$ vierter Vektor korrekt klassifiziert.
                         \begin{Figure}
                             \centering
                             \includegraphics[scale=0.5]{bsp4.png}
@@ -387,7 +357,7 @@
                         Zu beachten ist auch, dass der richtige Vektor bereits in der vorletzten Iteration gefunden wird. Da dieser Vektor aber noch auf allen Trainingsdaten getestet werden muss bedarf es einer weiteren Iteration.
 
                     \subsubsection{Finden guter Initialwerte für $w$}
-                    Die asymptotische Laufzeitanalyse des Algorithmus PerzeptonLernen in Abhängigkeit der Eingabegröße $n$, wobei $n$ der Anzahl der Trainingsdaten entspricht, gestaltet sich als schwierig. Einzig das Best-Case-Szenario, bei dem der initiale Gewichtsvektor so gewählt wird, dass es keiner Anpassung bedarf, lässt sich asymptotisch mit $\Omega(n)$ nach unten abschätzen, da jedes Element aus den Trainingsdaten, also $M_+ \cup M_-$, mindestens einmal überprüft werden muss. Für die Average-Case und Worst-Case Laufzeiten lässt sich so jedoch keine Aussage treffen, da die Wahl von $W$ deutlich größere Auswirkungen auf die Laufzeit des Lernverfahrens hat.
+                    Die asymptotische Laufzeitanalyse des Algorithmus PerzeptonLernen in Abhängigkeit der Eingabegröße $n$, wobei $n$ der Anzahl der Trainingsdaten entspricht, gestaltet sich als schwierig. Einzig das Best-Case-Szenario, bei dem der initiale Gewichtsvektor so gewählt wird, dass es keiner Anpassung bedarf, lässt sich asymptotisch mit $\Omega(n)$ nach unten abschätzen, da jedes Element aus den Trainingsdaten, also $M_+ \cup M_-$, mindestens einmal überprüft werden muss. Für die Average-Case und Worst-Case Laufzeiten lässt sich so jedoch keine Aussage treffen, da die Wahl von $w$ deutlich größere Auswirkungen auf die Laufzeit des Lernverfahrens hat.
                     Folglich kann die Laufzeit des Algorithmus bei Verwendung eines optimalen intialen Gewichtsvektors $w$ auf $\mathcal{O}(n)$ reduziert werden. Allerdings entspricht das finden optimaler Gewichtsvektoren genau dem Ausführen des Lernverfahrens, dieses hat schließlich zum Ziel, ein $w$ zu finden, dass die Mengen trennt, was äquivalent dazu ist, dass das $w$, bei Verwendung als initialem Gewichtsvektor im Lernverfahren nicht mehr angepasst werden muss, da es alle Trainingsdaten korrekt klassifiziert.
                     Ein finden optimaler Gewichtsvektoren ist also keine Option zu Verbesserung der Laufzeit.
                     \newline
