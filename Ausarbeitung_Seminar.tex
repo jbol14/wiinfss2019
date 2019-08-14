@@ -128,9 +128,11 @@
                 
                 \subsection{Lagemaße}
                     Einen ersten Ansatz zur Datenanalyse liefern sogenannte \emph{Lagemaße}. Sie liefern Aufschluss über die Häufigkeitsverteilung der untersuchten Merkmale einer Stichprobe. \cite{kohn2005}
+                    
                     \subsubsection{Modus}
                         Der \emph{Modus} $x_{mod}$ ist ein sehr einfaches Lagemaß, dass sich hauptsächlich für nominalskalierte Merkmale eignet. Der Modus ist die Merkmalsausprägung mit der größten Häufigkeit. \cite{kohn2005}
-                    \subsubsection{Median}
+                    
+                        \subsubsection{Median}
                         Der \emph{Median} $x_{med}$ entspricht dem Wert in der Mitte. Es folgt, dass der Median nur für mindestens ordinalskalierte Merkmale angewendet werden kann, da den Merkmalsausprägungen eine Ordnungsstruktur zugrundeliegen muss. \cite{kohn2005}
                         \newline
                         Zur Berechnung des Medians wird wie folgt vorgegangen: Zuächst werden die Merkmalsausprägungen geordnet und anschließend das Mittlere Element ausgewählt. Seien dazu $n$ Stichproben genommen worden und es entspreche $x_i,i \in \{1,\dots,n\}$ dem Wert der $i$-ten Probe. Analog entspreche $x_{(i)}, i \in \{1,\dots,n\}$ der geordneten Probe, d.h. $x_{(i)} \leq x_{(i+1)} \forall i \in \{1,\dots,n\}$.
@@ -145,13 +147,15 @@
                         \newline
                         $n$ gerade
                         $$ x_{med} := \frac{1}{2}\left( x_{(\frac{n}{2})} + x_{(\frac{n}{2}+1)} \right) $$
-                    \subsubsection{Arithmetisches Mittel}
+                    
+                        \subsubsection{Arithmetisches Mittel}
                         Das \emph{arithmetische Mittel} stellt das am weitesten verbreitette Lagemaß für metrische Merkmale dar. Im Gegensatz zu Modus und Median berücksichtigt das arithmetische Mittel alle Merkmalsausprägungen einer Probe, wird dadurch aber auch anfällig für \emph{Ausreißer}.
                         $$ \bar{x} := \frac{1}{n}\sum_{i=1}^nx_i $$ 
                         Aus der Formel folgt direkt, dass das arithmetische Mittel nicht auf nominal- oder ordinalskalierte Merkmale angewendet werden kann, da auf diesen keine Addition definiert ist.
 
                 \subsection{Streuungsmaße}
                     Streuungsmaße geben Auskunft darüber, wie stark die Ausprägungen des untersuchten Merkmals von einem Lagemaß wie dem arithmetischen Mittel abweichen, also wie sehr sie um den Mittelwert streuen. Sie liefern damit eine Beurteilungsmöglichkeit für das verwendete Lagemaß.\cite{ertel2016,kohn2005}
+                    
                     \subsubsection{Varianz}
                         Die \emph{Varianz} $\sigma^2$ ist das am häufigsten verwendete Strueungsmaß. Sie beschreibt die \emph{mittlere quadratische Abweichung} der Merkmalsausprägungen vom Mittelwert.
                         Wird die Grundgesamtheit betrachtet, so gilt die folgende Formel (\emph{empirische Varianz}): 
@@ -159,6 +163,7 @@
                         Soll dagegen lediglich eine Stichprobe, das heißt eine Teilmenge der Grundgesamtheit untersucht werden, so muss die Formel angepasst werden (\emph{Stichprobenvarianz}):
                         $$ \sigma^2 := \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})^2  $$
                         In beiden Fällen ist jedoch zu beachten, dass die Maßeinheit der Varianz, aufgrund der Quadrierung des Abstandes zum Mittelwert, nicht mehr der Maßeinheit der urspürnglichen Werte entspricht.\cite{kohn2005}
+                    
                     \subsubsection{Standardabweichung}
                         Die \emph{Standardabweichung} $\sigma$ ist die positive Quadratwurzel der Varianz. Wie bereits erläutert etnspricht die Maßeinheit der Varianz nicht der ursprünglichen Maßeinheit der Werte. Dieses Manko lässt sich mit der Standardabweichung beheben.
                         $$ \sigma := + \sqrt{\sigma^2} $$
@@ -166,6 +171,7 @@
 
                 \subsection{Zusammenhangsmaße}
                     Häufig, so auch im Bereich des \emph{Data Mining}, interessiert man sich jedoch nicht nur für die Ausprägungen eines einzelnen Merkmals. Viel interessanter erscheint eine Untersuchung wie verschiedene Merkmale zueinander in Beziehung stehen. Unter Umständen Lassen sich aus den Beobachtungen eines Merkmals Rückschlüsse auf ein anderes Merkmal ziehen.
+                    
                     \subsubsection{Kovarianz}
                         Die \emph{Kovarianz} $cov(x,y)$ beschreibt, wie sich zwei Merkmale eines beobachteten Merkmalsvektors zueinander in Bezug auf Abweichung ihres jeweiligen Mittelwerts verhalten. \cite{ertel2016}\\
                         Definition der Kovarianz:\\
