@@ -157,7 +157,7 @@
                     \subsubsection{Modus}
                         Der \emph{Modus} $x_{mod}$ ist ein sehr einfaches Lagemaß, dass sich hauptsächlich für nominalskalierte Merkmale eignet. Der Modus ist die Merkmalsausprägung mit der größten Häufigkeit. \cite{kohn2005}
                     \subsubsection{Median}
-                        Der \emph{Median} $x_{med}$ entspricht "dem Wert in der Mitte". Es folgt, dass der Median nur für mindestens ordinalskalierte Merkmale angewendet werden kann, da den Merkmalsausprägungen eine Ordnungsstruktur zugrundeliegen muss. \cite{kohn2005}
+                        Der \emph{Median} $x_{med}$ entspricht dem Wert in der Mitte. Es folgt, dass der Median nur für mindestens ordinalskalierte Merkmale angewendet werden kann, da den Merkmalsausprägungen eine Ordnungsstruktur zugrundeliegen muss. \cite{kohn2005}
                         \newline
                         Zur Berechnung des Medians wird wie folgt vorgegangen: Zuächst werden die Merkmalsausprägungen geordnet und anschließend das Mittlere Element ausgewählt. Seien dazu $n$ Stichproben genommen worden und es entspreche $x_i,i \in \{1,\dots,n\}$ dem Wert der $i$-ten Probe. Analog entspreche $x_{(i)}, i \in \{1,\dots,n\}$ der geordneten Probe, d.h. $x_{(i)} \leq x_{(i+1)} \forall i \in \{1,\dots,n\}$.
                         \newline
@@ -237,7 +237,7 @@
             
             \subsubsection{Der lernende Agent}
             \label{subsec:lernenderagent}
-                Der im Rahmen dieser Arbeit zentrale Agentenbegriff ist der des \emph{lernenden Agenten}. Der lernende Agent entspricht einer Abbildung eines Eingabevektors auf eine diskrete Klasse oder einen stetigen Funktionswert. Er unterscheidet sich vom Reflex-Agenten dadurch, dass die konkrete Abbildungsvorschrift nicht vom Programmierer vorgegeben, sondern aus \emph{Trainingsdaten} eigenständig gelernt wird.
+                Der im Rahmen dieser Arbeit zentrale Agentenbegriff ist der des \emph{lernenden Agenten}. Der lernende Agent entspricht einer Abbildung eines Eingabevektors auf eine diskrete Klasse oder einen stetigen Funktionswert. Er unterscheidet sich vom Reflex-Agenten dadurch, dass die konkrete Abbildungsvorschrift nicht vom Programmierer vorgegeben, sondern aus \emph{Trainingsdaten} anhand eines \emph{Lernverfahrens} eigenständig gelernt wird.
                 \begin{Figure}
                    \centering
                    \includegraphics[scale=1]{lernenderagent.png}
@@ -391,13 +391,13 @@
                     Folglich kann die Laufzeit des Algorithmus bei Verwendung eines optimalen intialen Gewichtsvektors $w$ auf $\mathcal{O}(n)$ reduziert werden. Allerdings entspricht das finden optimaler Gewichtsvektoren genau dem Ausführen des Lernverfahrens, dieses hat schließlich zum Ziel, ein $w$ zu finden, dass die Mengen trennt, was äquivalent dazu ist, dass das $w$, bei Verwendung als initialem Gewichtsvektor im Lernverfahren nicht mehr angepasst werden muss, da es alle Trainingsdaten korrekt klassifiziert.
                     Ein finden optimaler Gewichtsvektoren ist also keine Option zu Verbesserung der Laufzeit.
                     \newline
-                    Dennoch lassen sich durh die Verwendung heuristisch bestimmter "guter"\  Gewichtsvektoren $w$ im Durchschnitt Laufzeitverbesserungen erreichen.
+                    Dennoch lassen sich durh die Verwendung heuristisch bestimmter \glqq guter\grqq\  Gewichtsvektoren $w$ im Durchschnitt Laufzeitverbesserungen erreichen.
                     Eine geeignete Heuristik sieht wie folgt aus: 
                     \newline
                     Alle $x\in M_+$ werden aufaddiert und davon wird die Summer aller $x\in M_-$ abgezogen.
                     $$
                         w = \sum_{x \in M_+}x - \sum_{x \in M_-}x
-                    $$
+                    $$\cite{ertel2016}
 
             \subsection{Erweiterung auf linear affine Mengen}
                 Die bisherige Abbildungsvorschrift des Perzeptrons beruht darauf, dass die beiden Mengen durch eine Hyperebene durch den Nullpunkt trennbar sind. Dies widerspricht aber der Definition linear separabler Mengen, die lediglich voraussetzt, dass es eine beliebige Schwelle, insbesondere also auch solche ungleich $0$. Daher stell sich unweigerlich die Frage, ob das Perzeptron tatsächlich alle linear separablen Mengen korrekt klassifizieren kann, oder solche, die durch eine durch den Ursprung verlaufende Hyperebene trennbar sind. Um zu zeigen, dass das Perzeptron auch solche Mengen, die durch eine durch eine beliebige Schwelle definierte Hyperbene trennbar sind, korrekt klassifizieren kann, greifen wir auf die bekannten Rechenregeln der reellen Zahlen für Ungleichungen zurück.
