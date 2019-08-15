@@ -562,6 +562,7 @@
                 Zu Beginn werden die Mengen $M_+$ und $M_-$ als Trainingsdaten, $s$ als den zu klassifizierenden Datenpunkt und $t$ als den nächsten Nachbarn von $s$ definiert. Die Funktion \emph{argmin\{\}} erhält eine endliche Menge als Eingabe und gibt die Stelle an dem ein Minimum auftritt als Rückgabewert zurück. Analog würde für \emph{argmax\{\}} gelten, dass die Stelle an der ein Maximum auftritt zurückgegeben wird.\par
                         
                 Die Idee des \emph{nearest Neighbour} Verfahrens ist, wenn der nächste Nachbarn von $s$ erfolgreich bestimmt werden konnte, kann aufgrund der Ähnlichkeit zwischen beiden Datenpunkten die Aussage getroffen werden, dass $s$ vermutlich der gleichen Klasse angehört wie $t$. Dadurch ist unsere Klassifizierung erfolgt.
+                \newpage
                
                         
             \subsection{Nearest-Neighbour Algorithmus}
@@ -668,7 +669,7 @@
         \section{k-nearest Neighbour Methode}
             Ist eine Variante des \emph{nearest Neighbour}. Bei der Verwendung des \emph{k-nearest Neighbour} Algorithmus wird statt einem nächsten Nachbarn eine k-große Gruppe an nächsten Nachbarn betrachtet. Die Entscheidung zu welcher Klasse ein neuer Datenpunkt gehören soll, erfolgt durch einen Mehrheitsentscheid innerhalb dieser ermittelten k-nächsten Nachbarn.\cite{ertel2016}\par
             Es werden die gleichen Bezeichner für den Algorithmus verwendet, die auch für den \emph{nearest Neighbour} angewandt wurden und um die Variable $V$ erweitert.\par $V$ bezeichnet die k-nächsten Nachbarn von $s$ innerhalb der Trainingsdaten.
-        
+        	\newpage
                            
             \subsection{k-nearest Neighbour Algorithmus}
                 Der Algorithmus ist wie folgt definiert:\par
