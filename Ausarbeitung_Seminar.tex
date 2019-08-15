@@ -130,10 +130,10 @@
                     Einen ersten Ansatz zur Datenanalyse liefern sogenannte \emph{Lagemaße}. Sie liefern Aufschluss über die Häufigkeitsverteilung der untersuchten Merkmale einer Stichprobe. \cite{kohn2005}
                     
                     \subsubsection{Modus}
-                        Der \emph{Modus} $x_{mod}$ ist ein sehr einfaches Lagemaß, das sich hauptsächlich für nominalskalierte Merkmale eignet. Der Modus ist die Merkmalsausprägung mit der größten Häufigkeit. \cite{kohn2005}
+                        Der \emph{Modus} $x_{mod}$ ist ein sehr einfaches Lagemaß, das sich hauptsächlich für nominalskalierte Merkmale eignet. Der Modus ist die Merkmalsausprägung mit der größten Häufigkeit.\cite{kohn2005}
                     
                         \subsubsection{Median}
-                        Der \emph{Median} $x_{med}$ entspricht dem Wert in der Mitte. Es folgt, dass der Median nur für mindestens ordinalskalierte Merkmale angewendet werden kann, da den Merkmalsausprägungen eine Ordnungsstruktur zugrundeliegen muss. \cite{kohn2005}
+                        Der \emph{Median} $x_{med}$ entspricht dem Wert in der Mitte. Es folgt, dass der Median nur für mindestens ordinalskalierte Merkmale angewendet werden kann, da den Merkmalsausprägungen eine Ordnungsstruktur zugrundeliegen muss.\cite{kohn2005}
                         \newline
                         Zur Berechnung des Medians wird wie folgt vorgegangen: Zuächst werden die Merkmalsausprägungen geordnet und anschließend das mittlere Element ausgewählt. Seien dazu $n$ Stichproben genommen worden und es entspreche $x_i,i \in \{1,\dots,n\}$ dem Wert der $i$-ten Probe. Analog entspreche $x_{(i)}, i \in \{1,\dots,n\}$ der geordneten Probe, d.h. $x_{(i)} \leq x_{(i+1)} \forall i \in \{1,\dots,n\}$.
                         \newline
@@ -173,12 +173,12 @@
                     Häufig, so auch im Bereich des \emph{Data Mining}, interessiert man sich jedoch nicht nur für die Ausprägungen eines einzelnen Merkmals. Viel interessanter erscheint eine Untersuchung wie verschiedene Merkmale zueinander in Beziehung stehen. Unter Umständen lassen sich aus den Beobachtungen eines Merkmals Rückschlüsse auf ein anderes Merkmal ziehen.
                     
                     \subsubsection{Kovarianz}
-                        Die \emph{Kovarianz} $cov(x,y)$ beschreibt, wie sich zwei Merkmale eines beobachteten Merkmalsvektors zueinander in Bezug auf Abweichung ihres jeweiligen Mittelwerts verhalten. \cite{ertel2016}\\
+                        Die \emph{Kovarianz} $cov(x,y)$ beschreibt, wie sich zwei Merkmale eines beobachteten Merkmalsvektors zueinander in Bezug auf Abweichung ihres jeweiligen Mittelwerts verhalten.\cite{ertel2016}\\
                         Definition der Kovarianz:\\
                         Seien $x,y$ zwei Merkmale eines Merkmalsvektors, $n$ die Anzahl der in einer Stichprobe untersuchten Merkmalsvektoren. Dann gilt für die Kovarianz:
                         $$
                             cov(x,y) := \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})(y_i - \bar{y})
-                        $$ \cite{kohn2005}\\
+                        $$
                         Aus der Definition folgt unmittelbar, dass der $i$. Merkmalsvektor einen positiven Beitrag zur Summe liefert, wenn die Merkmale $x$ und $y$ in die gleiche Richtung vom Mittelwert abweichen. Analog liefert eine Abweichung der Merkmale in unterschiedliche Richtung vom Mittelwert einen negativen Beitrag zur Summe. \cite{ertel2016}
 
                     \subsubsection{Korrelationskoeffizient}
@@ -200,7 +200,7 @@
                 In dieser Arbeit beschränken wir uns ausschließlich auf Lernverfahren, die auf der Verwendung von Trainingsdaten beruhen, bleiben also im Bereich des \emph{Lernens mit Lehrer}.
 
             \subsection{Agenten}
-                Der Begriff des \emph{Agenten} ist in vielen Teilbereichen der Informatik von zentraler Bedeutung, allerdings wird der Agentenbegriff in verschiedenen Teilbereichen unterschiedlich ausgelegt. So stellt ein Agent in der klassischen Informatik eine Abbildung von einer Eingabe auf eine Ausgabe dar und wird als \emph{Software-Agent} bezeichnet, während ein Agent in der Robotik einen \emph{Hardware-Agenten} bezeichnet, der eine Erweiterung des Software-Agenten um Sensoren und Aktoren darstellt, die es dem Hardware-Agenten ermöglichen, seine Umgebung wahrzunehmen und zu verändern. \cite{ertel2016}
+                Der Begriff des \emph{Agenten} ist in vielen Teilbereichen der Informatik von zentraler Bedeutung, allerdings wird der Agentenbegriff in verschiedenen Teilbereichen unterschiedlich ausgelegt. So stellt ein Agent in der klassischen Informatik eine Abbildung von einer Eingabe auf eine Ausgabe dar und wird als \emph{Software-Agent} bezeichnet, während ein Agent in der Robotik einen \emph{Hardware-Agenten} bezeichnet, der eine Erweiterung des Software-Agenten um Sensoren und Aktoren darstellt, die es dem Hardware-Agenten ermöglichen, seine Umgebung wahrzunehmen und zu verändern.\cite{ertel2016}
                 \begin{Figure}
                     \centering
                     \includegraphics[scale=0.6]{softwareagent.png}
@@ -294,7 +294,7 @@
                     \end{algorithm}
                 
                     \subsubsection{Beispiel}
-                        Das Vorgehen des Lernverfahrens soll im Folgenden anhand eines einfachen Beispiels verdeutlicht werden.
+                        Das Vorgehen des Lernverfahrens soll im Folgenden anhand eines einfachen Beispiels verdeutlicht werden.\footnote{siehe \cite{ertel2016}, S. 202, Beispiel 8.2}\footnote{Abbildungen \ref{fig:bspPL1}, \ref{fig:bspPL2}, \ref{fig:bspPL3}, \ref{fig:bspPL4}, \ref{fig:bspPL5} angelehnt an \cite[S.203, Abb. 8.10]{ertel2016}}
                         \newline
                         Als Trainingsdaten dienen die Mengen $M_+ = \{(0,1.8),(2,0.6)\}$ und \newline $M_- = \{(-1.2,1.4),(0.4,-1)\}$, alsi initialer Gewichtsvektor $w$ dient $(1,1)$.\\
                         1. Durchlauf:\\
