@@ -407,8 +407,9 @@
                     Zu beachten ist, dass der Schwellwert $w_{i+1}$ zunächt unbekannt ist, und erst im Verlaufe des Lernverfahrens zusammen mit dem Gewichstsvektor $w$ gelernt wird.
                 
             \subsection{Probleme des Perzeptrons}
-                    Obwohl das Perzeptron ein sehr einfaches maschinelles Lernverfahren ist, so hat es in der Praxis, außer als Vorstufe zu neuronalen Netzen, keine Bedeutung. Aufgrund der Einschränkung auf linear seprablen Mengen stößt das Perzeptron schnell an seine Grenzen.
-                    Dies wird bereits an einem einfachen Beispiel deutlich.
+                        Zwar ist das Perzeptron äquivalent zu \emph{zweilagigen neuronalen Netzen}\cite{ertel2016}, doch die Einschränkung auf \emph{linear separable Mengen} bringt das Perzeptron bereits bei relativ einfachen Beispielen an seine Grenzen.
+            % Obwohl das Perzeptron ein sehr einfaches maschinelles Lernverfahren ist, so hat es in der Praxis, außer als Vorstufe zu neuronalen Netzen, keine Bedeutung. Aufgrund der Einschränkung auf linear seprablen Mengen stößt das Perzeptron schnell an seine Grenzen.
+                    Zur Verdeutlichung soll das folgende Beispiel betrachtet werden:
                     \newline
                     Gehen wir davon aus, dass das Perzeptron die booleschen Funktionen lernen soll. Das heißt es sollen Abbildungen der Form $$\{0,1\}\times\{0,1\} \rightarrow \{0,1\}$$ gelernt werden.
                     Zunächst betrachten wir die logische UND-Funktion, das heißt die Abbildung
@@ -454,6 +455,8 @@
                         \sum_{i=1}^nw_ix_i = \theta
                     $$
                     genügt, von der Menge der Vektoren, die auf $0$ abbilden, zu trennen\cite{ertel2016}.
+                    \newline
+                    Anhand dieses Beispiels wird deutlich, dass das Perzeptron bei weitem nicht so mächtig ist wie andere maschinelle Lernverfahren (vgl Abschnitt \ref{sec:nnl}, S. \pageref{sec:nnl} und \cite{ertel2016} Kapitel 9 \glqq Neuronale Netze \grqq ).
 
 % Ende mein Teil
                         
@@ -535,6 +538,7 @@
                 % Nachdem uns ein Experte vorgibt, wie eine Apfelsorte auszusehen hat versucht unser System, abhängig vom Typ des Algorithmus, selbstständig eine Generalisierung vorzunehmen. 
                         
         \section{Nearest-Neighbour Lernverfahren}
+        \label{sec:nnl}
             Gehört zu den faulen Lernverfahren, da initial außer dem Abspeichern der Trainingsdaten kein zusätzlicher Rechenaufwand betrieben wird. Als Ziel des Systems kann man bezeichnen, dass mittels Trainingsdaten versucht wird, neue Daten zu klassifizieren bzw. einordnen zu können. (Vgl. Kapitel \ref{subsec:lernenderagent}, lernender Agent auf S. \pageref{subsec:lernenderagent})
                         
             \subsection{Nearest-Neighbour Methode}
