@@ -89,7 +89,7 @@
         \section{Einleitung}
 
             Als \emph{Data Mining} werden Verfahren bezeichnet, deren Ziel es ist, Wissen aus großen Datenmengen zu extrahieren. Dazu werden Verfahren aus der \emph{Statistik} und des \emph{maschinellen Lernens} eingesetzt.\cite{ertel2016}
-            \emph{Maschinelles Lernen} ist ein Teilbereich der \emph{Künstlichen Intelligenz}, dessen Aufgabe das Lernen von Abbildungen einer Eingabemenge in eine Ausgabemenge ist. Typische Anwendungen sind die \emph{Klassifikation}, also eine Abbildung einer Eingabe auf eine Klasse, und \emph{Approximation}, sprich die Berechnung eines Funktionswertes, der möglichst nahe an der Realität ist\cite{ertel2016,mlfor}.
+            \emph{Maschinelles Lernen} ist ein Teilbereich der \emph{Künstlichen Intelligenz}, dessen Aufgabe das Lernen von Abbildungen einer Eingabemenge in eine Ausgabemenge ist. Typische Anwendungen sind die \emph{Klassifikation}, also eine Abbildung einer Eingabe auf eine Klasse, und \emph{Approximation}, sprich die Berechnung eines Funktionswertes, der möglichst nahe an der Realität ist.\cite{ertel2016,mlfor}
             In den vergangenen Jahren hat das \emph{maschinelle Lernen} große Fortschritte gemacht, was im Wesentlichen auf die Zunahme von Rechenleistung und Speicherkapazität zurückgeführt werden kann.\cite{mlfor}
             So werden bereits heute medizinische Diagnosen unter Verwendung sogenannter \emph{Expertensysteme} gestellt\cite{ertel2016} und Behandlungspläne für Krebspatienten durch maschinelles Lernen unter Verwendung der Patientendaten anderer Patienten automatisch erstellt.\cite{mlfor}
             Der Online-Versandhändler Amazon setzt Data Minig ein, um seinen Kunden relevante Artikel zu präsentieren.\cite{ertel2016}
@@ -228,7 +228,7 @@
                 \end{Figure}
                 Die \emph{Aufgabe} des \emph{lernenden Agenten} ist das lernen einer Abbildung von einem Merkmalsvektor auf eine Klasse oder einen stetigen Funktionswert anhand von \emph{Trainingsdaten}. Es muss im Vorfeld festgelegt werden, welche Art von Agent, das heißt welches Lernverfahren, eingesetzt wird (siehe Abschnitt \ref{sec:perzeptron}, S. \pageref{sec:perzeptron} \emph{Perzeptron} und Abschnitt \ref{subsec:nn-methode}, S. \pageref{subsec:nn-methode} \emph{Nearest Neighbour Methoden}).
                 Bei der Auswahl der Trainingsdaten ist zu beachten, dass diese repräsentativ für die zu lernende Aufgabe sind, da die gelernte Abbildung ansonsten nur schlecht auf unbekannte Daten generalisiert.\\
-                Nachdem der Agent eine Abbildung anhand von Trainingsdaten gelern hat, muss diese anhand eines geeigneten \emph{Leistungsmaßes} unter Verwendung von \emph{Testdaten} evaluiert werden. \emph{Testdaten} sind dabei Merkmalsvektoren, für die  die richtige Klasseneinteilung oder der richtige Funktionswert bereits bekannt sind, die aber keine Trainingsdaten waren\cite{ertel2016}.
+                Nachdem der Agent eine Abbildung anhand von Trainingsdaten gelern hat, muss diese anhand eines geeigneten \emph{Leistungsmaßes} unter Verwendung von \emph{Testdaten} evaluiert werden. \emph{Testdaten} sind dabei Merkmalsvektoren, für die  die richtige Klasseneinteilung oder der richtige Funktionswert bereits bekannt sind, die aber keine Trainingsdaten waren.\cite{ertel2016}
 
             \subsection{Eager Learning}
                 Als \emph{Eager Learning} werden solche Lernverfahren bezeichnet, bei denen in einem ersten Schritt in einer (in der Regel aufwändigen) Lernphase bestehendes Wissen aus den Trainingsdaten in Form einer Abbildung extrahiert wird.
@@ -238,7 +238,7 @@
         \label{sec:perzeptron}
             In diesem Abschnitt der Arbeit soll mit dem \emph{Perzeptron} ein einfaches, aber dennoch aufschlussreiches Beispiel für eine konkrete Implementierung eines lernenden Agenten gegeben werden.
             \newline
-            Das Perzeptron ist ein \emph{linearer Klassifizierer}, das heißt, es ist in der Lage, einen Eingabevektor auf eine von zwei Klassen abzubilden, sofern es eine Hyperebene gibt, die die beiden Klassen voneinander trennt\cite{ertel2016}.
+            Das Perzeptron ist ein \emph{linearer Klassifizierer}, das heißt, es ist in der Lage, einen Eingabevektor auf eine von zwei Klassen abzubilden, sofern es eine Hyperebene gibt, die die beiden Klassen voneinander trennt.\cite{ertel2016}
 
             \subsection{Linear separable Mengen}
             \label{subsec:lernverfahren}
@@ -251,7 +251,7 @@
                     \sum_{i=1}^n a_ix_i > \theta \forall x \in M_1$$
                 und
                 $$\sum_{i=1}^n a_ix_i \leq \theta \forall x \in M_2$$
-                gilt\cite{ertel2016}.
+                gilt.\cite{ertel2016}
                 \newline
                 In der Terminologie der linearen Algebra beduetet dies, es existiert eine $n-1$ dimensionale Hyperebene, die durch die Gleichung
                 $$
@@ -454,7 +454,7 @@
                     $$
                         \sum_{i=1}^nw_ix_i = \theta
                     $$
-                    genügt, von der Menge der Vektoren, die auf $0$ abbilden, zu trennen\cite{ertel2016}.
+                    genügt, von der Menge der Vektoren, die auf $0$ abbilden, zu trennen.\cite{ertel2016}
                     \newline
                     Anhand dieses Beispiels wird deutlich, dass das Perzeptron bei weitem nicht so mächtig ist wie andere maschinelle Lernverfahren (vgl Abschnitt \ref{sec:nnl}, S. \pageref{sec:nnl} und \cite{ertel2016} Kapitel 9 \glqq Neuronale Netze \grqq ).
 
@@ -469,7 +469,7 @@
                 %Um diese Frage beantworten zu können, betrachten mit einer aus der Mathematik bekannten Datenstruktur der Vektoren.
 
                 Vektoren sind in diesem System Tupel von Daten. Innerhalb dieses Systems werden Vektoren mit Werten der reellen Zahlen verwendet und für Werte aus anderen Räumen wird eine eindeutige Repräsentation gesucht.\par Beispielsweise könnte eine Übersetzung von Zeichenketten in den reellen Raum über ein ASCII-System erfolgen.\par 
-                Für unsere Anwendung wird die Eigenschaft ausgenutzt, dass Vektoren Elemente des Raumes $\mathbb{R}^n$ sind, wobei jede der $n$ Dimensionen für eine konkrete Ausprägung einer Eigenschaft steht. Damit lassen sich Datenmengen als Punkte in einem $\mathbb{R}^n$ dimensionalen Hyperraum darstellen. Dadurch definiert Wolfgang Ertel: “Zwei Beispiele sind umso ähnlicher, je geringer ihr Abstand im Merkmalsraum ist.”\cite[S. 207]{ertel2016} %[1.1]
+                Für unsere Anwendung wird die Eigenschaft ausgenutzt, dass Vektoren Elemente des Raumes $\mathbb{R}^n$ sind, wobei jede der $n$ Dimensionen für eine konkrete Ausprägung einer Eigenschaft steht. Damit lassen sich Datenmengen als Punkte in einem $\mathbb{R}^n$ dimensionalen Hyperraum darstellen. Dadurch definiert Wolfgang Ertel: \glqq Zwei Beispiele sind umso ähnlicher, je geringer ihr Abstand im Merkmalsraum ist.\grqq \cite[S. 207]{ertel2016} %[1.1]
             \subsection{Einführung von Abstandsfunktionen}
                 Innerhalb des definierten, metrischen $n$-dimensionalen Merkmalsraumes kann man infolgedessen die Unterschiedlichkeit zweier betrachteter Objekte mithilfe einer Abstandsfunktion bestimmen. Somit kennen wir die Ähnlichkeit zweier Datenpunkte zueinander, wenn der Abstand zwischen ihnen im Merkmalsraum bekannt ist.\par Hierzu bieten sich eine Vielzahl an Metriken an, z.B. die euklidische Norm, Manhattan-Abstand, als auch der Hamming-Abstand. Weitere erwähnenswerte Metriken lauten: Summe der Abstandsquadrate, Abstand der maximalen Komponente.\par 
                 Als \emph{metrischen Raum} bezeichnet man eine Menge in der eine Abstandsfunktion $D(x,y)$ mit $x,y \in \mathbb{R}^n$ definiert ist.\par
@@ -796,7 +796,7 @@
                          
         \section{Laufzeiten der nearest-Neighbour Methoden}
         \label{sec:laufzeit}
-            Laut Wolfgang Ertel: \glqq Gibt es kein [maschinelles] Lernverfahren, dass so schnell lernt”\cite[S. 213]{ertel2016}, wie die \emph{nearest Neighbour} Methode, da in diesem Fall nur Daten gesichert werden müssen.\par
+            Laut Wolfgang Ertel: \glqq Gibt es kein [maschinelles] Lernverfahren, dass so schnell lernt”\grqq \cite[S. 213]{ertel2016}, wie die \emph{nearest Neighbour} Methode, da in diesem Fall nur Daten gesichert werden müssen.\par
             Wie der Rechenaufwand für beide vorgestellten Methoden aussieht wird im Folgenden gezeigt.
                         
             \subsection{Laufzeit nearest-Neighbour Algorithmus}
