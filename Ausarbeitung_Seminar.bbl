@@ -1,4 +1,4 @@
-\begin{thebibliography}{Koh05}
+\begin{thebibliography}{WM18}
 
 \bibitem[Ert08]{ertel2016}
 Wolfgang Ertel.
@@ -17,5 +17,12 @@ Vishal Maini and Samer Sabri.
   \url{https://medium.com/machine-learning-for-humans/why-machine-learning-matters-6164faf1df12},
   2017.
 \newblock [Online; Abgerufen am 13.08.2019].
+
+\bibitem[WM18]{ingstat}
+Prof. Dr.~Stephan Westphal and Dr.~Annette Möller.
+\newblock {(Ingenieur)Statistik I}: Deskriptive {Statistik - Univariate
+  Beschreibung von Daten}.
+\newblock Skript zu Vorlesung "(Ingenieur)Statistik I", 2018.
+\newblock Foliensatz 1b.
 
 \end{thebibliography}
