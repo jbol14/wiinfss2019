@@ -109,7 +109,7 @@
                 Die einfachste Skalierung in der deskriptiven Statistik ist die sogenannte \emph{Nominalskala}. Die untersuchten Merkmale lassen sich nur im Hinblick auf Gleich- beziehungsweise Ungleichheit untersuchen; eine Ordnung der Merkmalsausprägungen ist nicht möglich. 
                 \cite{kohn2005}
                 \subsubsection{Beispiel}
-                    An einer Kreuzug werden die vorbeifahrenden Autos hinsichtlich ihrer Farbe untersucht. Mögliche Ausprägungen des untersuchten Merkmals Farbe sind etwa \emph{Grün}, \emph{Schwarz}, \emph{Weiß}, \emph{Gelb} und \emph{Rot}. Zwar lassen sich die Merkmalsausprägungen voneinander unterscheiden, aber offensichtlich ist ein rotes Auto nicht besser oder schlechter als ein gelbes oder schwarzes Auto.
+                    An einer Kreuzung werden die vorbeifahrenden Autos hinsichtlich ihrer Farbe untersucht. Mögliche Ausprägungen des untersuchten Merkmals Farbe sind etwa \emph{Grün}, \emph{Schwarz}, \emph{Weiß}, \emph{Gelb} und \emph{Rot}. Zwar lassen sich die Merkmalsausprägungen voneinander unterscheiden, aber offensichtlich ist ein rotes Auto nicht besser oder schlechter als ein gelbes oder schwarzes Auto.
                 \subsection{Ordinalskala}
                     Ordinalskalierte Merkmale sind solche, bei denen neben der Unterscheidbarkeit der Merkmalsausprägungen auch eine natürliche Reihenfolge der Ausprägungen zugrunde liegt, wobei der Abstand zwischen den einzelnen Merkmalsausprägungen aber nicht sinnvoll interpretierbar ist. \cite{kohn2005}
                     \subsubsection{Beispiel}
@@ -124,7 +124,7 @@
                         \newline
                         Exsitiert hingegen ein natürlicher Nullpunkt, so spricht man von \emph{verhältnisskalierten} Merkmalen. \cite{kohn2005}
                         \newline
-                        Ein Beispiel für ein verhältnisskaliertes Merkmal stellt das Gewicht dar. Zwar existieren verschieden Maßeinheiten wie Gramm, Pfund oder Unzen, jedoch entspricht ein Gewicht von $0$ Gramm ebenso einem Gewicht von $0$ Pfund und ebenso $0$ Unzen.
+                        Ein Beispiel für ein verhältnisskaliertes Merkmal stellt das Gewicht dar. Zwar existieren verschiedene Maßeinheiten wie Gramm, Pfund oder Unzen, jedoch entspricht ein Gewicht von $0$ Gramm ebenso einem Gewicht von $0$ Pfund und ebenso $0$ Unzen.
                 
                 \subsection{Lagemaße}
                     Einen ersten Ansatz zur Datenanalyse liefern sogenannte \emph{Lagemaße}. Sie liefern Aufschluss über die Häufigkeitsverteilung der untersuchten Merkmale einer Stichprobe. \cite{kohn2005}
@@ -272,7 +272,7 @@
                 \newline
                 Nun wird ein beliebiger initialer Gewichtsvektor $w$ gewählt.
                 \newline
-                Für alle Elemente $x \in M_+$ wird geprüft, ob $w \cdot x := \sum_{i=1}^nw_ix_i \leq 0$ erfüllt ist. Ist dies der Fall, so wissen wir, dass das Element $x$ falsch klassifiziert wurde, der Gewichtsvektor $w$ also noch nicht richtig sein kann. Folglich wird der Gewichtsvektor $w$ angepasst, indem der Wert des falsch klassifizierten Elementes $x \in M_+$ komponentenweise aufaddiert wird.
+                Für alle Elemente $x \in M_+$ wird geprüft, ob $w \cdot x := \sum_{i=1}^nw_ix_i \leq 0$ erfüllt ist. Ist dies der Fall, so folgt, dass das Element $x$ falsch klassifiziert wurde, der Gewichtsvektor $w$ also noch nicht richtig sein kann. Folglich wird der Gewichtsvektor $w$ angepasst, indem der Wert des falsch klassifizierten Elementes $x \in M_+$ komponentenweise aufaddiert wird.
                 \newline
                 Analog wird für die Elemente aus $M_-$ vorgegangen, nur das hier geprüft wird, ob $\sum_{i=1}^nw_ix_i > 0$ gilt und $w$ gegebenfalls durch Substraktion des Wertes des Eingabevektros $x$ angepasst wird.
 
@@ -302,9 +302,9 @@
                         $(1,1)\cdot(0,1.8) = 1.8 > 0 \rightarrow $ erster Vektor korrekt klassifiziert.\\
                         $(1,1)\cdot(2,0.6) = 2.6 > 0 \rightarrow$ zweiter Vektor korrekt klassifiziert\\
                         $M_-$\\
-                        $(1,1)\cdot(-1.2,1.4) = 0.2 \geq 0 \rightarrow$ dritter Vektor falsch klassifiziert\\
+                        $(1,1)\cdot(-1.2,1.4) = 0.2 > 0 \rightarrow$ dritter Vektor falsch klassifiziert\\
                         $\rightarrow w_{neu} = (1,1)-(-1.2,1.4) = (2.2,-0.4)$\\
-                        $(2.2,-0.4) \cdot (0.4,-1) = 1.28 \geq 0 \rightarrow$ vierter Vektor falsch klassifiziert\\
+                        $(2.2,-0.4) \cdot (0.4,-1) = 1.28 > 0 \rightarrow$ vierter Vektor falsch klassifiziert\\
                         $\rightarrow w_{neu} = (2.2,-0.4)-(0.4,-1) = (1.8,0.6)$
 
                         \begin{Figure}
@@ -326,8 +326,8 @@
                         $(1.8,0.6)\cdot (0,1.8) = 1.08 > 0 \rightarrow$ erster Vektor korrekt klassifiziert.\\
                         $(1.8,0.6)\cdot (2,0.6) = 3.96 > 0 \rightarrow$ zweiter Vektor korrekt klassifiziert.\\
                         $M_-$\\
-                        $(1.8,0.6)\cdot (-1.2,1.4) = -1.32 < 0 \rightarrow$ dritter Vektor korrekt klassifiziert.\\
-                        $(1.8,0.6)\cdot (0.4,-1) = 0.12 \geq 0 \rightarrow$ vierter Vektor falsch klassifiziert.\\
+                        $(1.8,0.6)\cdot (-1.2,1.4) = -1.32 \leq 0 \rightarrow$ dritter Vektor korrekt klassifiziert.\\
+                        $(1.8,0.6)\cdot (0.4,-1) = 0.12 > 0 \rightarrow$ vierter Vektor falsch klassifiziert.\\
                         $\rightarrow w_{neu} = (1.8,0.6)-(0.4,-1) = (1.4,1.6)$\\
                         \\
                         3. Durchlauf:\\
@@ -357,8 +357,8 @@
                         $(2.2,1.2)\cdot (0,1.8) = 2.16 > 0 \rightarrow$ erster Vektor korrekt klassifiziert.\\
                         $(2.2,1.2)\cdot (2,0.6) = 5.12 > 0 \rightarrow$ zweiter Vektor korrekt klassifiziert.\\
                         $M_-$\\
-                        $(2.2,1.2)\cdot (-1.2,1.4) = -0.96 < 0 \rightarrow$ dritter Vektor korrekt klassifiziert.\\
-                        $(2.2,1.2)\cdot (0.4,-1) = -0,32 < 0 \rightarrow$ vierter Vektor korrekt klassifiziert.
+                        $(2.2,1.2)\cdot (-1.2,1.4) = -0.96 \leq 0 \rightarrow$ dritter Vektor korrekt klassifiziert.\\
+                        $(2.2,1.2)\cdot (0.4,-1) = -0,32 \leq 0 \rightarrow$ vierter Vektor korrekt klassifiziert.
                         \begin{Figure}
                             \centering
                             \includegraphics[scale=0.5]{bsp4.png}
@@ -383,7 +383,7 @@
                     $$\cite{ertel2016}
 
             \subsection{Erweiterung auf linear affine Mengen}
-                Die bisherige Abbildungsvorschrift des Perzeptrons beruht darauf, dass die beiden Mengen durch eine Hyperebene durch den Nullpunkt trennbar sind. Dies widerspricht aber der Definition linear separabler Mengen, die lediglich voraussetzt, dass es eine beliebige Schwelle, insbesondere also auch solche ungleich $0$ (vgl. Abschnitt \ref{subsec:lernverfahren} ). Daher stell sich unweigerlich die Frage, ob das Perzeptron tatsächlich alle linear separablen Mengen korrekt klassifizieren kann, oder lediglich solche, die durch eine durch den Ursprung verlaufende Hyperebene trennbar sind. Um zu zeigen, dass das Perzeptron auch solche Mengen, die durch eine durch eine beliebige Schwelle definierte Hyperbene trennbar sind, korrekt klassifizieren kann, greifen wir auf die bekannten Rechenregeln der reellen Zahlen für Ungleichungen zurück.
+                Die bisherige Abbildungsvorschrift des Perzeptrons beruht darauf, dass die beiden Mengen durch eine Hyperebene durch den Nullpunkt trennbar sind. Dies widerspricht aber der Definition linear separabler Mengen, die lediglich voraussetzt, dass es eine beliebige Schwelle, insbesondere also auch solche ungleich $0$ (vgl. Abschnitt \ref{subsec:lernverfahren} ) existiert. Daher stell sich unweigerlich die Frage, ob das Perzeptron tatsächlich alle linear separablen Mengen korrekt klassifizieren kann, oder lediglich solche, die durch eine durch den Ursprung verlaufende Hyperebene trennbar sind. Um zu zeigen, dass das Perzeptron auch solche Mengen, die durch eine durch eine beliebige Schwelle definierte Hyperbene trennbar sind, korrekt klassifizieren kann, greifen wir auf die bekannten Rechenregeln der reellen Zahlen für Ungleichungen zurück.
                 Zunächst erweitern wir den Eingabevektor $x$ um eine $n+1$. Komponente, die Konstant auf $-1$ gesetzt wird.
                 \newline 
                 Damit ergibt sich für die Abbildungsvorschrift des Perzeptrons 
@@ -450,7 +450,7 @@
                         0, & \mbox{sonst}\end{array}\right. 
                     $$
                     % Bild
-                    Auch in diesem Fall wird durch einen Blick auf den Graphen (Abb. \ref{fig:xor}) deutlich, dass es Möglichkeit gibt, die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene, die der Gleichung der Form
+                    Auch in diesem Fall wird durch einen Blick auf den Graphen (Abb. \ref{fig:xor}) deutlich, dass es keine Möglichkeit gibt, die Menge der Vektoren, die auf $1$ abbilden durch eine Hyperebene, die der Gleichung der Form
                     $$
                         \sum_{i=1}^nw_ix_i = \theta
                     $$
