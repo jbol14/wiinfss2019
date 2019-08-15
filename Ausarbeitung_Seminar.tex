@@ -517,7 +517,7 @@
                     x,y \in \mathbb{R}^n 
                 $$
                 $$
-                    d_m(x,y):= \sum_{i=1}^{n} |x_i -y_i|
+                    d_m(x,y):= \sum_{i=1}^{n} |x_i -y_i| \text{ \footnotesize\cite[S.245]{ertel2016}}
                 $$
 
                 Ein Beispiel hierfür ist in Abbildung \ref{fig:manhattan} zu sehen, wobei die folgenden Daten gegeben sind:\par
@@ -650,11 +650,12 @@
                     \end{minipage}
                 \end{Figure}
 
-                \begin{wrapfigure}{l}{6cm}
+                \begin{Figure}
+                    \centering
                     \includegraphics[scale=0.2]{errnn3.png}
-                \captionof{figure}{Fehlklassifizierung nach Durchlauf}
-                \label{fig:errnn3}  
-                \end{wrapfigure}
+                    \captionof{figure}{Fehlklassifizierung nach Durchlauf}
+                    \label{fig:errnn3}  
+                \end{Figure}
                 
                   Man erkennt, dass sich ein rot klassifizierter Punkt in unmittelbarer Nähe von mindestens drei Punkten der grünen Klasse befindet. % die nochmal verdeutlichen soll, wie ein einziger statistischer Ausreißer bei dem \emph{nearest Neighbour} Verfahren fehlerhafte Klassifizierungen verursacht.\par 
                                 %In Abbildung 16 sieht man ...
