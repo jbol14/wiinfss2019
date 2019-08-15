@@ -140,8 +140,8 @@
                         Zur Bestimmung des mittleren Elements der Probe muss unterschieden werden, ob die Probe aus einer geraden oder ungeraden Anzahl von Elementen besteht, das heißt, ist $n$ gerade oder ungerade.
                         \newline
                         $$
-                            x_{med}:=\left\{\begin{array}{cl} x_{(\frac{n+1}{2})}, & \mbox{falls n ungerade }\\ \frac{1}{2}\left( x_{(\frac{n}{2})} + x_{(\frac{n}{2}+1)} \right), & \mbox{sonst} \end{array}\right.
-                        $$\cite[S.12]{ingstat}
+                            x_{med}:=\left\{\begin{array}{cl} x_{(\frac{n+1}{2})}, & \mbox{falls n ungerade }\\ \frac{1}{2}\left( x_{(\frac{n}{2})} + x_{(\frac{n}{2}+1)} \right), & \mbox{sonst} \end{array}\right. \text{ \footnotesize\cite[S.12]{ingstat}}
+                        $$
                         % Fall 1 \cite{ertel2016}:
                         % \newline
                         % $n$ ungerade
@@ -158,7 +158,7 @@
                         \subsubsection{Arithmetisches Mittel}
                         Das \emph{arithmetische Mittel} stellt das am weitesten verbreitette Lagemaß für metrische Merkmale dar. Im Gegensatz zu Modus und Median berücksichtigt das arithmetische Mittel alle Merkmalsausprägungen einer Probe, wird dadurch aber auch anfällig für \emph{Ausreißer}.
                         $$ 
-                            \bar{x} := \frac{1}{n}\sum_{i=1}^nx_i \text{ \cite[S.11]{ingstat}}
+                            \bar{x} := \frac{1}{n}\sum_{i=1}^nx_i \text{ \footnotesize\cite[S.11]{ingstat}}
                         $$
                         Aus der Formel folgt direkt, dass das arithmetische Mittel nicht auf nominal- oder ordinalskalierte Merkmale angewendet werden kann, da auf diesen keine Addition definiert ist.
 
@@ -169,17 +169,17 @@
                         Die \emph{Varianz} $\sigma^2$ ist das am häufigsten verwendete Streuungsmaß. Sie beschreibt die \emph{mittlere quadratische Abweichung} der Merkmalsausprägungen vom Mittelwert.
                         Wird die Grundgesamtheit betrachtet, so gilt die folgende Formel (\emph{empirische Varianz}): 
                         $$
-                            \sigma^2 := \frac{1}{n}\sum_{i=1}^n(x_i - \bar{x})^2 \text{ \cite[S.74]{kohn2005}}
+                            \sigma^2 := \frac{1}{n}\sum_{i=1}^n(x_i - \bar{x})^2 \text{ \footnotesize\cite[S.74]{kohn2005}}
                         $$
                         Soll dagegen lediglich eine Stichprobe, das heißt eine Teilmenge der Grundgesamtheit, untersucht werden, so muss die Formel angepasst werden (\emph{Stichprobenvarianz}):
                         $$
-                            \sigma^2 := \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})^2 \text{ \cite[vgl. S. 74]{kohn2005}}
+                            \sigma^2 := \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})^2 \text{ \footnotesize\cite[vgl. S. 74]{kohn2005}}
                         $$
                         In beiden Fällen ist jedoch zu beachten, dass die Maßeinheit der Varianz, aufgrund der Quadrierung des Abstandes zum Mittelwert, nicht mehr der Maßeinheit der urspürnglichen Werte entspricht.\cite{kohn2005}
                     
                     \subsubsection{Standardabweichung}
                         Die \emph{Standardabweichung} $\sigma$ ist die positive Quadratwurzel der Varianz. Wie bereits erläutert entspricht die Maßeinheit der Varianz nicht der ursprünglichen Maßeinheit der Werte. Dieses Manko lässt sich mit der Standardabweichung beheben.
-                        $$ \sigma := + \sqrt{\sigma^2} \text{ \cite[S.76]{kohn2005}}$$
+                        $$ \sigma := + \sqrt{\sigma^2} \text{ \footnotesize\cite[S.76]{kohn2005}}$$
                         Durch das Ziehen der Quadratwurzel misst die Standardabweichung die mittlere Streuung um den Mittelwert in der gleichen Maßeinheit wie die ursprünglichen Werte.\cite{kohn2005}
 
                 \subsection{Zusammenhangsmaße}
@@ -190,7 +190,7 @@
                         Definition der Kovarianz:\\
                         Seien $x,y$ zwei Merkmale eines Merkmalsvektors, $n$ die Anzahl der in einer Stichprobe untersuchten Merkmalsvektoren. Dann gilt für die Kovarianz:
                         $$
-                            cov(x,y) := \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})(y_i - \bar{y}) \text{ \cite[S.121]{kohn2005}}
+                            cov(x,y) := \frac{1}{n-1}\sum_{i=1}^n(x_i - \bar{x})(y_i - \bar{y}) \text{ \footnotesize\cite[S.121]{kohn2005}}
                         $$
                         Aus der Definition folgt unmittelbar, dass der $i$. Merkmalsvektor einen positiven Beitrag zur Summe liefert, wenn die Merkmale $x$ und $y$ in die gleiche Richtung vom Mittelwert abweichen. Analog liefert eine Abweichung der Merkmale in unterschiedliche Richtung vom Mittelwert einen negativen Beitrag zur Summe. \cite{ertel2016}
 
@@ -199,7 +199,7 @@
                         \cite{ertel2016} \\
                         Um diese Abhängikeit von den Absolutwerten zu eliminieren wird der \emph{Korrelationskoeffizient $\rho_{xy}$} als normierte Kovarianz definiert als Kovarianz der beiden Variablen geteilt durch das Produkt der Standardabweichung von $x$ und $y$:
                         $$
-                            \rho_{xy} := \frac{cov(x,y)}{\sigma_x \cdot \sigma_y} \text{ \cite[S.122]{kohn2005}}
+                            \rho_{xy} := \frac{cov(x,y)}{\sigma_x \cdot \sigma_y} \text{ \footnotesize\cite[S.122]{kohn2005}}
                         $$
                         Der Korrelationskoeffizient ist normiert auf das Intervall $[-1,1]$, das heißt es gilt $-1 \leq K_{xy} \leq 1)$
                         \cite{kohn2005}
@@ -275,7 +275,7 @@
             \subsection{Abbildungsvorschrift}
                 Wie bereits erwähnt handelt es sich beim \emph{Perzeptron} um einen linearen Klassifizierer, der genau die linear separablen Mengen klassifizieren kann. Das heißt, das Perzeptron ist eine Abbildung eines Eingabevektors $x$ auf einen diskreten Klassenwert. Es wird definiert durch die Abbildungsvorschrift
                 $$
-                    P(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }\sum_{i=1}^nw_ix_i > 0\\ 0, & \mbox{falls} \sum_{i=1}^n w_ix_i \leq 0 \end{array}\right. \text{ \cite[S.201]{ertel2016}} 
+                    P(x)=\left\{\begin{array}{cl} 1, & \mbox{falls }\sum_{i=1}^nw_ix_i > 0\\ 0, & \mbox{falls} \sum_{i=1}^n w_ix_i \leq 0 \end{array}\right. \text{ \footnotesize\cite[S.201]{ertel2016}} 
                 $$
 
                 Aus der Abbildungsvorschrift wird ersichtlich, dass $n$ Skalare, $w_1,\dots,w_n$ benötigt werden. Der Vektor $w = (w_1,\dots, w_n)$ wird als \emph{Gewichtsvektor} bezeichnet. Dieser Gewichtsvektor $w$ ist im Allgemeinen zunächst unbekannt und muss in einem vorgelagerten Schritt gelernt werden.
@@ -392,7 +392,7 @@
                     \newline
                     Alle $x\in M_+$ werden aufaddiert und davon wird die Summer aller $x\in M_-$ abgezogen.
                     $$
-                        w = \sum_{x \in M_+}x - \sum_{x \in M_-}x \text{ \cite[S.206]{ertel2016}}
+                        w = \sum_{x \in M_+}x - \sum_{x \in M_-}x \text{ \footnotesize\cite[S.206]{ertel2016}}
                     $$
 
             \subsection{Erweiterung auf linear affine Mengen}
@@ -439,7 +439,7 @@
                         \begin{minipage}[b]{.4\linewidth}
                             \includegraphics[scale=0.5]{AND.png}
                             \captionof{figure}{Hyperebene, die die mit $1$ und $0$ klassifizierten Elemente voneinander trennt}
-                            \raggedleft\footnotesize\cite[S.201, Abb. 8.8(links)]{ertel2016}                                \label{fig:and}
+                            \raggedleft\footnotesize\cite[S.201, Abb. 8.8(links)]{ertel2016}                      \label{fig:and}
                                 % \quelle W. Ertel, Grundkurs künstliche Intelligenz, Springer Fachmedien, 2016, S. 201, Abb. 8.8(links)    
                         \end{minipage}
                         \hspace{.1\linewidth}
